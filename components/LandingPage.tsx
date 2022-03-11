@@ -1,9 +1,11 @@
 import type { NextPage } from 'next';
-import Header from './HomePage/Header';
+import Navbar from './HomePage/Navbar';
 
 const LandingPage: NextPage = () => {
   return (
-    <Header/>
+    <header>
+      <Navbar/>
+    </header>
   )
 }
 
