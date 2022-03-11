@@ -5,7 +5,7 @@ const Header: NextPage = () => {
   return (
     <header>
         <nav>
-            <h1 className="bg-red-400">Owerri<span>Logistics</span></h1>
+            <h1 className="text-red-400">Owerri<span>Logistics</span></h1>
             <ul>
                 <li>Home</li>
                 <li>Contact Us</li>
