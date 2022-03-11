@@ -4,10 +4,14 @@ import Header from './HomePage/Header';
 import Main from './HomePage/Main';
 import ContactUs from './HomePage/ContactUs';
 import Footer from './HomePage/Footer';
+import Head from 'next/head';
 
 const LandingPage: NextPage = () => {
   return (
     <>
+    <Head>
+    
+    </Head>
       <Navbar/>
       <header className="mx-6  mb-8">
         <Header/>
