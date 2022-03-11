@@ -5,16 +5,16 @@ import type { NextPage } from 'next';
 const ContactUs: NextPage = () => {
   return (
       <div className="">
-          <h1 className=" font-medium text-center text-2xl mb-6">Contact Us</h1>
-          <div className="flex flex-col ml bg-black">
-            <div className="w-80 mx-auto my-2 ">
-                <input className=" py-1 w-full "  />
+          <h1 className=" font-medium text-center text-2xl my-6">Contact Us</h1>
+          <div className="flex flex-col mb-10">
+            <div className="w-80 mx-auto my-3 ">
+                <input className=" py-1 w-full bg-slate-100 placeholder:text-sm p-2 outline-none" placeholder="FULL NAME" />
             </div>
-            <div className="w-80 mx-auto my-2">
-                <input className="px-16 py-1 w-full"  />
+            <div className="w-80 mx-auto my-3">
+                <input className=" py-1 w-full bg-slate-100 placeholder:text-sm pl-2 outline-none" placeholder="EMAIL" />
             </div>
-            <div className="w-80 mx-auto my-2">
-                <textarea className="px-16 py-1 w-full h-28"  />
+            <div className="w-80 mx-auto my-3">
+                <textarea className=" py-1 w-full h-28 bg-slate-100 placeholder:text-sm pl-2 outline-none" placeholder="MESSAGE" />
             </div>
           </div>
       </div>

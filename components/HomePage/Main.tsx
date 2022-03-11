@@ -14,7 +14,7 @@ const Main: NextPage = () => {
             <p>Please select the most suitable</p>
             <p>Vechicle To pick up your item</p>
           </div>
-          <div className="justify-self-center border-2 cursor-pointer  w-48 h-52 mb-12 shadow-lg">
+          <div className="justify-self-center border-2 cursor-pointer  w-48 h-52 mb-12 shadow-lg rounded-md">
               <div className="mx-16 mt-4 mb-4">
                 <Image
                     src={motorbike}
@@ -28,7 +28,7 @@ const Main: NextPage = () => {
                     <p>Ideal for lightweight items Documents, human hair, phones</p>
                 </div>
             </div>
-            <div className="justify-self-center w-48 h-52 border-2  cursor-pointer shadow-lg">
+            <div className="justify-self-center w-48 h-52 border-2  cursor-pointer shadow-lg rounded-md">
                 <div className="mx-16 mt-4 ">
                     <Image
                         src={car}
@@ -42,7 +42,7 @@ const Main: NextPage = () => {
                     <p>For items that will fit into a car boot:Bag of clothes and shoes a microwave</p>
                 </div>
             </div>
-            <div className="justify-self-center w-48 border-2 cursor-pointer  h-52 shadow-lg">
+            <div className="justify-self-center w-48 border-2 cursor-pointer  h-52 shadow-lg rounded-md">
                 <div className="mx-16 mt-4 mb-2">
                     <Image
                         src={van}
@@ -56,7 +56,7 @@ const Main: NextPage = () => {
                     <p>For items too large to fit in a car boot: Large Bag of clothes or shoes, a small fridge e.t.c  </p>
                 </div>
             </div>
-            <div className="justify-self-center border-2  cursor-pointer  w-48 h-52 shadow-lg">
+            <div className="justify-self-center border-2  cursor-pointer  w-48 h-52 shadow-lg rounded-md">
                 <div className="mx-16 mt-4 mb-2">
                     <Image
                         src={delivery}
