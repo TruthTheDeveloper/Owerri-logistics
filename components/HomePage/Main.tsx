@@ -8,14 +8,14 @@ import motorbike from '../../public/assets/motorbike 1.png';
 
 const Main: NextPage = () => {
   return (
-      <main style={{background:'#F3F4F6'}}>
-        <div className="grid grid-rows-5 bg-white m-12">
+      <div style={{background:'#F3F4F6'}} className="overflow-hidden">
+        <div className="grid grid-rows-5 bg-white  mx-8 my-12">
           <div className="justify-self-center self-center my-5 font-medium">
             <p>Please select the most suitable</p>
             <p>Vechicle To pick up your item</p>
           </div>
-          <div className="justify-self-center border-2 border-green-500 cu   w-48 h-52 mb-12 shadow-lg">
-              <div className="pl-14 pt-10">
+          <div className="justify-self-center border-2 cursor-pointer  w-48 h-52 mb-12 shadow-lg">
+              <div className="mx-16 mt-4 mb-4">
                 <Image
                     src={motorbike}
                     alt="text"
@@ -23,19 +23,27 @@ const Main: NextPage = () => {
                     height={50}
                 />
               </div>
+              <div className="text-center text-sm">
+                  <h1 className="font-medium text-xl mb-2">Bike</h1>
+                    <p>Ideal for lightweight items Documents, human hair, phones</p>
+                </div>
             </div>
-            <div className="justify-self-center w-48 h-52 border-2 border-green-500  shadow-lg">
-                <div className="pl-14 pt-10">
+            <div className="justify-self-center w-48 h-52 border-2  cursor-pointer shadow-lg">
+                <div className="mx-16 mt-4 ">
                     <Image
                         src={car}
                         alt="text"
-                        width={50}
-                        height={50}
+                        width={70}
+                        height={70}
                         /> 
                 </div>
+                <div className="text-center text-sm mx-3">
+                <h1 className="font-medium text-xl mb-2">Car</h1>
+                    <p>For items that will fit into a car boot:Bag of clothes and shoes a microwave</p>
+                </div>
             </div>
-            <div className="justify-self-center w-48 border-2 border-green-500  h-52 shadow-lg">
-                <div className="pl-14 pt-10">
+            <div className="justify-self-center w-48 border-2 cursor-pointer  h-52 shadow-lg">
+                <div className="mx-16 mt-4 mb-2">
                     <Image
                         src={van}
                         alt="text"
@@ -43,9 +51,13 @@ const Main: NextPage = () => {
                         height={50}
                     />
                 </div>
+                <div className="text-center text-sm mx-3">
+                    <h1 className="font-medium text-xl mb-2">Van</h1>
+                    <p>For items too large to fit in a car boot: Large Bag of clothes or shoes, a small fridge e.t.c  </p>
+                </div>
             </div>
-            <div className="justify-self-center border-2 border-green-500  w-48 h-52 shadow-lg">
-                <div className="pl-14 pt-10">
+            <div className="justify-self-center border-2  cursor-pointer  w-48 h-52 shadow-lg">
+                <div className="mx-16 mt-4 mb-2">
                     <Image
                         src={delivery}
                         alt="text"
@@ -53,9 +65,13 @@ const Main: NextPage = () => {
                         height={50}
                     />
                 </div>
+                <div className="text-center text-sm mx-3">
+                    <h1 className="font-medium text-xl mb-2">Truck</h1>
+                    <p>For items that will fit into a car boot:Bag of clothes and shoes a microwave</p>
+                </div>
             </div>
         </div>
-      </main>
+      </div>
   )
 }
 

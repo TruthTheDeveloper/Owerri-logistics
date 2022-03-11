@@ -5,7 +5,7 @@ import bike from '../../public/assets/bike.svg'
 
 const Header: NextPage = () => {
   return (
-      <div>
+      <div className="">
           <div className="text-3xl text-center mt-5">
               <p><span className="text-green-500">Get</span> your Delivery</p>
               <p>at your doorstep anywhere</p>
