@@ -8,43 +8,53 @@ import motorbike from '../../public/assets/motorbike 1.png';
 
 const Main: NextPage = () => {
   return (
-      <main className="grid grid-rows-5">
-          <div className="justify-self-center my-5 font-medium">
+      <main style={{background:'#F3F4F6'}}>
+        <div className="grid grid-rows-5 bg-white m-12">
+          <div className="justify-self-center self-center my-5 font-medium">
             <p>Please select the most suitable</p>
             <p>Vechicle To pick up your item</p>
           </div>
-          <div className="justify-self-center bg-green-300">
-              <Image
-                src={car}
-                alt="text"
-                width={70}
-                height={70}
-               />
-          </div>
-          <div className="justify-self-center bg-red-300">
-              <Image
-                src={delivery}
-                alt="text"
-                width={70}
-                height={70}
-               />
-          </div>
-          <div className="justify-self-center bg-yellow-300">
-              <Image
-                src={van}
-                alt="text"
-                width={70}
-                height={70}
-               />
-          </div>
-          <div className="justify-self-center bg-cyan-700">
-              <Image
-                src={motorbike}
-                alt="text"
-                width={70}
-                height={70}
-               />
-          </div>
+          <div className="justify-self-center border-2 border-green-500 cu   w-48 h-52 mb-12 shadow-lg">
+              <div className="pl-14 pt-10">
+                <Image
+                    src={motorbike}
+                    alt="text"
+                    width={50}
+                    height={50}
+                />
+              </div>
+            </div>
+            <div className="justify-self-center w-48 h-52 border-2 border-green-500  shadow-lg">
+                <div className="pl-14 pt-10">
+                    <Image
+                        src={car}
+                        alt="text"
+                        width={50}
+                        height={50}
+                        /> 
+                </div>
+            </div>
+            <div className="justify-self-center w-48 border-2 border-green-500  h-52 shadow-lg">
+                <div className="pl-14 pt-10">
+                    <Image
+                        src={van}
+                        alt="text"
+                        width={50}
+                        height={50}
+                    />
+                </div>
+            </div>
+            <div className="justify-self-center border-2 border-green-500  w-48 h-52 shadow-lg">
+                <div className="pl-14 pt-10">
+                    <Image
+                        src={delivery}
+                        alt="text"
+                        width={50}
+                        height={50}
+                    />
+                </div>
+            </div>
+        </div>
       </main>
   )
 }
