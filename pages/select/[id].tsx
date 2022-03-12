@@ -45,15 +45,16 @@ const Select: NextPage = () => {
                         <input className="h-10 p-4 placeholder:text-sm placeholder:pl-2 outline-none mb-4 bg-slate-100 rounded-md" placeholder="Delivery Address"/>
                     </div>
                 </div>
-                <div>
                     <div className="m-4">
                         <Image
                         src={map}
                         alt="text"
                          />
                     </div>
+                <div className="pb-8">
+                    <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
                 </div>
-                <button className="bg-green-400 mx-auto text-white px-8 py-2">Next</button>
+
             </div>
         </div>
     </Layout>
