@@ -1,4 +1,8 @@
 import type { NextPage } from 'next';
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
 
 
 
@@ -30,6 +34,7 @@ const Footer: NextPage = () => {
              </div>
              <div className="mt-4 ml-2">
                  <h1 className="font-semibold">CONNECT WITH US</h1>
+                 {/* <FontAwesomeIcon icon={faCoffee} /> */}
              </div>
          </div>
          <hr/>

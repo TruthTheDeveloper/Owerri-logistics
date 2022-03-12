@@ -7,6 +7,7 @@ import Footer from './HomePage/Footer';
 import TrackItem from './HomePage/TrackItem';
 import Head from 'next/head';
 
+
 const LandingPage: NextPage = () => {
   return (
     <>
