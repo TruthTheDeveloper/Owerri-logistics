@@ -9,11 +9,11 @@ import motorbike from '../../public/assets/motorbike 1.png';
 const Main: NextPage = () => {
   return (
       <div style={{background:'#F3F4F6'}} className="overflow-hidden">
-        <div className=" bg-white font-medium py-10 mx-8 mt-12">
+        <div className=" bg-white font-medium py-10 mx-8 md:mx-16 lg:mx-32 xl:mx-56 2xl:mx-64  mt-12">
             <p className="text-center">Please select the most suitable</p>
             <p className="text-center">Vechicle To pick up your item</p>
           </div>
-        <div className="grid grid-rows-5 md:grid-rows-2 md:grid-cols-2 bg-white  mx-8 mb-12">
+        <div className="grid grid-rows-5 md:grid-rows-2 md:grid-cols-2 bg-white  mx-8 md:mx-16 lg:mx-32 xl:mx-56 2xl:mx-64 mb-12">
           <div className="justify-self-center border-2 cursor-pointer  w-48 h-52 mb-12 shadow-lg rounded-md ">
               <div className="mx-16 mt-4 mb-4">
                 <Image
