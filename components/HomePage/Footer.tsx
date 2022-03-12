@@ -1,9 +1,13 @@
 import type { NextPage } from 'next';
-// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import {  } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons'
+import { faTwitterSquare } from '@fortawesome/free-brands-svg-icons'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
-
+{/* <FontAwesomeIcon icon="fa-brands fa-linkedin" /> */}
 
 
 const Footer: NextPage = () => {
@@ -33,8 +37,10 @@ const Footer: NextPage = () => {
                  </ul>
              </div>
              <div className="mt-4 ml-2">
-                 <h1 className="font-semibold">CONNECT WITH US</h1>
-                 {/* <FontAwesomeIcon icon={faCoffee} /> */}
+                 <h1 className="font-semibold mb-4">CONNECT WITH US</h1>
+                 <span className="mx-4 "><FontAwesomeIcon icon={faLinkedin} size="3x" /></span>
+                 <span className="mx-4"><FontAwesomeIcon icon={faFacebookSquare} size="3x" /></span>
+                 <span className="mx-4"><FontAwesomeIcon icon={faTwitterSquare} size="3x" /></span>
              </div>
          </div>
          <hr/>
