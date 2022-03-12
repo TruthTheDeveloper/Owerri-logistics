@@ -6,7 +6,7 @@ import ContactUs from './HomePage/ContactUs';
 import Footer from './HomePage/Footer';
 import TrackItem from './HomePage/TrackItem';
 import Head from 'next/head';
-
+import Layout from './Layout/Layout';
 
 const LandingPage: NextPage = () => {
   return (
@@ -14,14 +14,14 @@ const LandingPage: NextPage = () => {
     <Head>
     
     </Head>
-      <Navbar/>
+    <Layout>
       <header className="mx-6  mb-8">
-        <Header/>
-        <TrackItem/>
-      </header>
-      <Main/>
-      <ContactUs/>
-      <Footer/>
+          <Header/>
+          <TrackItem/>
+        </header>
+        <Main/>
+        <ContactUs/>
+    </Layout>
     </>
   )
 }
