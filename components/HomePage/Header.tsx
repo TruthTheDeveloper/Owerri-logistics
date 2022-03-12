@@ -1,13 +1,14 @@
 import type { NextPage } from 'next';
 import Image from 'next/image'
 import bike from '../../public/assets/bike.svg'
+import 'animate.css';
 
 
 const Header: NextPage = () => {
   return (
       <div className="md:flex md:mx-12 lg:mx-28 xl:mx-32">
-          <div className=" text-3xl xl:text-4xl text-center md:text-left md:pt-4 mt-5 md:basis-1/2  ">
-              <p><span className="text-green-500">Get</span> your Delivery</p>
+          <div className=" text-3xl xl:text-4xl text-center md:text-left md:pt-4 mt-5 md:basis-1/2 animate__fadeIn ">
+              <p><span className="text-green-500 ">Get</span> your Delivery</p>
               <p>at your doorstep anywhere</p>
               <p>around <span className="text-green-500">Owerri</span> by the best</p>
               <p>dispatch rider</p>
