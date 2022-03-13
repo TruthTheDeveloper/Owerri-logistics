@@ -1,9 +1,9 @@
 import type {NextPage} from 'next';
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-
-const ShipmentMethod: NextPage = () => {
+const UploadPage:NextPage = () => {
     const router = useRouter()
     const { ride } = router.query
 
@@ -48,8 +48,8 @@ const ShipmentMethod: NextPage = () => {
                         <div style={{marginTop:'-1rem'}} className=" mx-auto py-1 w-8 bg-black text-white   z-10 rounded-full  text-center text-sm">2</div>
                         <h1 className="text-sm text-center my-4">Shipment details</h1>
                     </div>
-                    <div className="basis-1/3 border-t-4 border-slate-200">
-                        <div style={{marginTop:'-1rem'}} className=" mx-auto py-1 w-8    z-10 rounded-full bg-white border-slate-200 border-2 text-slate-400   text-center text-sm">
+                    <div className="basis-1/3 border-t-4 border-black">
+                        <div style={{marginTop:'-1rem'}} className=" mx-auto py-1 w-8    z-10 rounded-full bg-black text-white text-center text-sm">
                             3
                         </div>
                         <h1 className="text-sm text-center my-4">Upload item</h1>
@@ -57,53 +57,38 @@ const ShipmentMethod: NextPage = () => {
                 </div>
                 <div className="sm:mx-16 md:mx-24 lg:mx-32 xl:mx-44 2xl:56">
                     <div className="mx-4 my-6 pb-10">
-                    <div className="text-center py-3 bg-slate-200 shadow-sm lg:mx-14 xl:mx-24 2xl:mx-36"><h1>Senders Info</h1></div>
+                    <div className="text-center py-3 bg-slate-200 shadow-sm lg:mx-14 xl:mx-24 2xl:mx-36"><h1>Item Info</h1></div>
                     <div className=" mx-4 my-2">
                             <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Address Line 1</label>
-                                <textarea className="h-24 py-2 pl-2  rounded-lg outline-none border-slate-400 border" />
-                            </div>
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Address Line 2</label>
-                                <textarea className="h-24 py-2 pl-2  rounded-lg outline-none  border-slate-400 border" />
-                            </div>
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Name</label>
+                                <label className="py-2">Select Category</label>
                                 <input className="py-2 pl-2 rounded-lg  border-slate-400 border" />
                             </div>
                             <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Phone Number</label>
+                                <label className="py-2">Select Item</label>
                                 <input className="py-2 pl-2 outline-none pl-2rounded-lg  border-slate-400 border" />
                             </div>
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Location</label>
+                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36  mb-2">
+                                <label className="py-2">Select Weight (kg)</label>
                                 <input className="py-2 outline-none pl-2 rounded-lg  border-slate-400 border" />
+                            </div>
+                            <div className="flex lg:mx-14 xl:mx-24 2xl:mx-36 ">
+                                <div className="flex flex-col">
+                                    <label className="py-2">Select Weight (kg)</label>
+                                    <input className="py-2 my-2 outline-none pl-2 rounded-lg w-36  border-slate-400 border" />
+                                </div>
+                                <div className="flex flex-col mx-auto ">
+                                    <label className="py-2">Select Weight (kg)</label>
+                                    <input className="py-2 my-2 outline-none pl-2  rounded-lg w-36   border-slate-400 border" />
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className="mx-4 my-6">
-                        <div className="text-center py-3 bg-slate-200 shadow-sm lg:mx-14 xl:mx-24 2xl:mx-36"><h1>Receivers Info</h1></div>
-                        <div className=" mx-4 my-2">
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Address Line 1</label>
-                                <textarea className="h-24 py-2 pl-2  rounded-lg outline-none border-slate-400 border" />
-                            </div>
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Address Line 2</label>
-                                <textarea className="h-24 py-2 pl-2  rounded-lg outline-none border-slate-400 border" />
-                            </div>
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Name</label>
-                                <input className="py-2 outline-none pl-2 rounded-lg  border-slate-400 border" />
-                            </div>
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Phone Number</label>
-                                <input className="py-2 outline-none pl-2 rounded-lg  border-slate-400 border" />
-                            </div>
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Location</label>
-                                <input className="py-2 outline-none pl-2 rounded-lg  border-slate-400 border" />
-                            </div>
+                    <div>
+                        <h1>Upload Items</h1>
+                        <div>
+                            <span></span>
+                            <h2>Upload an Item</h2>
+                            <button></button>
                         </div>
                     </div>
                     <div className="pb-8">
@@ -115,4 +100,4 @@ const ShipmentMethod: NextPage = () => {
     )
 }
 
-export default ShipmentMethod;
+export default UploadPage

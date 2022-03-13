@@ -1,12 +1,13 @@
 import type { NextPage } from 'next';
 import Layout from '../../../../components/Layout/Layout';
+import UploadPage from '../../../../components/UploadPage';
 
 
 
 const UploadItem: NextPage = () => {
   return (
     <Layout>
-        <h1>This is the item upload page</h1>
+        <UploadPage/>
     </Layout>
   )
 }
