@@ -44,8 +44,6 @@ const ShipmentMethod: NextPage = () => {
             <div className="bg-white mx-8 sm:mx-16 md:mx-24 lg:mx-36 xl:mx-44 2x:56 my-8 shadow-lg pt-16">
                 <div className="flex px-8 sm:px-24">
                     <div className="basis-1/3">
-                    {/* */}
-                    {/* */}
                         <div className="border-t-4 border-black">
                             <div style={{marginTop:'-1rem'}} className=" mx-auto py-1 w-8 bg-black text-white   rounded-full  text-center text-sm">1</div>
                         </div>
@@ -60,6 +58,31 @@ const ShipmentMethod: NextPage = () => {
                             3
                         </div>
                         <h1 className="text-sm text-center my-4">Upload item</h1>
+                    </div>
+                </div>
+                <div>
+                    <div><h1>Senders Info</h1></div>
+                    <div className="shadow-xl">
+                        <div>
+                            <label>Address Line 1</label>
+                            <input />
+                        </div>
+                        <div>
+                            <label>Address Line 1</label>
+                            <input />
+                        </div>
+                        <div>
+                            <label>Name</label>
+                            <input />
+                        </div>
+                        <div>
+                            <label>Phone Number</label>
+                            <input />
+                        </div>
+                        <div>
+                            <label>Location</label>
+                            <input />
+                        </div>
                     </div>
                 </div>
                 <div className="pb-8">
