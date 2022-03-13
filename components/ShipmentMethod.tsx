@@ -106,8 +106,13 @@ const ShipmentMethod: NextPage = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="pb-8">
-                        {rideRoute}
+                    <div className="flex justify-center">
+                            <div className="pb-8 mx-4">
+                                <button className="bg-white rounded-md flex  mx-auto shadow-lg border border-slate-400 px-8 py-2">Back</button>
+                            </div>
+                            <div className="pb-8 mx-4">
+                                {rideRoute}
+                            </div>
                     </div>
                 </div>
             </div>

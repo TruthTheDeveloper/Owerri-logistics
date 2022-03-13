@@ -1,6 +1,7 @@
 import type {NextPage} from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { faCloud } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const UploadPage:NextPage = () => {
@@ -81,18 +82,23 @@ const UploadPage:NextPage = () => {
                                     <input className="py-2 my-2 outline-none pl-2  rounded-lg w-36   border-slate-400 border" />
                                 </div>
                             </div>
+                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36  my-8 border-slate-400 border">
+                                <h1 className="text-center my-4 ">Upload Items</h1>
+                                <div className='  mx-auto'>
+                                    <i className="mx-10 my-"><FontAwesomeIcon icon={faCloud} size="2x"/></i>
+                                    <h2 className="my-4">Upload an Image</h2>
+                                    <button className="border-slate-400 border py-2 px-4 rounded-md mt-8 mb-4">Choose a file</button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <h1>Upload Items</h1>
-                        <div>
-                            <span></span>
-                            <h2>Upload an Item</h2>
-                            <button></button>
+                        <div className="flex justify-center">
+                            <div className="pb-8 mx-4">
+                                <button className="bg-white rounded-md flex  mx-auto shadow-lg border border-slate-400 px-8 py-2">Back</button>
+                            </div>
+                            <div className="pb-8 mx-4">
+                                {rideRoute}
+                            </div>
                         </div>
-                    </div>
-                    <div className="pb-8">
-                        {rideRoute}
                     </div>
                 </div>
             </div>
