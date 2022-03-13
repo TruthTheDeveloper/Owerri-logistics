@@ -11,19 +11,19 @@ const UploadPage:NextPage = () => {
     let rideRoute = null;
 
     if(ride === 'motorbike'){
-        rideRoute = <Link href="/select/motorbike/uploadItem">
+        rideRoute = <Link href="/select/motorbike/addItem">
                         <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
                     </Link>
     }else if(ride === 'car'){
-        rideRoute = <Link href="/select/car/uploadItem">
+        rideRoute = <Link href="/select/car/addItem">
                         <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
                     </Link>
     }else if(ride === 'van'){
-        rideRoute = <Link href="/select/van/uploadItem">
+        rideRoute = <Link href="/select/van/addItem">
                         <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
                     </Link>
     }else if(ride === 'truck'){
-        rideRoute = <Link href="/select/truck/uploadItem">
+        rideRoute = <Link href="/select/truck/addItem">
                         <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
                     </Link>
     }

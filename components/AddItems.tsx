@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 
-const AddItem: NextPage = () => {
+const AddItems: NextPage = () => {
     const router = useRouter()
     const { ride } = router.query
 
@@ -36,14 +36,17 @@ const AddItem: NextPage = () => {
                         <h1 className="text-sm text-center my-4">Upload item</h1>
                     </div>
                 </div>
-                    <div className="flex justify-center">
-                            <div className="pb-8 mx-4">
-                                <button className="bg-white rounded-md flex  mx-auto shadow-lg border border-slate-400 px-8 py-2">Back</button>
-                            </div>
-                    </div>
+                <div>
+                    
+                </div>
+                <div className="flex justify-center">
+                        <div className="pb-8 mx-4">
+                            <button className="bg-green-400 rounded-md flex  mx-auto text-white  px-16 py-2">Proceed</button>
+                        </div>
+                </div>
             </div>
         </div>
     )
 }
 
-export default AddItem;
+export default AddItems;
