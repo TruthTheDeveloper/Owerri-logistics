@@ -63,7 +63,7 @@ const SelectItem: NextPage = () => {
                          />
                     </div>
                 <div className="pb-8">
-                    <Link href="/select/shipment/">
+                    <Link href="select/shipment/motorbike">
                         <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
                     </Link>
                 </div>
