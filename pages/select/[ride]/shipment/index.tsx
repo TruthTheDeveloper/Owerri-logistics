@@ -1,12 +1,13 @@
 import type { NextPage } from 'next';
 import Layout from '../../../../components/Layout/Layout';
+import ShipmentMethod from '../../../../components/ShipmentMethod';
 
 
 
 const Shipment: NextPage = () => {
   return (
     <Layout>
-        <h1>This is the shipment page</h1>
+       <ShipmentMethod/>
     </Layout>
   )
 }

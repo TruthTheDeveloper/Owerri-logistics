@@ -8,26 +8,26 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 
-const SelectItem: NextPage = () => {
+const ShipmentMethod: NextPage = () => {
     const router = useRouter()
     const { ride } = router.query
 
     let rideRoute = null;
 
     if(ride === 'motorbike'){
-        rideRoute = <Link href="motorbike/shipment">
+        rideRoute = <Link href="motorbike/uploadItem">
                         <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
                     </Link>
     }else if(ride === 'car'){
-        rideRoute = <Link href="car/shipment">
+        rideRoute = <Link href="car/uploadItem">
                         <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
                     </Link>
     }else if(ride === 'van'){
-        rideRoute = <Link href="van/shipment">
+        rideRoute = <Link href="van/uploadItem">
                         <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
                     </Link>
     }else if(ride === 'truck'){
-        rideRoute = <Link href="truck/shipment">
+        rideRoute = <Link href="truck/uploadItem">
                         <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
                     </Link>
     }
@@ -44,13 +44,15 @@ const SelectItem: NextPage = () => {
             <div className="bg-white mx-8 sm:mx-16 md:mx-24 lg:mx-36 xl:mx-44 2x:56 my-8 shadow-lg pt-16">
                 <div className="flex px-8 sm:px-24">
                     <div className="basis-1/3">
+                    {/* */}
+                    {/* */}
                         <div className="border-t-4 border-black">
-                            <div style={{marginTop:'-1rem'}} className=" mx-auto py-1 w-8   rounded-full bg-black text-white text-center text-sm">1</div>
+                            <div style={{marginTop:'-1rem'}} className=" mx-auto py-1 w-8 bg-black text-white   rounded-full  text-center text-sm">1</div>
                         </div>
                         <h1 className="text-sm text-center my-4">Pick up location</h1>
                     </div>
-                    <div className="basis-1/3 border-t-4 border-slate-200">
-                        <div style={{marginTop:'-1rem'}} className=" mx-auto py-1 w-8   z-10 rounded-full bg-white border-slate-200 border-2 text-slate-400  text-center text-sm">2</div>
+                    <div className="basis-1/3 border-t-4 border-black ">
+                        <div style={{marginTop:'-1rem'}} className=" mx-auto py-1 w-8 bg-black text-white   z-10 rounded-full  text-center text-sm">2</div>
                         <h1 className="text-sm text-center my-4">Shipment details</h1>
                     </div>
                     <div className="basis-1/3 border-t-4 border-slate-200">
@@ -60,28 +62,6 @@ const SelectItem: NextPage = () => {
                         <h1 className="text-sm text-center my-4">Upload item</h1>
                     </div>
                 </div>
-                <div className="flex flex-col md:flex-row md:justify-evenly  mx-6 ">
-                    <div className="flex flex-col  py-2">
-                        <label className="mb-2 ml-8">Pickup Address</label>
-                        <div className="flex" >
-                            <span className="mx-2 mt-2"><FontAwesomeIcon icon={faDirections}  /></span>
-                            <input className="h-10 lg:h-12 p-4 placeholder:text-sm w-full placeholder:pl-2 outline-none bg-slate-100 rounded-md" placeholder="Pickup Address"/>
-                        </div>
-                    </div>
-                    <div className="flex flex-col py-2">
-                        <label className="mb-2 ml-8">Delivery Address</label>
-                        <div className="flex">
-                            <span className="mx-2 mt-2"><FontAwesomeIcon icon={faLocation}  /></span>
-                            <input className="h-10 lg:h-12 p-4 w-full placeholder:text-sm placeholder:pl-2 outline-none mb-4 bg-slate-100 rounded-md" placeholder="Delivery Address"/>
-                        </div>
-                    </div>
-                </div>
-                    <div className="m-4 sm:mx-8 md:mx-16 lg:mx-32">
-                        <Image
-                        src={map}
-                        alt="text"
-                         />
-                    </div>
                 <div className="pb-8">
                     {rideRoute}
                 </div>
@@ -90,4 +70,4 @@ const SelectItem: NextPage = () => {
     )
 }
 
-export default SelectItem;
+export default ShipmentMethod;
