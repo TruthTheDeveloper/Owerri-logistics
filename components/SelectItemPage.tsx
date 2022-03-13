@@ -12,6 +12,26 @@ const SelectItem: NextPage = () => {
     const router = useRouter()
     const { ride } = router.query
 
+    let rideRoute = null;
+
+    if(ride === 'motorbike'){
+        rideRoute = <Link href="select/motorbike/shipment">
+                        <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
+                    </Link>
+    }else if(ride === 'car'){
+        rideRoute = <Link href="select/car/shipment">
+                        <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
+                    </Link>
+    }else if(ride === 'van'){
+        rideRoute = <Link href="select/van/shipment">
+                        <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
+                    </Link>
+    }else if(ride === 'truck'){
+        rideRoute = <Link href="select/truck/shipment">
+                        <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
+                    </Link>
+    }
+
     return (
         <div style={{background:'#F3F4F6'}} className="overflow-hidden">
             <div  className="text-center my-8 hidden lg:block">
@@ -63,7 +83,7 @@ const SelectItem: NextPage = () => {
                          />
                     </div>
                 <div className="pb-8">
-                    <Link href="select/shipment/motorbike">
+                    <Link href="select/motorbike/shipment">
                         <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
                     </Link>
                 </div>

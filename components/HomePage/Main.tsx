@@ -63,7 +63,7 @@ const Main: NextPage = () => {
                     </div>
                 </div>
             </Link>
-            <Link href="select/delivery">
+            <Link href="select/truck">
                 <div className="justify-self-center border-2  cursor-pointer  w-48 h-52 shadow-lg rounded-md hover:border-green-400 ">
                     <div className="mx-16 mt-4 mb-2">
                         <Image
