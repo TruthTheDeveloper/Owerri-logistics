@@ -1,16 +1,18 @@
-import type { NextPage } from 'next';
-import Layout from '../../components/Layout/Layout';
+import type {NextPage} from 'next';
 import Image from 'next/image';
-import map from '../../public/assets/map.png'
+import map from './../public/assets/map.png'
 import { faDirections } from '@fortawesome/free-solid-svg-icons';
 import { faLocation } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 
+const SelectItem: NextPage = () => {
+    const router = useRouter()
+    const { ride } = router.query
 
-const Select: NextPage = () => {
-  return (
-    <Layout>
+    return (
         <div style={{background:'#F3F4F6'}} className="overflow-hidden">
             <div  className="text-center my-8 hidden lg:block">
                 <h1 className="text-xl font-semibold py-2">We are excited to serve you!</h1>
@@ -42,14 +44,14 @@ const Select: NextPage = () => {
                     <div className="flex flex-col  py-2">
                         <label className="mb-2 ml-8">Pickup Address</label>
                         <div className="flex" >
-                            <span className="mx-2"><FontAwesomeIcon icon={faDirections}  /></span>
+                            <span className="mx-2 mt-2"><FontAwesomeIcon icon={faDirections}  /></span>
                             <input className="h-10 lg:h-12 p-4 placeholder:text-sm w-full placeholder:pl-2 outline-none bg-slate-100 rounded-md" placeholder="Pickup Address"/>
                         </div>
                     </div>
                     <div className="flex flex-col py-2">
                         <label className="mb-2 ml-8">Delivery Address</label>
                         <div className="flex">
-                            <span className="mx-2"><FontAwesomeIcon icon={faLocation}  /></span>
+                            <span className="mx-2 mt-2"><FontAwesomeIcon icon={faLocation}  /></span>
                             <input className="h-10 lg:h-12 p-4 w-full placeholder:text-sm placeholder:pl-2 outline-none mb-4 bg-slate-100 rounded-md" placeholder="Delivery Address"/>
                         </div>
                     </div>
@@ -61,13 +63,13 @@ const Select: NextPage = () => {
                          />
                     </div>
                 <div className="pb-8">
-                    <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
+                    <Link href="/select/shipment/">
+                        <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
+                    </Link>
                 </div>
-
             </div>
         </div>
-    </Layout>
-  )
+    )
 }
 
-export default Select;
+export default SelectItem;
