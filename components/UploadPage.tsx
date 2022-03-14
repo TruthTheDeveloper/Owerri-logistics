@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { faCloud } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import VechicleHeader from './PageComponents/VechicleHeaders';
+
 
 const UploadPage:NextPage = () => {
     const router = useRouter()
@@ -30,13 +32,7 @@ const UploadPage:NextPage = () => {
 
     return (
         <div style={{background:'#F3F4F6'}} className="overflow-hidden">
-            <div  className="text-center my-8 hidden lg:block">
-                <h1 className="text-xl font-semibold py-2">We are excited to serve you!</h1>
-                <p>Owerri logistics is your on demand delivery companion, it is specialy built for fast and reliable pick-up/delivery service</p>
-                <p>Owerri logistics is your most convenient means of sending items within and across cities, owerri logistics</p>
-                <p>Owerri logistics eliminates the nedd to leave your home or comfort zone, trying to dispatch items</p>
-            </div>
-
+            <VechicleHeader/>
             <div className="bg-white mx-8 sm:mx-16 md:mx-24 lg:mx-36 xl:mx-44 2x:56 my-8 shadow-lg pt-16">
                 <div className="flex px-8 sm:px-24">
                     <div className="basis-1/3">
