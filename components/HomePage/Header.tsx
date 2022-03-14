@@ -1,6 +1,10 @@
 import type { NextPage } from 'next';
 import Image from 'next/image'
+
+//Images import
 import bike from '../../public/assets/bike.svg'
+
+//Third party
 import 'animate.css';
 
 

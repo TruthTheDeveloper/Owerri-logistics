@@ -1,14 +1,21 @@
 import type {NextPage} from 'next';
 import Image from 'next/image';
-import blackMan from '../public/assets/blackMan.png'
-import Link from 'next/link';
-import VechicleHeader from './PageComponents/VechicleHeaders';
 import { useRouter } from 'next/router';
+
+//Image import
+import blackMan from '../public/assets/blackMan.png'
+
+//Font Awesome
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faCloudUpload } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+//Ui utils
+import { Route } from './UI/utils/route/review';
+
+//UI Component
+import VechicleHeader from './PageComponents/VechicleHeaders';
 
 const AddItems: NextPage = () => {
     const router = useRouter()
@@ -16,23 +23,7 @@ const AddItems: NextPage = () => {
 
     let rideRoute = null;
 
-    if(ride === 'motorbike'){
-        rideRoute = <Link href="/select/motorbike/review">
-                        <button className="bg-green-400 rounded-md flex  mx-auto text-white  px-16 py-2">Proceed</button>
-                    </Link>
-    }else if(ride === 'car'){
-        rideRoute = <Link href="/select/car/review">
-                        <button className="bg-green-400 rounded-md flex  mx-auto text-white  px-16 py-2">Proceed</button>
-                    </Link>
-    }else if(ride === 'van'){
-        rideRoute = <Link href="/select/van/review">
-                        <button className="bg-green-400 rounded-md flex  mx-auto text-white  px-16 py-2">Proceed</button>
-                    </Link>
-    }else if(ride === 'truck'){
-        rideRoute = <Link href="/select/truck/review">
-                        <button className="bg-green-400 rounded-md flex  mx-auto text-white  px-16 py-2">Proceed</button>
-                    </Link>
-    }
+    rideRoute = Route(ride)
 
     return (
         <div style={{background:'#F3F4F6'}} className="overflow-hidden">

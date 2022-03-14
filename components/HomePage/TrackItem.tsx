@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import bike from '../../public/assets/bike.svg'
 
 
 const TrackItem: NextPage = () => {

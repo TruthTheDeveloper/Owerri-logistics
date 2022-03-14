@@ -1,12 +1,19 @@
 import type {NextPage} from 'next';
 import Image from 'next/image';
+import { useRouter } from 'next/router'
+
+// image import
 import map from './../public/assets/map.png'
+
+//FontAwesome
 import { faDirections } from '@fortawesome/free-solid-svg-icons';
 import { faLocation } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { useRouter } from 'next/router'
+//UI component
 import VechicleHeader from './PageComponents/VechicleHeaders';
+
+//Ui utils
 import { Route } from './UI/utils/route/shipmentRoute';
 
 

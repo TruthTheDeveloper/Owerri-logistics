@@ -1,19 +1,19 @@
 import Link from 'next/link'
 export const Route = (url:any) => {
     if(url === 'motorbike'){
-        return <Link href="motorbike/uploadItem">
+        return <Link href="/select/motorbike/uploadItem">
                         <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
                     </Link>
     }else if(url === 'car'){
-        return <Link href="car/uploadItem">
+        return <Link href="/select/car/uploadItem">
                         <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
                     </Link>
     }else if(url === 'van'){
-        return <Link href="van/uploadItem">
+        return <Link href="/select/van/uploadItem">
                         <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
                     </Link>
     }else if(url === 'truck'){
-        return <Link href="truck/uploadItem">
+        return <Link href="/select/truck/uploadItem">
                         <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
                     </Link>
     }

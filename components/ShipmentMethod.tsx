@@ -1,9 +1,12 @@
 import type {NextPage} from 'next';
-import Link from 'next/link'
 import { useRouter } from 'next/router'
+
+// UI Components
 import VechicleHeader from './PageComponents/VechicleHeaders';
+import Form from './ShipmentPage/Form';
+
+//UI utils
 import { Route } from './UI/utils/route/uploadItemRoute';
-import Form from './ShipmentPage/form';
 
 
 const ShipmentMethod: NextPage = () => {

@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { faCloud } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import VechicleHeader from './PageComponents/VechicleHeaders';
+import { Route } from './UI/utils/route/addItem';
 
 
 const UploadPage:NextPage = () => {
@@ -12,23 +13,7 @@ const UploadPage:NextPage = () => {
 
     let rideRoute = null;
 
-    if(ride === 'motorbike'){
-        rideRoute = <Link href="/select/motorbike/addItem">
-                        <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
-                    </Link>
-    }else if(ride === 'car'){
-        rideRoute = <Link href="/select/car/addItem">
-                        <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
-                    </Link>
-    }else if(ride === 'van'){
-        rideRoute = <Link href="/select/van/addItem">
-                        <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
-                    </Link>
-    }else if(ride === 'truck'){
-        rideRoute = <Link href="/select/truck/addItem">
-                        <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
-                    </Link>
-    }
+    rideRoute = Route(ride)
 
     return (
         <div style={{background:'#F3F4F6'}} className="overflow-hidden">
