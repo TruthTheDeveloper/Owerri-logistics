@@ -74,45 +74,65 @@ const ReviewItem:NextPage = () => {
                                 <input className="py-2 pl-2 outline-none pl-2rounded-lg  border-slate-400 border" />
                             </div>
                         </div>
-                    </div>
-                    <div className="bg-red-600">
-                        <div className="flex justify-between">
-                            <h1>Delivery Items</h1>
-                           <div className="flex mr-4">
-                            <p>Add Item</p>
-                            <span><FontAwesomeIcon icon={faCloudUpload}/></span>
-                           </div>
+                        <div className="mt-10  border lg:mx-14 xl:mx-24 2xl:mx-36 shadow-lg rounded-md">
+                            <div className="flex justify-between my-4 border-slate-400 border-b shadow-md">
+                                <h1 className="ml-4 mb-2">Delivery Items</h1>
+                                <div className="flex mr-4">
+                                        <p className="mx-4">Add Item</p>
+                                        <span className="cursor-pointer"><FontAwesomeIcon icon={faCloudUpload}/></span>
+                                </div>
+                            </div>
+                            <div className="flex">
+                                <div className="mx-auto">
+                                    <p>item</p>
+                                    <Image
+                                    src={BlackMan}
+                                    width={40}
+                                    height={40}
+                                    alt="text"
+                                    />
+                                </div>
+                                <div className="mx-auto">
+                                    <p>Name</p>
+                                    <p>Laptop</p>
+                                </div>
+                                <div className="mx-auto">
+                                    <p>Weight</p>
+                                    <p>0.0-1.5kg</p>
+                                </div>
+                                <div className="mx-auto">
+                                    <p>Quantity</p>
+                                    <p>3 pieces</p>
+                                </div>
+                            </div>
                         </div>
-                        <div className="flex">
-                            <div className="mx-auto">
-                                <p>item</p>
-                                <Image
-                                src={BlackMan}
-                                width={40}
-                                height={40}
-                                alt="text"
-                                />
+                        <div className="mt-10  border lg:mx-14 xl:mx-24 2xl:mx-36 shadow-lg rounded-md">
+                            <div className=" my-4 border-slate-400 border-b shadow-md">
+                                <h1 className="ml-4 mb-2 text-center">Pricing</h1>
                             </div>
-                            <div className="mx-auto">
-                                <p>Name</p>
-                                <p>Laptop</p>
-                            </div>
-                            <div className="mx-auto">
-                                <p>Weight</p>
-                                <p>0.0-1.5kg</p>
-                            </div>
-                            <div className="mx-auto">
-                                <p>Quantity</p>
-                                <p>3 pieces</p>
+                            <div className="flex flex-col mx-8">
+                                <div className="flex justify-between">
+                                    <p>Main Charge</p>
+                                    <p>#1,220,00</p>
+                                </div>
+                                <div className="flex justify-between">
+                                    <p>Total</p>
+                                    <p>#1,220,00</p>
+                                </div>
+                                <div className="flex justify-between text-red-600">
+                                    <p>Wallet Balance</p>
+                                    <p>#0.00</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    
                     <div className="flex justify-center">
                             <div className="pb-8 mx-4">
-                                <button className="bg-white rounded-md flex  mx-auto shadow-lg border border-slate-400 px-8 py-2">Back</button>
+                                {rideRoute}
                             </div>
                             <div className="pb-8 mx-4">
-                                {rideRoute}
+                                <button className="bg-white rounded-md flex  mx-auto shadow-lg border border-slate-400 px-8 py-2">Back</button>
                             </div>
                     </div>
                 </div>
