@@ -4,9 +4,10 @@ import map from './../public/assets/map.png'
 import { faDirections } from '@fortawesome/free-solid-svg-icons';
 import { faLocation } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Link from 'next/link'
+
 import { useRouter } from 'next/router'
 import VechicleHeader from './PageComponents/VechicleHeaders';
+import { Route } from './UI/utils/route/shipmentRoute';
 
 
 const SelectItem: NextPage = () => {
@@ -15,23 +16,9 @@ const SelectItem: NextPage = () => {
 
     let rideRoute = null;
 
-    if(ride === 'motorbike'){
-        rideRoute = <Link href="motorbike/shipment">
-                        <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
-                    </Link>
-    }else if(ride === 'car'){
-        rideRoute = <Link href="car/shipment">
-                        <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
-                    </Link>
-    }else if(ride === 'van'){
-        rideRoute = <Link href="van/shipment">
-                        <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
-                    </Link>
-    }else if(ride === 'truck'){
-        rideRoute = <Link href="truck/shipment">
-                        <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
-                    </Link>
-    }
+    rideRoute = Route(ride)
+
+    
 
     return (
         <div style={{background:'#F3F4F6'}} className="overflow-hidden">

@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import ChooseDeliveryMethod from './ChooseDeliveryMethod';
+import ChooseDeliveryMethod from './Ui/ChooseDeliveryMethod';
 import car from '../../public/assets/car 1.png';
 import truck from '../../public/assets/delivery-van 1.png';
 import van from '../../public/assets/van 1.png';

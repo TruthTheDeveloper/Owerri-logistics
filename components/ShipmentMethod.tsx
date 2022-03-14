@@ -2,6 +2,7 @@ import type {NextPage} from 'next';
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import VechicleHeader from './PageComponents/VechicleHeaders';
+import { Route } from './UI/utils/route/uploadItemRoute';
 
 
 const ShipmentMethod: NextPage = () => {
@@ -10,23 +11,7 @@ const ShipmentMethod: NextPage = () => {
 
     let rideRoute = null;
 
-    if(ride === 'motorbike'){
-        rideRoute = <Link href="/select/motorbike/uploadItem">
-                        <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
-                    </Link>
-    }else if(ride === 'car'){
-        rideRoute = <Link href="/select/car/uploadItem">
-                        <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
-                    </Link>
-    }else if(ride === 'van'){
-        rideRoute = <Link href="/select/van/uploadItem">
-                        <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
-                    </Link>
-    }else if(ride === 'truck'){
-        rideRoute = <Link href="/select/truck/uploadItem">
-                        <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>
-                    </Link>
-    }
+    rideRoute = Route(ride)
 
     return (
         <div style={{background:'#F3F4F6'}} className="overflow-hidden">
@@ -69,7 +54,7 @@ const ShipmentMethod: NextPage = () => {
                             </div>
                             <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
                                 <label className="py-2">Phone Number</label>
-                                <input className="py-2 pl-2 outline-none pl-2rounded-lg  border-slate-400 border" />
+                                <input className="py-2 pl-2 outline-none pl-2 rounded-lg  border-slate-400 border" />
                             </div>
                             <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
                                 <label className="py-2">Location</label>
