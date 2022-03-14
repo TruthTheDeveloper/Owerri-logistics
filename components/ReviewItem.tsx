@@ -129,10 +129,10 @@ const ReviewItem:NextPage = () => {
                     
                     <div className="flex justify-center">
                             <div className="pb-8 mx-4">
-                                {rideRoute}
+                                <button className="bg-white rounded-md flex  mx-auto shadow-lg border border-slate-400 px-8 py-2">Back</button>
                             </div>
                             <div className="pb-8 mx-4">
-                                <button className="bg-white rounded-md flex  mx-auto shadow-lg border border-slate-400 px-8 py-2">Back</button>
+                            <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">pay</button>
                             </div>
                     </div>
                 </div>
