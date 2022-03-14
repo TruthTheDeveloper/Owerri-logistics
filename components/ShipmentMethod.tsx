@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import VechicleHeader from './PageComponents/VechicleHeaders';
 import { Route } from './UI/utils/route/uploadItemRoute';
+import Form from './ShipmentPage/form';
 
 
 const ShipmentMethod: NextPage = () => {
@@ -37,56 +38,8 @@ const ShipmentMethod: NextPage = () => {
                     </div>
                 </div>
                 <div className="sm:mx-16 md:mx-24 lg:mx-32 xl:mx-44 2xl:56">
-                    <div className="mx-4 my-6 pb-10">
-                    <div className="text-center py-3 bg-slate-200 shadow-sm lg:mx-14 xl:mx-24 2xl:mx-36"><h1>Senders Info</h1></div>
-                    <div className=" mx-4 my-2">
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Address Line 1</label>
-                                <textarea className="h-24 py-2 pl-2  rounded-lg outline-none border-slate-400 border" />
-                            </div>
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Address Line 2</label>
-                                <textarea className="h-24 py-2 pl-2  rounded-lg outline-none  border-slate-400 border" />
-                            </div>
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Name</label>
-                                <input className="py-2 pl-2 rounded-lg  border-slate-400 border" />
-                            </div>
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Phone Number</label>
-                                <input className="py-2 pl-2 outline-none pl-2 rounded-lg  border-slate-400 border" />
-                            </div>
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Location</label>
-                                <input className="py-2 outline-none pl-2 rounded-lg  border-slate-400 border" />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="mx-4 my-6">
-                        <div className="text-center py-3 bg-slate-200 shadow-sm lg:mx-14 xl:mx-24 2xl:mx-36"><h1>Receivers Info</h1></div>
-                        <div className=" mx-4 my-2">
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Address Line 1</label>
-                                <textarea className="h-24 py-2 pl-2  rounded-lg outline-none border-slate-400 border" />
-                            </div>
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Address Line 2</label>
-                                <textarea className="h-24 py-2 pl-2  rounded-lg outline-none border-slate-400 border" />
-                            </div>
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Name</label>
-                                <input className="py-2 outline-none pl-2 rounded-lg  border-slate-400 border" />
-                            </div>
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Phone Number</label>
-                                <input className="py-2 outline-none pl-2 rounded-lg  border-slate-400 border" />
-                            </div>
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Location</label>
-                                <input className="py-2 outline-none pl-2 rounded-lg  border-slate-400 border" />
-                            </div>
-                        </div>
-                    </div>
+                   <Form formType="Sender"/>
+                   <Form formType="Receiver"/>
                     <div className="flex justify-center">
                             <div className="pb-8 mx-4">
                                 <button className="bg-white rounded-md flex  mx-auto shadow-lg border border-slate-400 px-8 py-2">Back</button>
@@ -97,6 +50,7 @@ const ShipmentMethod: NextPage = () => {
                     </div>
                 </div>
             </div>
+            
         </div>
     )
 }
