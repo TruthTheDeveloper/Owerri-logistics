@@ -25,7 +25,7 @@ const ChooseDeliveryMethod:NextPage<Props> = ({vechicle, vechicleName, link, des
             </div>
             <div className="text-center text-sm">
                 <h1 className="font-medium text-xl mb-2">{vechicleName}</h1>
-                    <p>{description}</p>
+                    <p className="mx-2">{description}</p>
                 </div>
             </div>
       </Link>
@@ -42,7 +42,7 @@ const ChooseDeliveryMethod:NextPage<Props> = ({vechicle, vechicleName, link, des
             </div>
             <div className="text-center text-sm">
                 <h1 className="font-medium text-xl mb-2">{vechicleName}</h1>
-                    <p>{description}</p>
+                <p className="mx-2">{description}</p>
                 </div>
             </div>
       </Link>
@@ -59,7 +59,7 @@ const ChooseDeliveryMethod:NextPage<Props> = ({vechicle, vechicleName, link, des
             </div>
             <div className="text-center text-sm">
                 <h1 className="font-medium text-xl mb-2">{vechicleName}</h1>
-                    <p>{description}</p>
+                <p className="mx-2">{description}</p>
                 </div>
             </div>
       </Link>
@@ -76,7 +76,7 @@ const ChooseDeliveryMethod:NextPage<Props> = ({vechicle, vechicleName, link, des
             </div>
             <div className="text-center text-sm">
                 <h1 className="font-medium text-xl mb-2">{vechicleName}</h1>
-                    <p>{description}</p>
+                <p className="mx-2">{description}</p>
                 </div>
             </div>
       </Link>

@@ -16,10 +16,10 @@ const Main: NextPage = () => {
           </div>
         <div className="grid grid-rows-5 md:grid-rows-2 md:grid-cols-2 bg-white  mx-8 md:mx-16 lg:mx-32 xl:mx-56 2xl:mx-64 mb-12">
 
-        <ChooseDeliveryMethod vechicle={motorbike} vechicleName="Bike" link="motorbike" description="Ideal for lightweight items Documents, human hair, phones"/>
-          <ChooseDeliveryMethod vechicle={car} vechicleName="Car" link="car" description="For items that will fit into a car boot:Bag of clothes and shoes a microwave"/>
-          <ChooseDeliveryMethod vechicle={van} vechicleName="Van" link="van" description="For items too large to fit in a car boot: Large Bag of clothes or shoes, a small fridge e.t.c "/>
-          <ChooseDeliveryMethod vechicle={truck} vechicleName="Truck" link="truck" description="For items that will fit into a car boot:Bag of clothes and shoes a microwave"/>
+            <ChooseDeliveryMethod vechicle={motorbike} vechicleName="Bike" link="motorbike" description="Ideal for lightweight items Documents, human hair, phones"/>
+            <ChooseDeliveryMethod vechicle={car} vechicleName="Car" link="car" description="For items that will fit into a car boot:Bag of clothes and shoes a microwave"/>
+            <ChooseDeliveryMethod vechicle={van} vechicleName="Van" link="van" description="For items too large to fit in a car boot: Large Bag of clothes or shoes, a small fridge e.t.c "/>
+            <ChooseDeliveryMethod vechicle={truck} vechicleName="Truck" link="truck" description="For items that will fit into a car boot:Bag of clothes and shoes a microwave"/>
         </div>
       </div>
   )
