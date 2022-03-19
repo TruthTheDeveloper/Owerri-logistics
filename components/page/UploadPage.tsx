@@ -51,7 +51,7 @@ const UploadPage:NextPage = () => {
                     <div className=" mx-4 my-2">
                             <DropDownInput label="Select Category"/>
                             {/* <DropDownInput label="Select Item"/> */}
-                            <DropDownInput label="Select Weight range (kg)"/>
+                            {/* <DropDownInput label="Select Weight range (kg)"/> */}
                             <div className="flex lg:mx-14 xl:mx-24 2xl:mx-36 ">
                                 <div className="flex flex-col">
                                     <label className="py-2">Quantity</label>

@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import SubDropDown from '../Inputs/SubDropDown';
+import DefaultDropDown from '../Inputs/DefaultDropDown';
 
 interface Props{
     label: string
@@ -36,19 +37,23 @@ const DropDownInput:NextPage<Props> = ({label}) => {
             label: "Electronics",
             value: "Electronics",
         },
-        {
+        {   
+            key:5,
             label: "Health",
             value: "Health",
         },
         {
+            key:6,
             label: "Jewelries",
             value: "Jewelries",
         },
         {
+            key:7,
             label: "Other",
             value: "Other",
         },
         {
+            key:8,
             label: "Phones",
             value: "Phones",
         },
@@ -56,14 +61,17 @@ const DropDownInput:NextPage<Props> = ({label}) => {
 
       const computer = [
             {
+              key:1,
               label:"Hard Disk",
               value:"Hard Disk"
             },
             {
+                key:2,
                 label:"Laptop",
                 value:"Laptop"
             },
             {
+                key:3,
                 label:"Projector",
                 value:"Projector"
             },
@@ -71,14 +79,17 @@ const DropDownInput:NextPage<Props> = ({label}) => {
 
       const document = [
         {
+          key:1,
           label:"Cheque",
           value:"Cheque"
         },
         {
+            key:2,
             label:"Driver license",
             value:"Driver license"
         },
         {
+            key:3,
             label:"German Embassy Shipment",
             value:"German Embassy Shipment"
         },
@@ -87,11 +98,13 @@ const DropDownInput:NextPage<Props> = ({label}) => {
 
     const electronics = [
             {
+                key:1,
                 label:"Camera",
                 value:"Camera"
             },
 
             {
+                key:2,
                 label:"Blender",
                 value:"Blender"
             },
@@ -99,18 +112,22 @@ const DropDownInput:NextPage<Props> = ({label}) => {
 
     const food = [
         {
+            key:1,
             label:"Beans",
             value:"Beans",
         },
         {
+            key:2,
             label:"Garri",
             value:"Garri",
         },
         {
+            key:3,
             label:"otherFoodStuff",
             value:"otherFoodStuff",
         },
         {
+            key:4,
             label:"Rice",
             value:"Rice",
         },
@@ -118,6 +135,7 @@ const DropDownInput:NextPage<Props> = ({label}) => {
 
     const health = [
         {
+            key:1,
             label:"Elphimo Pharmacy",
             value:"Elphimo Pharmacy"
         }
@@ -125,16 +143,19 @@ const DropDownInput:NextPage<Props> = ({label}) => {
 
     const phones = [
         {
+            key:1,
             label:"High value phone",
             value:"High value phone"
         },
 
         {
+            key:2,
             label:"I pad",
             value:"I pad"
         },
 
         {
+            key:3,
             label:"Low value phone",
             value:"Low value phone"
         }
@@ -142,17 +163,19 @@ const DropDownInput:NextPage<Props> = ({label}) => {
 
     const clothing = [
         {
+            key:1,
             label:'Clothing',
             value:'clothing',
         },
 
         {
+            key:2,
             label:'Shoe',
             value:'Shoe',
         },
     ]
 
-    let subDropDown = null
+    let subDropDown = <DefaultDropDown  label="Select Item"/>
 
     if(selected === "Clothing/Shoes"){
         subDropDown =   <SubDropDown options={clothing} />
@@ -169,15 +192,7 @@ const DropDownInput:NextPage<Props> = ({label}) => {
     }else if(selected === "Phones"){
         subDropDown = <SubDropDown options={phones} />
     }else if(selected === "other"){
-
-    }
-
-    useEffect(() => {
-        console.log(selected)
-    },[selected])
-
-    const selectHandler = (e:any) => {
-        setSelected(e.target.value)
+        subDropDown = <SubDropDown options={'other'}/>
     }
       
 
@@ -188,10 +203,11 @@ const DropDownInput:NextPage<Props> = ({label}) => {
                 <option value="" defaultValue='true' hidden className="text-sm font-normal" >
                 </option>
                 {options.map((option) => 
-                    <option value={option.value}>{option.label}</option>
+                    <option key={option.key} value={option.value}>{option.label}</option>
                 )}
             </select>
         </div>
+        <h1>Hello product</h1>
         {subDropDown}
     </>
 }
