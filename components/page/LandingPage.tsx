@@ -7,7 +7,7 @@ import Header from './HomePage/Header';
 import Main from './HomePage/Main';
 import ContactUs from './HomePage/ContactUs';
 import TrackItem from './HomePage/TrackItem';
-import Layout from './Layout/Layout';
+import Layout from '../Layout/Layout';
 
 const LandingPage: NextPage = () => {
   return (

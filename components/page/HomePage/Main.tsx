@@ -4,10 +4,11 @@ import type { NextPage } from 'next';
 import ChooseDeliveryMethod from './Ui/ChooseDeliveryMethod';
 
 //Image import
-import car from '../../public/assets/car 1.png';
-import truck from '../../public/assets/delivery-van 1.png';
-import van from '../../public/assets/van 1.png';
-import motorbike from '../../public/assets/motorbike 1.png';
+
+import car from '../../../public/assets/car 1.png';
+import truck from '../../../public/assets/delivery-van 1.png';
+import van from '../../../public/assets/van 1.png';
+import motorbike from '../../../public/assets/motorbike 1.png';
 
 
 

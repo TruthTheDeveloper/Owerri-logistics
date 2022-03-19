@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Layout from '../../../../components/Layout/Layout';
-import ShipmentMethod from '../../../../components/ShipmentMethod';
+import ShipmentMethod from '../../../../components/page/ShipmentMethod';
 
 
 

@@ -1,12 +1,13 @@
 import type {NextPage} from 'next';
+import {useRouter} from 'next/router'
 
 //UI components
-import VechicleHeader from './PageComponents/VechicleHeaders';
-import DeliverySummary from './UI/components/DeliverySummary';
-import PricingSummary from './UI/components/PricingSummary';
+import VechicleHeader from '../PageComponents/VechicleHeaders';
+import DeliverySummary from '../UI/components/DeliverySummary';
+import PricingSummary from '../UI/components/PricingSummary';
 
 const ReviewItem:NextPage = () => {
-
+    const router = useRouter()
     return (
         <div style={{background:'#F3F4F6'}} className="overflow-hidden">
             <VechicleHeader/>
@@ -56,7 +57,7 @@ const ReviewItem:NextPage = () => {
                     
                     <div className="flex justify-center">
                             <div className="pb-8 mx-4">
-                                <button className="bg-white rounded-md flex  mx-auto shadow-lg border border-slate-400 px-8 py-2">Back</button>
+                                <button className="bg-white rounded-md flex  mx-auto shadow-lg border border-slate-400 px-8 py-2" onClick={() => router.back()}>Back</button>
                             </div>
                             <div className="pb-8 mx-4">
                             <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">pay</button>

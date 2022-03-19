@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router'
 
 // image import
-import map from './../public/assets/map.png'
+import map from './../../public/assets/map.png'
 
 //FontAwesome
 import { faDirections } from '@fortawesome/free-solid-svg-icons';
@@ -11,10 +11,10 @@ import { faLocation } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 //UI component
-import VechicleHeader from './PageComponents/VechicleHeaders';
+import VechicleHeader from '../PageComponents/VechicleHeaders';
 
 //Ui utils
-import { Route } from './UI/utils/route/shipmentRoute';
+import { Route } from '../UI/utils/route/shipmentRoute';
 
 
 const SelectItem: NextPage = () => {

@@ -43,7 +43,7 @@ const Footer: NextPage = () => {
                  <span className="mx-4"><FontAwesomeIcon icon={faTwitterSquare} size="3x" /></span>
              </div>
          </div>
-         <hr className="my-2"/>
+         {/* <hr className="my-2"/> */}
          <h1 className="text-center my-4">Copyright 2022 all right reserved</h1>
      </div>
   )

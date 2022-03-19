@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { faCloud } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import VechicleHeader from './PageComponents/VechicleHeaders';
-import { Route } from './UI/utils/route/addItem';
+import VechicleHeader from '../PageComponents/VechicleHeaders';
+import { Route } from '../UI/utils/route/addItem';
 
 
 const UploadPage:NextPage = () => {
@@ -74,7 +74,7 @@ const UploadPage:NextPage = () => {
                         </div>
                         <div className="flex justify-center">
                             <div className="pb-8 mx-4">
-                                <button className="bg-white rounded-md flex  mx-auto shadow-lg border border-slate-400 px-8 py-2">Back</button>
+                                <button className="bg-white rounded-md flex  mx-auto shadow-lg border border-slate-400 px-8 py-2" onClick={() => router.back()}>Back</button>
                             </div>
                             <div className="pb-8 mx-4">
                                 {rideRoute}
