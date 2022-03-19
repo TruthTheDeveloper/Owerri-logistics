@@ -33,27 +33,27 @@ const DropDownInput:NextPage<Props> = ({label}) => {
             value: "Food",
         },
         {
-            key:4,
+            key:5,
             label: "Electronics",
             value: "Electronics",
         },
         {   
-            key:5,
+            key:6,
             label: "Health",
             value: "Health",
         },
         {
-            key:6,
+            key:7,
             label: "Jewelries",
             value: "Jewelries",
         },
         {
-            key:7,
+            key:8,
             label: "Other",
             value: "Other",
         },
         {
-            key:8,
+            key:9,
             label: "Phones",
             value: "Phones",
         },
@@ -178,28 +178,28 @@ const DropDownInput:NextPage<Props> = ({label}) => {
     let subDropDown = <DefaultDropDown  label="Select Item"/>
 
     if(selected === "Clothing/Shoes"){
-        subDropDown =   <SubDropDown options={clothing} />
+        subDropDown =   <SubDropDown options={clothing} index="Clothing/Shoes" />
     }else if(selected === "Computer/Acessories"){
-        subDropDown = <SubDropDown options={computer} />
+        subDropDown = <SubDropDown options={computer} index="Computer/Acessories"/>
     }else if(selected === "Document"){
-        subDropDown = <SubDropDown options={document} />
+        subDropDown = <SubDropDown options={document} index="Document"/>
     }else if(selected === "Food"){
-        subDropDown = <SubDropDown options={food} />
+        subDropDown = <SubDropDown options={food} index="Food"/>
     }else if(selected === "Electronics"){
-        subDropDown = <SubDropDown options={electronics} />
+        subDropDown = <SubDropDown options={electronics} index="Electronics" />
     }else if(selected === "Health"){
-        subDropDown = <SubDropDown options={health} />
+        subDropDown = <SubDropDown options={health} index="Health"/>
     }else if(selected === "Phones"){
-        subDropDown = <SubDropDown options={phones} />
+        subDropDown = <SubDropDown options={phones} index="Phones"/>
     }else if(selected === "other"){
-        subDropDown = <SubDropDown options={'other'}/>
+        subDropDown = <SubDropDown options={'other'} index="other"/>
     }
       
 
     return <>
         <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
             <label className="py-2">{label}</label>
-            <select className="py-2 outline-none pl-2 rounded-lg  border-slate-400 border" onChange={(e) => setSelected(e.target.value)}>
+            <select className="py-2 outline-none pl-2 rounded-lg bg-white  border-slate-400 border" onChange={(e) => setSelected(e.target.value)}>
                 <option value="" defaultValue='true' hidden className="text-sm font-normal" >
                 </option>
                 {options.map((option) => 
@@ -207,7 +207,6 @@ const DropDownInput:NextPage<Props> = ({label}) => {
                 )}
             </select>
         </div>
-        <h1>Hello product</h1>
         {subDropDown}
     </>
 }

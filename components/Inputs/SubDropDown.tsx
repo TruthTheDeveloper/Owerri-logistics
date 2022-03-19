@@ -6,9 +6,10 @@ import DefaultDropDown from './DefaultDropDown';
 
 interface Props{
     options: any,
+    index:string,
 }
 
-const DropDownInput:NextPage<Props> = ({options}) => {
+const DropDownInput:NextPage<Props> = ({options, index}) => {
 
     const [selected, setSelected] = useState<string>('')
 
@@ -76,7 +77,7 @@ const DropDownInput:NextPage<Props> = ({options}) => {
             value:"2kg"
         },
         {
-            key:1,
+            key:2,
             label:"3kg",
             value:"3kg"
         },
@@ -90,7 +91,7 @@ const DropDownInput:NextPage<Props> = ({options}) => {
             value:"2kg"
         },
         {
-            key:1,
+            key:2,
             label:"3kg",
             value:"3kg"
         },
@@ -108,21 +109,21 @@ const DropDownInput:NextPage<Props> = ({options}) => {
       
     let weightDropDown = <DefaultDropDown label="Select Weight"/>;
 
-    if(selected === "Clothing/Shoes"){
+    if(index === "Clothing/Shoes"){
         weightDropDown =   <WeightDropDown options={clothing} />
-    }else if(selected === "Computer/Acessories"){
+    }else if(index === "Computer/Acessories"){
         weightDropDown = <WeightDropDown options={computer} />
-    }else if(selected === "Document"){
+    }else if(index === "Document"){
         weightDropDown = <WeightDropDown options={document} />
-    }else if(selected === "Food"){
+    }else if(index === "Food"){
         weightDropDown = <WeightDropDown options={food} />
-    }else if(selected === "Electronics"){
+    }else if(index === "Electronics"){
         weightDropDown = <WeightDropDown options={electronics} />
-    }else if(selected === "Health"){
+    }else if(index === "Health"){
         weightDropDown = <WeightDropDown options={health} />
-    }else if(selected === "Phones"){
+    }else if(index === "Phones"){
         weightDropDown = <WeightDropDown options={phones} />
-    }else if(selected === "other"){
+    }else if(index === "other"){
         weightDropDown = <WeightDropDown options={'other'}/>
     }
     return <>
@@ -137,16 +138,6 @@ const DropDownInput:NextPage<Props> = ({options}) => {
             </select>
         </div>
         {weightDropDown}
-        {/* <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-            <label className="py-2">{label}</label>
-            <select className="py-2 outline-none pl-2 rounded-lg  border-slate-400 border">
-                <option value="" defaultValue='true' hidden className="text-sm font-normal" >
-                </option>
-                {options.map((option) => {
-                    <option value={option.value}>{option.label}</option>
-                })}
-            </select>
-        </div> */}
     </>
 }
 
