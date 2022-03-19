@@ -528,6 +528,11 @@ chokidar@^3.5.3:
   optionalDependencies:
     fsevents "~2.3.2"
 
+classnames@^2.2.5:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
+  integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
+
 color-convert@^1.9.0:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-1.9.3.tgz#bb71850690e1f136567de629d2d5471deda4c1e8"
@@ -572,6 +577,11 @@ cosmiconfig@^7.0.1:
     parse-json "^5.0.0"
     path-type "^4.0.0"
     yaml "^1.10.0"
+
+country-flag-icons@^1.0.2:
+  version "1.4.22"
+  resolved "https://registry.yarnpkg.com/country-flag-icons/-/country-flag-icons-1.4.22.tgz#6e65bd1e738bba332784f32fd980d91f78ef3b45"
+  integrity sha512-5i98GkVm7AlDQKqqLk36mYn02WmVz5Ghej2x6vn2j83z7aFH4ELeAsGImcEHPhA2w/S0KQSLs28YqMDDrmgwIA==
 
 cross-spawn@^7.0.2:
   version "7.0.3"
@@ -1181,6 +1191,13 @@ inherits@2:
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
   integrity sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
 
+input-format@^0.3.7:
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/input-format/-/input-format-0.3.7.tgz#08d63fc629985d604d1910e1d1a220b7a521bdc3"
+  integrity sha512-hgwiCjV7MnhFvX4Hwrvk7hB2a2rcB2CQb7Ex7GlK1ISbEXuLtflwBUnadFSA1rVNDPFh9yWBaJJ4/o1XkzhPIg==
+  dependencies:
+    prop-types "^15.7.2"
+
 internal-slot@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/internal-slot/-/internal-slot-1.0.3.tgz#7347e307deeea2faac2ac6205d4bc7d34967f59c"
@@ -1365,6 +1382,11 @@ levn@^0.4.1:
   dependencies:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
+
+libphonenumber-js@^1.9.50:
+  version "1.9.50"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.9.50.tgz#f5028a2c4cc47a69d69a0de3629afad97a613712"
+  integrity sha512-cCzQPChw2XbordcO2LKiw5Htx5leHVfFk/EXkxNHqJfFo7Fndcb1kF5wPJpc316vCJhhikedYnVysMh3Sc7Ocw==
 
 lilconfig@^2.0.4:
   version "2.0.4"
@@ -1704,7 +1726,7 @@ prelude-ls@^1.2.1:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
-prop-types@^15.8.1:
+prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -1741,6 +1763,17 @@ react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-phone-number-input@^3.1.47:
+  version "3.1.47"
+  resolved "https://registry.yarnpkg.com/react-phone-number-input/-/react-phone-number-input-3.1.47.tgz#bf9bc798f4e816bfb58136e8d8d43344aeb055e6"
+  integrity sha512-IDQE/Sh3n1ySLadEVWY3eLXPtOu6HEOorjgPsxVpZrs8RmqKENGEf5r2pO2Bb6j4FhQ9IgSaIjApjLaN7vN1UQ==
+  dependencies:
+    classnames "^2.2.5"
+    country-flag-icons "^1.0.2"
+    input-format "^0.3.7"
+    libphonenumber-js "^1.9.50"
+    prop-types "^15.7.2"
 
 react@17.0.2:
   version "17.0.2"
