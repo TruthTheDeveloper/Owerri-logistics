@@ -10,8 +10,9 @@ import { Route } from '../UI/utils/route/addItem';
 
 //Components
 import VechicleHeader from '../PageComponents/VechicleHeaders';
-import SimpleInput from '../Inputs/SimpleInput';
 import BackButton from '../Buttons/BackButton';
+import DropDownInput from '../Inputs/DropDownInput';
+import SubDropDown from '../Inputs/SubDropDown';
 
 
 const UploadPage:NextPage = () => {
@@ -48,9 +49,9 @@ const UploadPage:NextPage = () => {
                     <div className="mx-4 my-6 pb-10">
                     <div className="text-center py-3 bg-slate-200 shadow-sm lg:mx-14 xl:mx-24 2xl:mx-36"><h1>Item Info</h1></div>
                     <div className=" mx-4 my-2">
-                            <SimpleInput label="Select Category"/>
-                            <SimpleInput label="Select Item"/>
-                            <SimpleInput label="Select Weight range (kg)"/>
+                            <DropDownInput label="Select Category"/>
+                            {/* <DropDownInput label="Select Item"/> */}
+                            <DropDownInput label="Select Weight range (kg)"/>
                             <div className="flex lg:mx-14 xl:mx-24 2xl:mx-36 ">
                                 <div className="flex flex-col">
                                     <label className="py-2">Quantity</label>
