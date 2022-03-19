@@ -1,10 +1,17 @@
 import type {NextPage} from 'next';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
+
+//Font awesome
 import { faCloud } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import VechicleHeader from '../PageComponents/VechicleHeaders';
+
+// Ui utils
 import { Route } from '../UI/utils/route/addItem';
+
+//Components
+import VechicleHeader from '../PageComponents/VechicleHeaders';
+import SimpleInput from '../Inputs/SimpleInput';
+import BackButton from '../Buttons/BackButton';
 
 
 const UploadPage:NextPage = () => {
@@ -41,25 +48,16 @@ const UploadPage:NextPage = () => {
                     <div className="mx-4 my-6 pb-10">
                     <div className="text-center py-3 bg-slate-200 shadow-sm lg:mx-14 xl:mx-24 2xl:mx-36"><h1>Item Info</h1></div>
                     <div className=" mx-4 my-2">
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Select Category</label>
-                                <input className="py-2 pl-2 rounded-lg  border-slate-400 border" />
-                            </div>
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Select Item</label>
-                                <input className="py-2 pl-2 outline-none pl-2rounded-lg  border-slate-400 border" />
-                            </div>
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36  mb-2">
-                                <label className="py-2">Select Weight (kg)</label>
-                                <input className="py-2 outline-none pl-2 rounded-lg  border-slate-400 border" />
-                            </div>
+                            <SimpleInput label="Select Category"/>
+                            <SimpleInput label="Select Item"/>
+                            <SimpleInput label="Select Weight range (kg)"/>
                             <div className="flex lg:mx-14 xl:mx-24 2xl:mx-36 ">
                                 <div className="flex flex-col">
-                                    <label className="py-2">Select Weight (kg)</label>
+                                    <label className="py-2">Quantity</label>
                                     <input className="py-2 my-2 outline-none pl-2 rounded-lg w-36  border-slate-400 border" />
                                 </div>
                                 <div className="flex flex-col mx-auto ">
-                                    <label className="py-2">Select Weight (kg)</label>
+                                    <label className="py-2">Value(Naira)</label>
                                     <input className="py-2 my-2 outline-none pl-2  rounded-lg w-36   border-slate-400 border" />
                                 </div>
                             </div>
@@ -73,9 +71,7 @@ const UploadPage:NextPage = () => {
                             </div>
                         </div>
                         <div className="flex justify-center">
-                            <div className="pb-8 mx-4">
-                                <button className="bg-white rounded-md flex  mx-auto shadow-lg border border-slate-400 px-8 py-2" onClick={() => router.back()}>Back</button>
-                            </div>
+                            <BackButton/>
                             <div className="pb-8 mx-4">
                                 {rideRoute}
                             </div>

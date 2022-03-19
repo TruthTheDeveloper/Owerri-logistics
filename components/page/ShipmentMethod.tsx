@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 // UI Components
 import VechicleHeader from '../PageComponents/VechicleHeaders';
 import Form from '../ShipmentPage/Form';
+import BackButton from '../Buttons/BackButton';
 
 //UI utils
 import { Route } from '../UI/utils/route/uploadItemRoute';
@@ -44,9 +45,7 @@ const ShipmentMethod: NextPage = () => {
                    <Form formType="Sender"/>
                    <Form formType="Receiver"/>
                     <div className="flex justify-center">
-                            <div className="pb-8 mx-4">
-                                <button className="bg-white rounded-md flex  mx-auto shadow-lg border border-slate-400 px-8 py-2" onClick={() => router.back()}>Back</button>
-                            </div>
+                            <BackButton/>
                             <div className="pb-8 mx-4">
                                 {rideRoute}
                             </div>

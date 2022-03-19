@@ -5,6 +5,9 @@ import {useRouter} from 'next/router'
 import VechicleHeader from '../PageComponents/VechicleHeaders';
 import DeliverySummary from '../UI/components/DeliverySummary';
 import PricingSummary from '../UI/components/PricingSummary';
+import AddressInput from '../Inputs/AddressInput';
+import SimpleInput from '../Inputs/SimpleInput';
+import BackButton from '../Buttons/BackButton';
 
 const ReviewItem:NextPage = () => {
     const router = useRouter()
@@ -34,31 +37,17 @@ const ReviewItem:NextPage = () => {
                     <div className="mx-4 my-6 pb-10">
                     <div className="text-center py-3 bg-slate-200 shadow-sm lg:mx-14 xl:mx-24 2xl:mx-36"><h1>Content Details</h1></div>
                     <div className=" mx-4 my-2">
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Pick Up Address</label>
-                                <textarea className="h-24 py-2 pl-2  rounded-lg outline-none border-slate-400 border" />
-                            </div>
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Delivery Address</label>
-                                <textarea className="h-24 py-2 pl-2  rounded-lg outline-none  border-slate-400 border" />
-                            </div>
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Sender Name</label>
-                                <input className="py-2 pl-2 rounded-lg  border-slate-400 border" />
-                            </div>
-                            <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
-                                <label className="py-2">Receiver Name</label>
-                                <input className="py-2 pl-2 outline-none pl-2rounded-lg  border-slate-400 border" />
-                            </div>
+                            <AddressInput label="Pick Up Address"/>
+                            <AddressInput label="Delivery Address"/>
+                            <SimpleInput label="Sender Name"/>
+                            <SimpleInput label="Receiver Name"/>
                         </div>
                         <DeliverySummary/>
                         <PricingSummary/> 
                     </div>
                     
                     <div className="flex justify-center">
-                            <div className="pb-8 mx-4">
-                                <button className="bg-white rounded-md flex  mx-auto shadow-lg border border-slate-400 px-8 py-2" onClick={() => router.back()}>Back</button>
-                            </div>
+                            <BackButton/>
                             <div className="pb-8 mx-4">
                             <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">pay</button>
                             </div>

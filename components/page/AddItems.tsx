@@ -16,6 +16,8 @@ import { Route } from '../UI/utils/route/review';
 
 //UI Component
 import VechicleHeader from '../PageComponents/VechicleHeaders';
+import BackButton from '../Buttons/BackButton';
+import Link from 'next/link';
 
 const AddItems: NextPage = () => {
     const router = useRouter()
@@ -66,16 +68,14 @@ const AddItems: NextPage = () => {
                     </div>
                     <div className="border-slate-500 border-2 rounded-md text-center w-56 h-48 ml-28 sm:ml-36 md:ml-0">
                         <div className="mt-10">
-                            <span className="cursor-pointer"><FontAwesomeIcon icon={faCloudUpload} size='2x' /></span>
+                            <Link href="/select/motorbike/"><span className="cursor-pointer"><FontAwesomeIcon icon={faCloudUpload} size='2x' /></span></Link>
                         </div>
                         <p className="font-semibold my-2">Add Item</p>
                         <p className="text-sm">Add more items to your shipment</p>
                     </div>
                 </div>
                 <div className="flex justify-center">
-                            <div className="pb-8 mx-4">
-                                <button className="bg-white rounded-md flex  mx-auto shadow-lg border border-slate-400 px-8 py-2" onClick={() => router.back()}>Back</button>
-                            </div>
+                        <BackButton/>
                         <div className="pb-8 mx-4">
                             {rideRoute}
                         </div>
