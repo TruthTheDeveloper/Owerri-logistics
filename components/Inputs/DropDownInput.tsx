@@ -12,24 +12,27 @@ const DropDownInput:NextPage<Props> = ({label}) => {
 
     const options = [
         {
-          key:1,
-          label: "Clothing/Shoes",
-          value: "Clothing/Shoes",
+            key:1,
+            label: "Clothing/Shoes",
+            value: "Clothing/Shoes",
         },
         {
-          key:2,
-          label: "Computer/Acessories",
-          value: "Computer/Acessories",
+            key:2,
+            label: "Computer/Acessories",
+            value: "Computer/Acessories",
+        },
+        {   
+            key:3,
+            label: "Document",
+            value: "Document",
+        },
+        {   
+            key:4,
+            label: "Food",
+            value: "Food",
         },
         {
-          label: "Document",
-          value: "Document",
-        },
-        {
-          label: "Food",
-          value: "Food",
-        },
-        {
+            key:4,
             label: "Electronics",
             value: "Electronics",
         },
