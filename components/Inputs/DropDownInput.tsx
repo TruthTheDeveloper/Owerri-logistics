@@ -14,9 +14,10 @@ const DropDownInput:NextPage<Props> = ({label}) => {
     // const [select, setSelect] = useState<string|object>({})
 
     const categoryHandler = (e: { value: string; }) => {
-        setSelect({...select, category: e.value})
-        setSelect({...select, categoryError:""})
+        setSelect({...select, category: e.value, categoryError:"", item:''})
+        
     }
+
 
 
     
@@ -185,11 +186,11 @@ const DropDownInput:NextPage<Props> = ({label}) => {
     
     let subDropDown = <DefaultDropDown  label="Select Item"/>
 
-        if(select.category == "Clothing/Shoes"){
+    // console.log(select.category, 'category')
+
+        if(select.category === "Clothing/Shoes"){
             subDropDown =   <SubDropDown options={clothing} index="Clothing/Shoes" />
         }else if(select.category === "Computer/Acessories"){
-            subDropDown = <SubDropDown options={computer} index="Computer/Acessories"/>
-        }else if(select.category === ""){
             subDropDown = <SubDropDown options={computer} index="Computer/Acessories"/>
         }else if(select.category === "Document"){
             subDropDown = <SubDropDown options={document} index="Document"/>

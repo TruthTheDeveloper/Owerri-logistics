@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import {useContext} from 'react';
+import {useContext, useEffect,useState} from 'react';
 import SimpleInput from '../Inputs/SimpleInput';
 import WeightDropDown from '../Inputs/WeightDropDown';
 import DefaultDropDown from './DefaultDropDown';
@@ -15,12 +15,33 @@ const DropDownInput:NextPage<Props> = ({options, index}) => {
 
     const {select, setSelect} = useContext(AuthContext)
 
+    const [selectedItem,setSelectedItem]=useState('test')
+
+    // useEffect(() => {
+
+    //     console.log('changed')
+    //     setSelect({...select, item:""})
+
+    // },[select.category])
+
+
+    useEffect(()=>{
+        setSelectedItem('select item')
+    },[select.category])
+
     console.log(options, 'this options')
 
     const itemHandler = (e:{ value: string; }) => {
-        setSelect({...select, item: e.value})
-        setSelect({...select, itemError:""})
+        setSelectedItem(e.value)
+        setSelect({...select, item: e.value, itemError:""})
     }
+
+      
+
+
+    console.log(select.item, 'jckjckjck')
+
+
 
     const clothing = [
         {
@@ -142,10 +163,15 @@ const DropDownInput:NextPage<Props> = ({options, index}) => {
         <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
         {options !== 'Other' && <label className="py-2">Select Item</label>}
             {options === 'Other'? <SimpleInput label="Input Item"/> :
-                   <Select 
-                    defaultValue={select}
+                   <Select
+                    // value={select.item}
+                    // placeholder={'Select item'}
+                    // onChange={(item)=>console.log(item,' elected')}
                     onChange={itemHandler}
+                    value={selectedItem}
+                     placeholder={selectedItem}
                     options={options}
+                    isSearchable
                    />
                 }
                 <p className="text-red-500 text-sm font-semibold">{select.itemError}</p>

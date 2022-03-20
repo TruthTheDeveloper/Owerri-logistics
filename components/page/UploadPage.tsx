@@ -2,7 +2,7 @@ import type {NextPage} from 'next';
 import { useRouter } from 'next/router';
 
 //React
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 //Font awesome
 import { faCloud } from '@fortawesome/free-solid-svg-icons';
@@ -21,7 +21,16 @@ import AuthContext from '../../context/auth-context';
 
 const UploadPage:NextPage = () => {
 
+    const [categoryValidation, setCategoryValidation] = useState("")
+    const [itemValidation, setItemValidation] = useState("")
+    const [weightValidation, setWeightValidation] = useState("")
+    const [quantityValidation, setQuantityValidation] = useState("")
+    const [valueValidation, setValueValidation] = useState("")
+
+
     const [select, setSelect] = useState({
+        defaultValue:"",
+        defaultSubValue:"",
         category:'',
         item:'',
         weight:'',
@@ -36,23 +45,57 @@ const UploadPage:NextPage = () => {
     })
 
 
+    useEffect(() => {
+        // console.log(select.category, select.item, select.weight, 'for my hear only')
+    },[select])
+
+
     const router = useRouter()
     const { ride } = router.query
 
     let rideRoute = null;
 
-    const buttonHandler = () => {
-        //motorbike route
-        ride === 'motorbike' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""  ? router.push("/select/car/addItem")  : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required", category:'', item:'', weight:'', quantity:'', value:''})
+    const buttonHandler =  () => {
+        
+
+        if(select.category.length < 1){
+            setCategoryValidation('Please input category')
+            setSelect({...select, categoryError:categoryValidation})
+        }else if(select.item.length < 1){
+            setItemValidation("Please input item")
+            setSelect({...select, itemError:itemValidation})
+        }else if(select.weight.length < 1){
+            setWeightValidation("Please input weight")
+            setSelect({...select, weightError:weightValidation})
+        }else if(select.value.length < 1){
+            setQuantityValidation("please input value")
+            setSelect({...select, valueError:valueValidation})
+        }else if(select.quantity.length < 1){
+            setQuantityValidation("please input quantity")
+            setSelect({...select, quantityError:quantityValidation})
+        }
+    
+        // console.log(select.category.length, select.item.length, select.weight.length, select.quantity.length, select.value.length, 'for my hear only')
+            
+
+        // ride === 'motorbike' && select.category === "" &&  select.item === "" && select.weight === "" &&  select.quantity === "" && select.value === ""  ? 
+        // setSelect({...select,categoryError:categoryValidation,itemError:itemValidation,weightError:weightValidation, quantityError:quantityValidation,valueError:valueValidation}) : alert('ready')
+            
+            
+        
+        // motorbike route
+        // ride === 'motorbike' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""  ? 
+        // router.push("/select/motorbike/addItem") : 
+        // setSelect({...select,categoryError:'Please input category',itemError:"Please input Item",weightError:"please input weight", quantityError:"please input Quantity",valueError:"please input value"}) 
 
         // car route
-        ride === 'car' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""  ? router.push("/select/car/addItem") : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required"})
+        // ride === 'car' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""  ? router.push("/select/car/addItem") : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required"})
 
-        // van route
-        ride === 'van' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""   ? router.push("/select/van/addItem") : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required"})
+        // // van route
+        // ride === 'van' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""   ? router.push("/select/van/addItem") : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required"})
 
-        // track route
-        ride === 'truck' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""   ? router.push("/select/truck/addItem") : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required"})
+        // // track route
+        // ride === 'truck' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""   ? router.push("/select/truck/addItem") : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required"})
 
 
     }

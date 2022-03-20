@@ -14,11 +14,9 @@ const SmallInput:NextPage<Props> = ({label}) => {
     const smallInputHandler = (e:any) => {
         if(label ===  "Quantity"){
 
-                setSelect({...select, quantity:e.target.value})
-                setSelect({...select, quantityError:""})
+                setSelect({...select, quantity:e.target.value, quantityError:""})
         }else{
-            setSelect({...select, value:e.target.value})
-            setSelect({...select, valueError:""})
+            setSelect({...select, value:e.target.value, valueError:""})
         }
     }
 
