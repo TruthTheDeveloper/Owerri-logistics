@@ -1,8 +1,7 @@
 import type {NextPage} from 'next';
-import {useState} from 'react'
 import AddressInput from '../../components/Inputs/AddressInput';
-import SimpleInput from '../../components/Inputs/SimpleInput';
 import PhoneNumberInput from '../../components/Inputs/PhoneNumberInput';
+import Inputs from '../Inputs/Inputs';
 
 interface Props{
     formType: string,
@@ -17,9 +16,9 @@ const Form: NextPage<Props> = ({formType}) => {
                 
                 <AddressInput label="Address Line 1"/>
                 <AddressInput label="Address Line 2"/>
-                <SimpleInput label="Name"/>
+                <Inputs label="Name"/>
                 <PhoneNumberInput/>
-                <SimpleInput label="Location"/>
+                <Inputs label="Location"/>
             </div>
         </div>
     )

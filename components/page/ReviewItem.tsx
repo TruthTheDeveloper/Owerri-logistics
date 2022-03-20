@@ -6,8 +6,8 @@ import VechicleHeader from '../PageComponents/VechicleHeaders';
 import DeliverySummary from '../UI/components/DeliverySummary';
 import PricingSummary from '../UI/components/PricingSummary';
 import AddressInput from '../Inputs/AddressInput';
-import SimpleInput from '../Inputs/SimpleInput';
 import BackButton from '../Buttons/BackButton';
+import Inputs from '../Inputs/Inputs';
 
 const ReviewItem:NextPage = () => {
     const router = useRouter()
@@ -39,8 +39,8 @@ const ReviewItem:NextPage = () => {
                     <div className=" mx-4 my-2">
                             <AddressInput label="Pick Up Address"/>
                             <AddressInput label="Delivery Address"/>
-                            <SimpleInput label="Sender Name"/>
-                            <SimpleInput label="Receiver Name"/>
+                            <Inputs label="Sender Name"/>
+                            <Inputs label="Receiver Name"/>
                         </div>
                         <DeliverySummary/>
                         <PricingSummary/> 

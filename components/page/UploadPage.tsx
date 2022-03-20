@@ -1,6 +1,9 @@
 import type {NextPage} from 'next';
 import { useRouter } from 'next/router';
 
+//React
+import React, {useState, useContext} from 'react';
+
 //Font awesome
 import { faCloud } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,10 +15,23 @@ import { Route } from '../UI/utils/route/addItem';
 import VechicleHeader from '../PageComponents/VechicleHeaders';
 import BackButton from '../Buttons/BackButton';
 import DropDownInput from '../Inputs/DropDownInput';
-import SubDropDown from '../Inputs/SubDropDown';
+import SmallInput from '../Inputs/SmallInput';
+import AuthContext from '../../context/auth-context';
 
 
 const UploadPage:NextPage = () => {
+
+    // const authContext = useContext(AuthContext)
+
+    const [select] = useState({
+        category:'',
+        item:'',
+        weight:''
+    })
+    // const [category, setCategory] = useState<string|object>({})
+    // const [item, setItem] = useState<string|object>({})
+    // const [weight, setWeight] = useState<string|object>({})
+
     const router = useRouter()
     const { ride } = router.query
 
@@ -49,17 +65,15 @@ const UploadPage:NextPage = () => {
                     <div className="mx-4 my-6 pb-10">
                     <div className="text-center py-3 bg-slate-200 shadow-sm lg:mx-14 xl:mx-24 2xl:mx-36"><h1>Item Info</h1></div>
                     <div className=" mx-4 my-2">
-                            <DropDownInput label="Select Category"/>
-                            {/* <DropDownInput label="Select Item"/> */}
-                            {/* <DropDownInput label="Select Weight range (kg)"/> */}
+                            <AuthContext.Provider value={select}>
+                                <DropDownInput label="Select Category"/>
+                            </AuthContext.Provider>
                             <div className="flex lg:mx-14 xl:mx-24 2xl:mx-36 ">
                                 <div className="flex flex-col">
-                                    <label className="py-2">Quantity</label>
-                                    <input className="py-2 my-2 outline-none pl-2 rounded-lg w-36  border-slate-400 border" />
+                                    <SmallInput label={'Quantity'}/>
                                 </div>
                                 <div className="flex flex-col mx-auto ">
-                                    <label className="py-2">Value(Naira)</label>
-                                    <input className="py-2 my-2 outline-none pl-2  rounded-lg w-36   border-slate-400 border" />
+                                    <SmallInput label={'Value(Naira)'}/>
                                 </div>
                             </div>
                             <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36  my-8 border-slate-400 border">
