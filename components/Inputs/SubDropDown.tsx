@@ -19,6 +19,7 @@ const DropDownInput:NextPage<Props> = ({options, index}) => {
 
     const itemHandler = (e:{ value: string; }) => {
         setSelect({...select, item: e.value})
+        setSelect({...select, itemError:""})
     }
 
     const clothing = [

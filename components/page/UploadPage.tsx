@@ -43,7 +43,6 @@ const UploadPage:NextPage = () => {
 
     const buttonHandler = () => {
         //motorbike route
-        
         ride === 'motorbike' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""  ? router.push("/select/car/addItem")  : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required", category:'', item:'', weight:'', quantity:'', value:''})
 
         // car route
@@ -51,7 +50,6 @@ const UploadPage:NextPage = () => {
 
         // van route
         ride === 'van' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""   ? router.push("/select/van/addItem") : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required"})
-
 
         // track route
         ride === 'truck' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""   ? router.push("/select/truck/addItem") : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required"})
