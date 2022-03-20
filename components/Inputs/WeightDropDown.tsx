@@ -16,7 +16,7 @@ const WeightDropDown:NextPage<Props> = ({options}) => {
 
     const weightHandler = (e:{ value: string; }) => {
         setSelectedWeight(e.value)
-        setSelect({...select, weight: e.value, weightError:""})
+        setSelect({...select, weight: e.value})
 
     }
 

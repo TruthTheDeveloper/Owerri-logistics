@@ -58,22 +58,20 @@ const UploadPage:NextPage = () => {
     const buttonHandler =  () => {
         
 
-        if(select.category.length < 1){
-            setCategoryValidation('Please input category')
-            setSelect({...select, categoryError:categoryValidation})
-        }else if(select.item.length < 1){
-            setItemValidation("Please input item")
-            setSelect({...select, itemError:itemValidation})
-        }else if(select.weight.length < 1){
-            setWeightValidation("Please input weight")
-            setSelect({...select, weightError:weightValidation})
-        }else if(select.value.length < 1){
-            setQuantityValidation("please input value")
-            setSelect({...select, valueError:valueValidation})
-        }else if(select.quantity.length < 1){
-            setQuantityValidation("please input quantity")
-            setSelect({...select, quantityError:quantityValidation})
-        }
+        select.category.length < 1 ? 
+        setSelect({...select, categoryError:"Please input item"}) : setSelect({...select, categoryError:""})
+
+        select.category.length < 1 ?  
+        setSelect({...select, itemError:"Please input item"}) : setSelect({...select, itemError:""})
+
+        select.weight.length < 1 ?
+            setSelect({...select, weightError:"Please input weight"}) : setSelect({...select, weightError:""})
+
+        select.value.length < 1 ? 
+            setSelect({...select, valueError:"please input value"}) : setSelect({...select, valueError:""})
+            
+        select.quantity.length < 1 ?
+            setSelect({...select, quantityError:"please input quantity"}) : setSelect({...select, quantityError:""})
     
         // console.log(select.category.length, select.item.length, select.weight.length, select.quantity.length, select.value.length, 'for my hear only')
             
