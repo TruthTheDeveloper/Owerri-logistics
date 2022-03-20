@@ -21,13 +21,6 @@ import AuthContext from '../../context/auth-context';
 
 const UploadPage:NextPage = () => {
 
-    // const authContext = useContext(AuthContext)
-    // const [quantity, setQuantity] = useState<number>()
-    // const [quantityError, setQuantityError] = useState<string>('')
-
-    // const [value, setValue] = useState<number>()
-    // const [valueError, setValueError] = useState<string>('')
-
     const [select, setSelect] = useState({
         category:'',
         item:'',
