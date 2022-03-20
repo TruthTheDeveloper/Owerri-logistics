@@ -13,12 +13,12 @@ interface Props{
 
 const DropDownInput:NextPage<Props> = ({options, index}) => {
 
-    const contextData = useContext(AuthContext)
+    const {select, setSelect} = useContext(AuthContext)
 
     console.log(options, 'this options')
 
-    const itemHandler = (e:any) => {
-        contextData.item = e.value
+    const itemHandler = (e:{ value: string; }) => {
+        setSelect({...select, item: e.value})
     }
 
     const clothing = [
@@ -142,11 +142,12 @@ const DropDownInput:NextPage<Props> = ({options, index}) => {
         {options !== 'Other' && <label className="py-2">Select Item</label>}
             {options === 'Other'? <SimpleInput label="Input Item"/> :
                    <Select 
-                    defaultValue={contextData.items}
+                    defaultValue={select}
                     onChange={itemHandler}
                     options={options}
                    />
                 }
+                <p className="text-red-500 text-sm font-semibold">{select.itemError}</p>
         </div>
         {weightDropDown}
     </>

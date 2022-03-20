@@ -2,7 +2,7 @@ import type {NextPage} from 'next';
 import { useRouter } from 'next/router';
 
 //React
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 
 //Font awesome
 import { faCloud } from '@fortawesome/free-solid-svg-icons';
@@ -22,22 +22,51 @@ import AuthContext from '../../context/auth-context';
 const UploadPage:NextPage = () => {
 
     // const authContext = useContext(AuthContext)
+    // const [quantity, setQuantity] = useState<number>()
+    // const [quantityError, setQuantityError] = useState<string>('')
 
-    const [select] = useState({
+    // const [value, setValue] = useState<number>()
+    // const [valueError, setValueError] = useState<string>('')
+
+    const [select, setSelect] = useState({
         category:'',
         item:'',
-        weight:''
+        weight:'',
+        quantity:'',
+        value:'',
+        quantityError:'',
+        valueError:'',
+        categoryError:'',
+        itemError:'',
+        weightError:''
+
     })
-    // const [category, setCategory] = useState<string|object>({})
-    // const [item, setItem] = useState<string|object>({})
-    // const [weight, setWeight] = useState<string|object>({})
+
 
     const router = useRouter()
     const { ride } = router.query
 
     let rideRoute = null;
 
-    rideRoute = Route(ride)
+    const buttonHandler = () => {
+        //motorbike route
+        
+        ride === 'motorbike' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""  ? router.push("/select/car/addItem")  : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required", category:'', item:'', weight:'', quantity:'', value:''})
+
+        // car route
+        ride === 'car' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""  ? router.push("/select/car/addItem") : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required"})
+
+        // van route
+        ride === 'van' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""   ? router.push("/select/van/addItem") : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required"})
+
+
+        // track route
+        ride === 'truck' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""   ? router.push("/select/truck/addItem") : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required"})
+
+
+    }
+
+    rideRoute = Route(ride, select)
 
     return (
         <div style={{background:'#F3F4F6'}} className="overflow-hidden">
@@ -64,18 +93,20 @@ const UploadPage:NextPage = () => {
                 <div className="sm:mx-16 md:mx-24 lg:mx-32 xl:mx-44 2xl:56">
                     <div className="mx-4 my-6 pb-10">
                     <div className="text-center py-3 bg-slate-200 shadow-sm lg:mx-14 xl:mx-24 2xl:mx-36"><h1>Item Info</h1></div>
+                   
                     <div className=" mx-4 my-2">
-                            <AuthContext.Provider value={select}>
+                        <AuthContext.Provider value={{select, setSelect}}>
                                 <DropDownInput label="Select Category"/>
-                            </AuthContext.Provider>
+                            
                             <div className="flex lg:mx-14 xl:mx-24 2xl:mx-36 ">
                                 <div className="flex flex-col">
                                     <SmallInput label={'Quantity'}/>
                                 </div>
                                 <div className="flex flex-col mx-auto ">
-                                    <SmallInput label={'Value(Naira)'}/>
+                                    <SmallInput label={'Value(Naira)'}  />
                                 </div>
                             </div>
+                            </AuthContext.Provider>
                             <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36  my-8 border-slate-400 border">
                                 <h1 className="text-center my-4 ">Upload Items</h1>
                                 <div className='  mx-auto'>
@@ -88,7 +119,7 @@ const UploadPage:NextPage = () => {
                         <div className="flex justify-center">
                             <BackButton/>
                             <div className="pb-8 mx-4">
-                                {rideRoute}
+                                <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2" onClick={buttonHandler}>Next</button>
                             </div>
                         </div>
                     </div>

@@ -27,6 +27,18 @@ const AddItems: NextPage = () => {
 
     rideRoute = Route(ride)
 
+    const buttonHandler = () => {
+        if(ride === 'motorbike'){
+            router.push("/select/motorbike/review")
+        }else if(ride === 'car' ){
+            router.push("/select/car/review")
+        }else if(ride === 'van'){
+            router.push("/select/van/review")
+        }else if(ride === 'truck'){
+            router.push("/select/truck/review")
+        }
+    }
+
     return (
         <div style={{background:'#F3F4F6'}} className="overflow-hidden">
             <VechicleHeader/>
@@ -77,7 +89,7 @@ const AddItems: NextPage = () => {
                 <div className="flex justify-center">
                         <BackButton/>
                         <div className="pb-8 mx-4">
-                            {rideRoute}
+                        <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2" onClick={buttonHandler}>Next</button>
                         </div>
                 </div>
             </div>

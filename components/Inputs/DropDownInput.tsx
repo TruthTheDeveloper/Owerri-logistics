@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import {useContext, useEffect} from 'react';
+import {useContext} from 'react';
 import SubDropDown from '../Inputs/SubDropDown';
 import DefaultDropDown from '../Inputs/DefaultDropDown';
 import Select from 'react-select';
@@ -9,14 +9,14 @@ interface Props{
 }
 
 const DropDownInput:NextPage<Props> = ({label}) => {
-    const contextData = useContext(AuthContext)
+    const {select, setSelect} = useContext(AuthContext)
 
-    const categoryHandler = (e:any) => {
-        contextData.category = e.value
-        console.log(contextData.category, 'jdjdhdjk')
+    // const [select, setSelect] = useState<string|object>({})
+
+    const categoryHandler = (e: { value: string; }) => {
+        setSelect({...select, category: e.value})
     }
 
-    useEffect(() => {},[contextData.category])
 
     
     
@@ -184,24 +184,24 @@ const DropDownInput:NextPage<Props> = ({label}) => {
     
     let subDropDown = <DefaultDropDown  label="Select Item"/>
 
-        if(contextData.category == "Clothing/Shoes"){
+        if(select.category == "Clothing/Shoes"){
             subDropDown =   <SubDropDown options={clothing} index="Clothing/Shoes" />
-        }else if(contextData.category === "Computer/Acessories"){
+        }else if(select.category === "Computer/Acessories"){
             subDropDown = <SubDropDown options={computer} index="Computer/Acessories"/>
-        }else if(contextData.category === ""){
+        }else if(select.category === ""){
             subDropDown = <SubDropDown options={computer} index="Computer/Acessories"/>
-        }else if(contextData.category === "Document"){
+        }else if(select.category === "Document"){
             console.log('cat')
             subDropDown = <SubDropDown options={document} index="Document"/>
-        }else if(contextData.category === "Food"){
+        }else if(select.category === "Food"){
             subDropDown = <SubDropDown options={food} index="Food"/>
-        }else if(contextData.category === "Electronics"){
+        }else if(select.category === "Electronics"){
             subDropDown = <SubDropDown options={electronics} index="Electronics" />
-        }else if(contextData.category === "Health"){
+        }else if(select.category === "Health"){
             subDropDown = <SubDropDown options={health} index="Health"/>
-        }else if(contextData.category === "Phones"){
+        }else if(select.category === "Phones"){
             subDropDown = <SubDropDown options={phones} index="Phones"/>
-        }else if(contextData.category === "Other"){
+        }else if(select.category === "Other"){
             subDropDown = <SubDropDown options={'Other'} index="Other"/>
         }
       
@@ -209,13 +209,13 @@ const DropDownInput:NextPage<Props> = ({label}) => {
     return <>
         <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
             <label className="py-2">{label}</label>
-            <p>{contextData.category}</p>
             <Select
-                defaultValue={contextData.category}
+                defaultValue={select}
                 onChange={categoryHandler}
                 options={options}
             />
 
+            <p className="text-red-500 text-sm font-semibold">{select.categoryError}</p>
         </div>
         {subDropDown}
     </>

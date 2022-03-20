@@ -1,5 +1,5 @@
 import Link from 'next/link'
-export const Route = (url:any) => {
+export const Route = (url:string | string[] | undefined) => {
     if(url === 'motorbike'){
         return <Link href="/select/motorbike/review">
                     <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">Next</button>

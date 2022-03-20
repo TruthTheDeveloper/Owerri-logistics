@@ -18,6 +18,18 @@ const ShipmentMethod: NextPage = () => {
 
     rideRoute = Route(ride)
 
+    const buttonHandler = () => {
+        if(ride === 'motorbike'){
+            router.push("/select/motorbike/uploadItem")
+        }else if(ride === 'car' ){
+            router.push("/select/car/uploadItem")
+        }else if(ride === 'van'){
+            router.push("/select/van/uploadItem")
+        }else if(ride === 'truck'){
+            router.push("/select/truck/uploadItem")
+        }
+    }
+
     return (
         <div style={{background:'#F3F4F6'}} className="overflow-hidden">
             <VechicleHeader/>
@@ -47,7 +59,7 @@ const ShipmentMethod: NextPage = () => {
                     <div className="flex justify-center">
                             <BackButton/>
                             <div className="pb-8 mx-4">
-                                {rideRoute}
+                                <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2" onClick={buttonHandler}>Next</button>
                             </div>
                     </div>
                 </div>

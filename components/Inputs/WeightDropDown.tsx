@@ -11,10 +11,10 @@ interface Props{
 
 const WeightDropDown:NextPage<Props> = ({options}) => {
 
-    const contextData = useContext(AuthContext)
+    const {select, setSelect}  = useContext(AuthContext)
 
-    const weightHandler = (e:any) => {
-        contextData.weight = e.value
+    const weightHandler = (e:{ value: string; }) => {
+        setSelect({...select, weight: e.value})
     }
 
     return <>
@@ -23,11 +23,13 @@ const WeightDropDown:NextPage<Props> = ({options}) => {
                 <option value="" defaultValue='true' hidden className="text-sm font-normal" >
                 </option>
                 {options === 'Other'? <SimpleInput label="Input Weights"/> : <Select 
-                    defaultValue={contextData.weight}
+                    defaultValue={select}
                     onChange={weightHandler}
                     options={options}
                    />
                 }
+
+                <p className="text-red-500 text-sm font-semibold">{select.weightError}</p>
         </div>
     </>
 }

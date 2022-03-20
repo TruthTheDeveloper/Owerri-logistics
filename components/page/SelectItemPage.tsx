@@ -25,6 +25,18 @@ const SelectItem: NextPage = () => {
 
     rideRoute = Route(ride)
 
+    const buttonHandler = () => {
+        if(ride === 'motorbike'){
+            router.push("/select/motorbike/shipment")
+        }else if(ride === 'car' ){
+            router.push("/select/car/shipment")
+        }else if(ride === 'van'){
+            router.push("/select/van/shipment")
+        }else if(ride === 'truck'){
+            router.push("/select/truck/shipment")
+        }
+    }
+
     
 
     return (
@@ -73,7 +85,7 @@ const SelectItem: NextPage = () => {
                          />
                     </div>
                 <div className="pb-8">
-                    {rideRoute}
+                    <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2" onClick={buttonHandler}>Next</button>
                 </div>
             </div>
         </div>
