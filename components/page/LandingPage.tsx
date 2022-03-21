@@ -13,7 +13,9 @@ const LandingPage: NextPage = () => {
   return (
     <>
     <Head>
-    
+    {/* <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"></link> */}
     </Head>
     <Layout>
         <header className="mx-6  mb-8">

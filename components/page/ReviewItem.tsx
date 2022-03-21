@@ -1,6 +1,8 @@
 import type {NextPage} from 'next';
 import {useRouter} from 'next/router'
 
+import {useState} from 'react';
+
 //UI components
 import VechicleHeader from '../PageComponents/VechicleHeaders';
 import DeliverySummary from '../UI/components/DeliverySummary';
@@ -10,6 +12,8 @@ import BackButton from '../Buttons/BackButton';
 import Inputs from '../Inputs/Inputs';
 
 const ReviewItem:NextPage = () => {
+
+
     const router = useRouter()
     return (
         <div style={{background:'#F3F4F6'}} className="overflow-hidden">

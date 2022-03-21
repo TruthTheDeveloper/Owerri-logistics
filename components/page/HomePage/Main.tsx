@@ -15,7 +15,7 @@ import motorbike from '../../../public/assets/motorbike 1.png';
 const Main: NextPage = () => {
   return (
       <div style={{background:'#F3F4F6'}} className="overflow-hidden">
-        <div className=" bg-white font-medium py-10 mx-8 md:mx-16 lg:mx-32 xl:mx-56 2xl:mx-64  mt-12">
+        <div className=" bg-white font-medium py-10 mx-8 md:mx-16 lg:mx-32 xl:mx-56 2xl:mx-64  mt-12 ">
             <p className="text-center">Please select the most suitable</p>
             <p className="text-center">Vechicle To pick up your item</p>
           </div>

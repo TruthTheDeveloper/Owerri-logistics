@@ -1,3 +1,4 @@
+//Next
 import type {NextPage} from 'next';
 import { useRouter } from 'next/router';
 
@@ -8,8 +9,6 @@ import React, {useState, useEffect} from 'react';
 import { faCloud } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-// Ui utils
-import { Route } from '../UI/utils/route/addItem';
 
 //Components
 import VechicleHeader from '../PageComponents/VechicleHeaders';
@@ -21,11 +20,8 @@ import AuthContext from '../../context/auth-context';
 
 const UploadPage:NextPage = () => {
 
-    const [categoryValidation, setCategoryValidation] = useState("")
-    const [itemValidation, setItemValidation] = useState("")
-    const [weightValidation, setWeightValidation] = useState("")
-    const [quantityValidation, setQuantityValidation] = useState("")
-    const [valueValidation, setValueValidation] = useState("")
+    const router = useRouter()
+    const { ride } = router.query
 
 
     const [select, setSelect] = useState({
@@ -44,55 +40,67 @@ const UploadPage:NextPage = () => {
 
     })
 
-
-    // useEffect(() => {
-    //     // console.log(select.category, select.item, select.weight, 'for my hear only')
-    //     console.log(select.category.length, select.item.length, select.weight.length, select.quantity.length, select.value.length, 'for my hear only')
-
-    //     select.category.length < 1 &&
-    //     setSelect({...select, categoryError:"Please input category", itemError:select.itemError, weightError:select.weightError, valueError:select.valueError, quantityError:select.quantityError})
-
-    //     select.item.length < 1 &&
-    //     setSelect({...select, itemError:"Please input item" , categoryError:select.itemError, weightError:select.weightError, valueError:select.valueError, quantityError:select.quantityError})
-
-    //     select.weight.length < 1 &&
-    //         setSelect({...select, weightError:"Please input weight", itemError:select.itemError, categoryError:select.itemError, valueError:select.valueError, quantityError:select.quantityError})
-
-    //     select.value.length < 1 && 
-    //         setSelect({...select, valueError:"please input value", itemError:select.itemError, categoryError:select.itemError,  quantityError:select.quantityError})
-
-    //     select.quantity.length < 1 &&
-    //     setSelect({...select, quantityError:"please input quantity", itemError:select.itemError, categoryError:select.itemError,valueError:select.valueError})
-    // },[])
+    const [quantityValidation, setQuantityValidation] = useState("")
+    const [valueValidation, setValueValidation] = useState("")
+    const [categoryValidation, setCategoryValidation] = useState("")
+    const [itemValidation, setItemValidation] = useState("")
+    const [weightValidation, setWeightValidation] = useState("")
 
 
-    const router = useRouter()
-    const { ride } = router.query
+    useEffect(() => {
 
-    let rideRoute = null;
-
-    const buttonHandler =  () => {
-            
-            
-        
-        // motorbike route
-        ride === 'motorbike' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""  ? 
+        //motorbike
+        ride === 'motorbike' && select.category.length > 1 && select.item.length > 1 && select.weight.length > 1 && select.quantity.length >= 1 && select.value.length >= 1  ? 
         router.push("/select/motorbike/addItem") : 
-        setSelect({...select,categoryError:'Please input category',itemError:"Please input Item",weightError:"please input weight", quantityError:"please input Quantity",valueError:"please input value"}) 
+        setSelect({...select,categoryError:categoryValidation,itemError:itemValidation,weightError:weightValidation, quantityError:quantityValidation,valueError:valueValidation})
 
-        // car route
-        ride === 'car' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""  ? router.push("/select/car/addItem") : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required"})
+        // // // car route
+        ride === 'car' &&  select.category.length > 1 && select.item.length > 1 && select.weight.length > 1 && select.quantity.length >= 1 && select.value.length >= 1   ?
+        router.push("/select/car/addItem") : 
+        setSelect({...select, categoryError: categoryValidation, itemError:itemValidation, weightError:weightValidation, quantityError:quantityValidation, valueError:valueValidation})
 
-        // // van route
-        ride === 'van' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""   ? router.push("/select/van/addItem") : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required"})
+        // // // van route
+        ride === 'van' &&  select.category.length > 1 && select.item.length > 1 && select.weight.length > 1 && select.quantity.length >= 1 && select.value.length >= 1   ? router.push("/select/van/addItem") : setSelect({...select, categoryError: categoryValidation, itemError:itemValidation, weightError:weightValidation, quantityError:quantityValidation, valueError:valueValidation})
+        // // // track route
+        ride === 'truck' &&  select.category.length > 1 && select.item.length > 1 && select.weight.length > 1 && select.quantity.length >= 1 && select.value.length >= 1    ? router.push("/select/truck/addItem") : setSelect({...select, categoryError: categoryValidation, itemError:itemValidation, weightError:weightValidation, quantityError:quantityValidation, valueError:valueValidation})
 
-        // // track route
-        ride === 'truck' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""   ? router.push("/select/truck/addItem") : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required"})
+
+
+            
+    },[categoryValidation, itemValidation, quantityValidation, valueValidation, weightValidation])
+
+
+    
+
+
+    
+
+    const buttonHandler =  async (e: { preventDefault: () => void; }) => {  
+        e.preventDefault()
+
+            // select validation
+            
+            select.category.length < 1 ? setCategoryValidation("Please select category"):
+            setCategoryValidation("")
+
+
+            select.item.length < 1 ? setItemValidation("Please select item"):
+            setItemValidation("")
+
+            select.weight.length < 1 ? setWeightValidation("Please select weight"):
+            setWeightValidation("")
+
+            select.quantity.length < 1 ? setQuantityValidation("Please enter quantity"):
+            setQuantityValidation("")
+
+            select.value.length < 1 ? setValueValidation("Please enter value"):
+            setValueValidation("")
 
 
     }
 
-    rideRoute = Route(ride, select)
+    
+
 
     return (
         <div style={{background:'#F3F4F6'}} className="overflow-hidden">
