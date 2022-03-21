@@ -4,7 +4,7 @@ interface Props{
     label:string,
     value:string,
     error:string,
-    onChange:any
+    onChange:() => void
 }
 
 const Inputs:NextPage<Props> = ({label, value, error, onChange}) => {

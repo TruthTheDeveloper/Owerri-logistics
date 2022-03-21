@@ -4,7 +4,11 @@ import type {NextPage} from 'next';
 import {useContext, useState, useEffect} from 'react';
 import AuthContext from '../../context/auth-context';
 import AddressInput from '../../components/Inputs/AddressInput';
+
+//componenets
 import Inputs from '../Inputs/Inputs';
+
+//Third party
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
 
@@ -17,8 +21,9 @@ const Form: NextPage<Props> = ({formType}) => {
     const [senderInfo ,receiverInfo ] = useContext(AuthContext)
 
     const {senderShipmentInfo, setSenderShipmentInfo} = senderInfo;
-
     const {receiverShipmentInfo, setReceiverShipmentInfo} = receiverInfo;
+
+    //phone Number value
     const [senderPhoneNumbervalue, setPhoneNumberValue] = useState<any>(undefined || '')
     const [receiverPhoneNumberValue, setReceiverPhoneNumberValue] = useState<any>(undefined || '')
 
@@ -27,6 +32,9 @@ const Form: NextPage<Props> = ({formType}) => {
         formType === "Sender" ? setSenderShipmentInfo({...senderShipmentInfo, phoneNumber:senderPhoneNumbervalue, phoneNumberError:""}) : setReceiverShipmentInfo({...receiverShipmentInfo, phoneNumber:receiverPhoneNumberValue, phoneNumberError:""})
     },[senderPhoneNumbervalue, receiverPhoneNumberValue])
 
+
+
+    // input handler functions
 
 
     const firstAddressInputHandler = (e: { target: { value: string; }; }) => {
@@ -49,9 +57,6 @@ const Form: NextPage<Props> = ({formType}) => {
         
     }
 
-    const phoneNumberInputHandler = (e: { target: { value: string; }; }) => {
-        
-    }
 
     const locationInputhandler = (e: { target: { value: string; }; }) => {
 

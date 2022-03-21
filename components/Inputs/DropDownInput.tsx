@@ -11,8 +11,6 @@ interface Props{
 const DropDownInput:NextPage<Props> = ({label}) => {
     const {select, setSelect} = useContext(AuthContext)
 
-    // const [select, setSelect] = useState<string|object>({})
-
     const categoryHandler = (e: { value: string; }) => {
         setSelect({...select, category: e.value, categoryError:"", item:''})
         
