@@ -14,7 +14,7 @@ const DropDownInput:NextPage<Props> = ({label}) => {
     // const [select, setSelect] = useState<string|object>({})
 
     const categoryHandler = (e: { value: string; }) => {
-        setSelect({...select, category: e.value,  item:''})
+        setSelect({...select, category: e.value, categoryError:"", item:''})
         
     }
 

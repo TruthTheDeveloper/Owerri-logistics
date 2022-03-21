@@ -45,9 +45,25 @@ const UploadPage:NextPage = () => {
     })
 
 
-    useEffect(() => {
-        // console.log(select.category, select.item, select.weight, 'for my hear only')
-    },[select])
+    // useEffect(() => {
+    //     // console.log(select.category, select.item, select.weight, 'for my hear only')
+    //     console.log(select.category.length, select.item.length, select.weight.length, select.quantity.length, select.value.length, 'for my hear only')
+
+    //     select.category.length < 1 &&
+    //     setSelect({...select, categoryError:"Please input category", itemError:select.itemError, weightError:select.weightError, valueError:select.valueError, quantityError:select.quantityError})
+
+    //     select.item.length < 1 &&
+    //     setSelect({...select, itemError:"Please input item" , categoryError:select.itemError, weightError:select.weightError, valueError:select.valueError, quantityError:select.quantityError})
+
+    //     select.weight.length < 1 &&
+    //         setSelect({...select, weightError:"Please input weight", itemError:select.itemError, categoryError:select.itemError, valueError:select.valueError, quantityError:select.quantityError})
+
+    //     select.value.length < 1 && 
+    //         setSelect({...select, valueError:"please input value", itemError:select.itemError, categoryError:select.itemError,  quantityError:select.quantityError})
+
+    //     select.quantity.length < 1 &&
+    //     setSelect({...select, quantityError:"please input quantity", itemError:select.itemError, categoryError:select.itemError,valueError:select.valueError})
+    // },[])
 
 
     const router = useRouter()
@@ -56,44 +72,22 @@ const UploadPage:NextPage = () => {
     let rideRoute = null;
 
     const buttonHandler =  () => {
-        
-
-        select.category.length < 1 ? 
-        setSelect({...select, categoryError:"Please input item"}) : setSelect({...select, categoryError:""})
-
-        select.category.length < 1 ?  
-        setSelect({...select, itemError:"Please input item"}) : setSelect({...select, itemError:""})
-
-        select.weight.length < 1 ?
-            setSelect({...select, weightError:"Please input weight"}) : setSelect({...select, weightError:""})
-
-        select.value.length < 1 ? 
-            setSelect({...select, valueError:"please input value"}) : setSelect({...select, valueError:""})
-            
-        select.quantity.length < 1 ?
-            setSelect({...select, quantityError:"please input quantity"}) : setSelect({...select, quantityError:""})
-    
-        // console.log(select.category.length, select.item.length, select.weight.length, select.quantity.length, select.value.length, 'for my hear only')
-            
-
-        // ride === 'motorbike' && select.category === "" &&  select.item === "" && select.weight === "" &&  select.quantity === "" && select.value === ""  ? 
-        // setSelect({...select,categoryError:categoryValidation,itemError:itemValidation,weightError:weightValidation, quantityError:quantityValidation,valueError:valueValidation}) : alert('ready')
             
             
         
         // motorbike route
-        // ride === 'motorbike' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""  ? 
-        // router.push("/select/motorbike/addItem") : 
-        // setSelect({...select,categoryError:'Please input category',itemError:"Please input Item",weightError:"please input weight", quantityError:"please input Quantity",valueError:"please input value"}) 
+        ride === 'motorbike' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""  ? 
+        router.push("/select/motorbike/addItem") : 
+        setSelect({...select,categoryError:'Please input category',itemError:"Please input Item",weightError:"please input weight", quantityError:"please input Quantity",valueError:"please input value"}) 
 
         // car route
-        // ride === 'car' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""  ? router.push("/select/car/addItem") : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required"})
+        ride === 'car' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""  ? router.push("/select/car/addItem") : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required"})
 
         // // van route
-        // ride === 'van' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""   ? router.push("/select/van/addItem") : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required"})
+        ride === 'van' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""   ? router.push("/select/van/addItem") : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required"})
 
         // // track route
-        // ride === 'truck' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""   ? router.push("/select/truck/addItem") : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required"})
+        ride === 'truck' && select.category !== "" && select.item !== "" && select.weight !== "" && select.quantity !== "" && select.value !== ""   ? router.push("/select/truck/addItem") : setSelect({...select, categoryError: "Please input category", itemError:"Please input Item", weightError:"Please Input weight", quantityError:'This field is required', valueError:"This field is required"})
 
 
     }
