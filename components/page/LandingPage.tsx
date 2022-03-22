@@ -6,8 +6,9 @@ import Head from 'next/head';
 import Header from './HomePage/Header';
 import Main from './HomePage/Main';
 import ContactUs from './HomePage/ContactUs';
-import TrackItem from './HomePage/TrackItem';
+// import TrackItem from './HomePage/TrackItem';
 import Layout from '../Layout/Layout';
+import MoreInfo from './HomePage/MoreInfo';
 
 const LandingPage: NextPage = () => {
   return (
@@ -20,9 +21,9 @@ const LandingPage: NextPage = () => {
     <Layout>
         <header className="mx-6  mb-8">
           <Header/>
-          <TrackItem/>
         </header>
         <Main/>
+        <MoreInfo/>
         <ContactUs/>
     </Layout>
     </>

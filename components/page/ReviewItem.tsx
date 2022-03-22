@@ -41,10 +41,18 @@ const ReviewItem:NextPage = () => {
                     <div className="mx-4 my-6 pb-10">
                     <div className="text-center py-3 bg-slate-200 shadow-sm lg:mx-14 xl:mx-24 2xl:mx-36"><h1>Content Details</h1></div>
                     <div className=" mx-4 my-2">
-                            <AddressInput label="Pick Up Address"/>
-                            <AddressInput label="Delivery Address"/>
-                            <Inputs label="Sender Name"/>
-                            <Inputs label="Receiver Name"/>
+                            <AddressInput label="Pick Up Address" value={''} error={''} onChange={function (e: any): void {
+                                throw new Error('Function not implemented.');
+                            } }/>
+                            <AddressInput label="Delivery Address" value={''} error={''} onChange={function (e: any): void {
+                                throw new Error('Function not implemented.');
+                            } }/>
+                            <Inputs label="Sender Name" value={''} error={''} onChange={function (): void {
+                                throw new Error('Function not implemented.');
+                            } }/>
+                            <Inputs label="Receiver Name" value={''} error={''} onChange={function (): void {
+                                throw new Error('Function not implemented.');
+                            } }/>
                         </div>
                         <DeliverySummary/>
                         <PricingSummary/> 

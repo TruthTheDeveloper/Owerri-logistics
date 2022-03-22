@@ -4,7 +4,7 @@ import type { NextPage } from 'next';
 
 const ContactUs: NextPage = () => {
   return (
-      <div className="">
+      <div className="pt-8">
           <h1 className=" font-medium text-center text-2xl my-6">Contact Us</h1>
           <div className="flex flex-col mb-10">
             <div className="w-full flex justify-center my-3">

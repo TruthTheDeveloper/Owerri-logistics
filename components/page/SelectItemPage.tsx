@@ -1,6 +1,10 @@
 import type {NextPage} from 'next';
 import Image from 'next/image';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
+
+//React
+
+import {useState} from 'react';
 
 // image import
 import map from './../../public/assets/map.png'
@@ -13,29 +17,52 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //UI component
 import VechicleHeader from '../PageComponents/VechicleHeaders';
 
-//Ui utils
-import { Route } from '../UI/utils/route/shipmentRoute';
 
 
-const SelectItem: NextPage = () => {
+
+const SelectItem: NextPage = () => {    
     const router = useRouter()
     const { ride } = router.query
 
-    let rideRoute = null;
+    const [pickUpAddress, setPickUpAddress] = useState('')
+    const [deliveryAddress, setDeliveryAddress] = useState('')
 
-    rideRoute = Route(ride)
+    const [pickUpAddressValidation, setPickUpAddressValidation] = useState('')
+    const [deliveryAddressValidation, setDeliveryAddressValidation] = useState('')
+
+
+    const pickUpAddressHandler = (e:{target:{value: string}}) => {
+        setPickUpAddress(e.target.value)
+        setPickUpAddressValidation()
+    }
+
+    const deliveryAddressHandler = (e:{target:{value: string}}) => {
+        setDeliveryAddress(e.target.value)
+    }
+
 
     const buttonHandler = () => {
-        if(ride === 'motorbike'){
-            router.push("/select/motorbike/shipment")
-        }else if(ride === 'car' ){
-            router.push("/select/car/shipment")
-        }else if(ride === 'van'){
-            router.push("/select/van/shipment")
-        }else if(ride === 'truck'){
-            router.push("/select/truck/shipment")
-        }
+        console.log(pickUpAddress.length < 1, deliveryAddress.length < 1 , 'address')
+
+        pickUpAddress.length < 1 ? setPickUpAddressValidation('This field is required') :
+        setPickUpAddressValidation('')
+        
+
+        deliveryAddress.length < 1 ? setDeliveryAddressValidation('this field is required'):
+        setDeliveryAddressValidation('') 
+        
+
+
+        ride === 'motorbike' && pickUpAddress.length > 1 && deliveryAddress.length > 1 && router.push("/select/motorbike/shipment")
+
+        ride === 'car' && pickUpAddress.length > 1 && deliveryAddress.length > 1 &&  router.push("/select/car/shipment")
+
+        ride === 'van' && pickUpAddress.length > 1 && deliveryAddress.length > 1 &&  router.push("select/van/shipment")
+
+        ride === 'truck' && pickUpAddress.length > 1 && deliveryAddress.length > 1 &&  router.push("/select/truck/shipment")
+
     }
+
 
     
 
@@ -67,14 +94,20 @@ const SelectItem: NextPage = () => {
                         <label className="mb-2 ml-8">Pickup Address</label>
                         <div className="flex" >
                             <span className="mx-2 mt-2"><FontAwesomeIcon icon={faDirections}  /></span>
-                            <input className="h-10 lg:h-12 p-4 placeholder:text-sm w-full placeholder:pl-2 outline-none bg-slate-100 rounded-md" placeholder="Pickup Address"/>
+                           <div>
+                                <input className="h-10 lg:h-12 p-4 placeholder:text-sm w-full placeholder:pl-2 outline-none bg-slate-100 rounded-md" placeholder="Pickup Address" onChange={deliveryAddressHandler}/>
+                                <p className="text-red-500">{pickUpAddressValidation}</p>
+                           </div>
                         </div>
                     </div>
                     <div className="flex flex-col py-2">
                         <label className="mb-2 ml-8">Delivery Address</label>
                         <div className="flex">
                             <span className="mx-2 mt-2"><FontAwesomeIcon icon={faLocation}  /></span>
-                            <input className="h-10 lg:h-12 p-4 w-full placeholder:text-sm placeholder:pl-2 outline-none mb-4 bg-slate-100 rounded-md" placeholder="Delivery Address"/>
+                            <div>
+                                <input className="h-10 lg:h-12 p-4 w-full placeholder:text-sm placeholder:pl-2 outline-none mb-4 bg-slate-100 rounded-md" placeholder="Delivery Address" onChange={pickUpAddressHandler}/>
+                                <p className="text-red-500">{deliveryAddressValidation}</p>
+                            </div>
                         </div>
                     </div>
                 </div>

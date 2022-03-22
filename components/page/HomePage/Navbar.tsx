@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 
 const Navbar: NextPage = () => {
   return (
-      <nav className="flex justify-between shadow-md py-3">
+      <nav className="flex justify-between shadow-md py-3 lg:ml-5">
           <h1 className="text-4xl font-semibold mt-2 mx-2"><span className="text-green-500">Owerri</span> Logistics</h1>
           <ul className="lg:flex lg:mr-24 lg:mt-2 hidden">
               <li className="lg:text-lg lg:mx-4"><a href="#">Home</a></li>

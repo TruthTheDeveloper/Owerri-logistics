@@ -94,9 +94,6 @@ const ShipmentMethod: NextPage = () => {
     const router = useRouter()
     const { ride } = router.query
 
-    let rideRoute = null;
-
-    rideRoute = Route(ride)
 
     const buttonHandler = () => {
 
