@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 //React
 
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 
 // image import
 import map from './../../public/assets/map.png'
@@ -16,6 +16,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 //UI component
 import VechicleHeader from '../PageComponents/VechicleHeaders';
+import AuthContext from '../../context/auth-context';
 
 
 
@@ -23,6 +24,10 @@ import VechicleHeader from '../PageComponents/VechicleHeaders';
 const SelectItem: NextPage = () => {    
     const router = useRouter()
     const { ride } = router.query
+
+    const {deliveryDetail, setDeliveryDetail} = useContext(AuthContext)
+
+    console.log(deliveryDetail, 'jeep')
 
     const [pickUpAddress, setPickUpAddress] = useState('')
     const [deliveryAddress, setDeliveryAddress] = useState('')
@@ -71,7 +76,7 @@ const SelectItem: NextPage = () => {
         <div style={{background:'#F3F4F6'}} className="overflow-hidden">
             <VechicleHeader/>
 
-            <div className="bg-white mx-8 sm:mx-16 md:mx-24 lg:mx-36 xl:mx-44 2x:56 my-8 shadow-lg pt-16">
+            <div className="bg-red-600 mx-8 sm:mx-16 md:mx-24 lg:mx-36 xl:mx-44 2x:56 my-8 shadow-lg pt-16">
                 <div className="flex px-8 sm:px-24">
                     <div className="basis-1/3">
                         <div className="border-t-4 border-black">

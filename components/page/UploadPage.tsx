@@ -23,6 +23,7 @@ const UploadPage:NextPage = () => {
     const router = useRouter()
     const { ride } = router.query
 
+    const [click, setClick] = useState(false)
 
     const [select, setSelect] = useState({
         defaultValue:"",
@@ -49,25 +50,27 @@ const UploadPage:NextPage = () => {
 
     useEffect(() => {
 
-        //motorbike
-        ride === 'motorbike' && select.category.length > 1 && select.item.length > 1 && select.weight.length > 1 && select.quantity.length >= 1 && select.value.length >= 1  ? 
-        router.push("/select/motorbike/addItem") : 
-        setSelect({...select,categoryError:categoryValidation,itemError:itemValidation,weightError:weightValidation, quantityError:quantityValidation,valueError:valueValidation})
+        if(click){
+            //motorbike
+            ride === 'motorbike' && select.category.length > 1 && select.item.length > 1 && select.weight.length > 1 && select.quantity.length >= 1 && select.value.length >= 1  ? 
+            router.push("/select/motorbike/addItem") : 
+            setSelect({...select,categoryError:categoryValidation,itemError:itemValidation,weightError:weightValidation, quantityError:quantityValidation,valueError:valueValidation})
 
-        // // // car route
-        ride === 'car' &&  select.category.length > 1 && select.item.length > 1 && select.weight.length > 1 && select.quantity.length >= 1 && select.value.length >= 1   ?
-        router.push("/select/car/addItem") : 
-        setSelect({...select, categoryError: categoryValidation, itemError:itemValidation, weightError:weightValidation, quantityError:quantityValidation, valueError:valueValidation})
+            // // // car route
+            ride === 'car' &&  select.category.length > 1 && select.item.length > 1 && select.weight.length > 1 && select.quantity.length >= 1 && select.value.length >= 1   ?
+            router.push("/select/car/addItem") : 
+            setSelect({...select, categoryError: categoryValidation, itemError:itemValidation, weightError:weightValidation, quantityError:quantityValidation, valueError:valueValidation})
 
-        // // // van route
-        ride === 'van' &&  select.category.length > 1 && select.item.length > 1 && select.weight.length > 1 && select.quantity.length >= 1 && select.value.length >= 1   ? router.push("/select/van/addItem") : setSelect({...select, categoryError: categoryValidation, itemError:itemValidation, weightError:weightValidation, quantityError:quantityValidation, valueError:valueValidation})
-        // // // track route
-        ride === 'truck' &&  select.category.length > 1 && select.item.length > 1 && select.weight.length > 1 && select.quantity.length >= 1 && select.value.length >= 1    ? router.push("/select/truck/addItem") : setSelect({...select, categoryError: categoryValidation, itemError:itemValidation, weightError:weightValidation, quantityError:quantityValidation, valueError:valueValidation})
+            // // // van route
+            ride === 'van' &&  select.category.length > 1 && select.item.length > 1 && select.weight.length > 1 && select.quantity.length >= 1 && select.value.length >= 1   ? router.push("/select/van/addItem") : setSelect({...select, categoryError: categoryValidation, itemError:itemValidation, weightError:weightValidation, quantityError:quantityValidation, valueError:valueValidation})
+            // // // track route
+            ride === 'truck' &&  select.category.length > 1 && select.item.length > 1 && select.weight.length > 1 && select.quantity.length >= 1 && select.value.length >= 1    ? router.push("/select/truck/addItem") : setSelect({...select, categoryError: categoryValidation, itemError:itemValidation, weightError:weightValidation, quantityError:quantityValidation, valueError:valueValidation})
+        }
 
 
 
             
-    },[categoryValidation, itemValidation, quantityValidation, valueValidation, weightValidation])
+    },[categoryValidation, itemValidation, quantityValidation, valueValidation, weightValidation, click, router])
 
 
     
@@ -75,8 +78,10 @@ const UploadPage:NextPage = () => {
 
     
 
-    const buttonHandler =  async (e: { preventDefault: () => void; }) => {  
+    const buttonHandler =  async (e: { preventDefault: () => void; }) => { 
         e.preventDefault()
+
+            setClick(true)
 
             // select validation
             

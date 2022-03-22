@@ -15,6 +15,8 @@ import AuthContext from '../../context/auth-context';
 
 const ShipmentMethod: NextPage = () => {
 
+    const router = useRouter()
+    const { ride } = router.query
 
     //Sender validation
     const [senderAddressLine1Validation, setSenderAddressLine1Validation] = useState('')
@@ -30,6 +32,9 @@ const ShipmentMethod: NextPage = () => {
     const [receiverNameValidation, setReceiverNameValidation] = useState('')
     const [receiverPhoneNumberValidation, setReceiverPhoneNumberValidation] = useState('')
     const [receiverLocationValidation, setReceiverLocationValidation] = useState('')
+
+
+    const [click, setClick] = useState(false)
 
 
     const [senderShipmentInfo, setSenderShipmentInfo] = useState({
@@ -62,40 +67,46 @@ const ShipmentMethod: NextPage = () => {
     })
 
     useEffect(() => {
+        
         // motorbike route
-        ride === 'motorbike' && senderShipmentInfo.addressLine1.length > 1 && senderShipmentInfo.addressLine2.length > 1 && senderShipmentInfo.name.length > 1 && senderShipmentInfo.phoneNumber.length >= 1 && senderShipmentInfo.location.length >= 1 && receiverShipmentInfo.addressLine1.length > 1 && receiverShipmentInfo.addressLine2.length > 1 && receiverShipmentInfo.name.length > 1 && receiverShipmentInfo.phoneNumber.length >= 1 && receiverShipmentInfo.location.length >= 1   ? 
-        router.push("/select/motorbike/uploadItem") : 
-        setSenderShipmentInfo({...senderShipmentInfo, addressLine1Error: senderAddressLine1Validation, addressLine2Error:senderAddressLine2Validation, nameError:senderNameValidation, phoneNumberError:senderPhoneNumberValidation, locationError:senderLocationValidation}); setReceiverShipmentInfo({...receiverShipmentInfo, addressLine1Error: receiverAddressLine1Validation, addressLine2Error:receiverAddressLine2Validation, nameError:receiverNameValidation, phoneNumberError:receiverPhoneNumberValidation, locationError:receiverLocationValidation})
+        if(click){
+            ride === 'motorbike' && senderShipmentInfo.addressLine1.length > 1 && senderShipmentInfo.addressLine2.length > 1 && senderShipmentInfo.name.length > 1 && senderShipmentInfo.phoneNumber.length >= 1 && senderShipmentInfo.location.length >= 1 && receiverShipmentInfo.addressLine1.length > 1 && receiverShipmentInfo.addressLine2.length > 1 && receiverShipmentInfo.name.length > 1 && receiverShipmentInfo.phoneNumber.length >= 1 && receiverShipmentInfo.location.length >= 1   ? 
+            router.push("/select/motorbike/uploadItem") : 
+            setSenderShipmentInfo({...senderShipmentInfo, addressLine1Error: senderAddressLine1Validation, addressLine2Error:senderAddressLine2Validation, nameError:senderNameValidation, phoneNumberError:senderPhoneNumberValidation, locationError:senderLocationValidation}); setReceiverShipmentInfo({...receiverShipmentInfo, addressLine1Error: receiverAddressLine1Validation, addressLine2Error:receiverAddressLine2Validation, nameError:receiverNameValidation, phoneNumberError:receiverPhoneNumberValidation, locationError:receiverLocationValidation})
 
 
-
-        // // // car route
-        ride === 'car' && senderShipmentInfo.addressLine1.length > 1 && senderShipmentInfo.addressLine2.length > 1 && senderShipmentInfo.name.length > 1 && senderShipmentInfo.phoneNumber.length >= 1 && senderShipmentInfo.location.length >= 1 && receiverShipmentInfo.addressLine1.length > 1 && receiverShipmentInfo.addressLine2.length > 1 && receiverShipmentInfo.name.length > 1 && receiverShipmentInfo.phoneNumber.length >= 1 && receiverShipmentInfo.location.length >= 1   ? 
-        router.push("/select/car/uploadItem") : 
-        setSenderShipmentInfo({...senderShipmentInfo, addressLine1Error: senderAddressLine1Validation, addressLine2Error:senderAddressLine2Validation, nameError:senderNameValidation, phoneNumberError:senderPhoneNumberValidation, locationError:senderLocationValidation}); setReceiverShipmentInfo({...receiverShipmentInfo, addressLine1Error: receiverAddressLine1Validation, addressLine2Error:receiverAddressLine2Validation, nameError:receiverNameValidation, phoneNumberError:receiverPhoneNumberValidation, locationError:receiverLocationValidation})
-
-
-        // // // // van route
-        ride === 'van' && senderShipmentInfo.addressLine1.length > 1 && senderShipmentInfo.addressLine2.length > 1 && senderShipmentInfo.name.length > 1 && senderShipmentInfo.phoneNumber.length >= 1 && senderShipmentInfo.location.length >= 1 && receiverShipmentInfo.addressLine1.length > 1 && receiverShipmentInfo.addressLine2.length > 1 && receiverShipmentInfo.name.length > 1 && receiverShipmentInfo.phoneNumber.length >= 1 && receiverShipmentInfo.location.length >= 1   ? 
-        router.push("/select/van/uploadItem") : 
-        setSenderShipmentInfo({...senderShipmentInfo, addressLine1Error: senderAddressLine1Validation, addressLine2Error:senderAddressLine2Validation, nameError:senderNameValidation, phoneNumberError:senderPhoneNumberValidation, locationError:senderLocationValidation}); setReceiverShipmentInfo({...receiverShipmentInfo, addressLine1Error: receiverAddressLine1Validation, addressLine2Error:receiverAddressLine2Validation, nameError:receiverNameValidation, phoneNumberError:receiverPhoneNumberValidation, locationError:receiverLocationValidation})
+            // // // car route
+            ride === 'car' && senderShipmentInfo.addressLine1.length > 1 && senderShipmentInfo.addressLine2.length > 1 && senderShipmentInfo.name.length > 1 && senderShipmentInfo.phoneNumber.length >= 1 && senderShipmentInfo.location.length >= 1 && receiverShipmentInfo.addressLine1.length > 1 && receiverShipmentInfo.addressLine2.length > 1 && receiverShipmentInfo.name.length > 1 && receiverShipmentInfo.phoneNumber.length >= 1 && receiverShipmentInfo.location.length >= 1   ? 
+            router.push("/select/car/uploadItem") : 
+            setSenderShipmentInfo({...senderShipmentInfo, addressLine1Error: senderAddressLine1Validation, addressLine2Error:senderAddressLine2Validation, nameError:senderNameValidation, phoneNumberError:senderPhoneNumberValidation, locationError:senderLocationValidation}); setReceiverShipmentInfo({...receiverShipmentInfo, addressLine1Error: receiverAddressLine1Validation, addressLine2Error:receiverAddressLine2Validation, nameError:receiverNameValidation, phoneNumberError:receiverPhoneNumberValidation, locationError:receiverLocationValidation})
 
 
-        //  // // // track route
-        ride === 'truck' && senderShipmentInfo.addressLine1.length > 1 && senderShipmentInfo.addressLine2.length > 1 && senderShipmentInfo.name.length > 1 && senderShipmentInfo.phoneNumber.length >= 1 && senderShipmentInfo.location.length >= 1 && receiverShipmentInfo.addressLine1.length > 1 && receiverShipmentInfo.addressLine2.length > 1 && receiverShipmentInfo.name.length > 1 && receiverShipmentInfo.phoneNumber.length >= 1 && receiverShipmentInfo.location.length >= 1   ? 
-        router.push("/select/truck/uploadItem") : 
-        setSenderShipmentInfo({...senderShipmentInfo, addressLine1Error: senderAddressLine1Validation, addressLine2Error:senderAddressLine2Validation, nameError:senderNameValidation, phoneNumberError:senderPhoneNumberValidation, locationError:senderLocationValidation}); setReceiverShipmentInfo({...receiverShipmentInfo, addressLine1Error: receiverAddressLine1Validation, addressLine2Error:receiverAddressLine2Validation, nameError:receiverNameValidation, phoneNumberError:receiverPhoneNumberValidation, locationError:receiverLocationValidation})
+                // // // // van route
+            ride === 'van' && senderShipmentInfo.addressLine1.length > 1 && senderShipmentInfo.addressLine2.length > 1 && senderShipmentInfo.name.length > 1 && senderShipmentInfo.phoneNumber.length >= 1 && senderShipmentInfo.location.length >= 1 && receiverShipmentInfo.addressLine1.length > 1 && receiverShipmentInfo.addressLine2.length > 1 && receiverShipmentInfo.name.length > 1 && receiverShipmentInfo.phoneNumber.length >= 1 && receiverShipmentInfo.location.length >= 1   ? 
+            router.push("/select/van/uploadItem") : 
+            setSenderShipmentInfo({...senderShipmentInfo, addressLine1Error: senderAddressLine1Validation, addressLine2Error:senderAddressLine2Validation, nameError:senderNameValidation, phoneNumberError:senderPhoneNumberValidation, locationError:senderLocationValidation}); setReceiverShipmentInfo({...receiverShipmentInfo, addressLine1Error: receiverAddressLine1Validation, addressLine2Error:receiverAddressLine2Validation, nameError:receiverNameValidation, phoneNumberError:receiverPhoneNumberValidation, locationError:receiverLocationValidation})
 
-    },[receiverAddressLine1Validation, receiverAddressLine2Validation, receiverLocationValidation, receiverNameValidation, receiverPhoneNumberValidation,  senderAddressLine1Validation, senderAddressLine2Validation, senderLocationValidation, senderNameValidation, senderPhoneNumberValidation])
+
+            //  // // // track route
+            ride === 'truck' && senderShipmentInfo.addressLine1.length > 1 && senderShipmentInfo.addressLine2.length > 1 && senderShipmentInfo.name.length > 1 && senderShipmentInfo.phoneNumber.length >= 1 && senderShipmentInfo.location.length >= 1 && receiverShipmentInfo.addressLine1.length > 1 && receiverShipmentInfo.addressLine2.length > 1 && receiverShipmentInfo.name.length > 1 && receiverShipmentInfo.phoneNumber.length >= 1 && receiverShipmentInfo.location.length >= 1   ? 
+            router.push("/select/truck/uploadItem") : 
+            setSenderShipmentInfo({...senderShipmentInfo, addressLine1Error: senderAddressLine1Validation, addressLine2Error:senderAddressLine2Validation, nameError:senderNameValidation, phoneNumberError:senderPhoneNumberValidation, locationError:senderLocationValidation}); setReceiverShipmentInfo({...receiverShipmentInfo, addressLine1Error: receiverAddressLine1Validation, addressLine2Error:receiverAddressLine2Validation, nameError:receiverNameValidation, phoneNumberError:receiverPhoneNumberValidation, locationError:receiverLocationValidation})
+        }
+        
+
+    },[receiverAddressLine1Validation, receiverAddressLine2Validation, receiverLocationValidation, receiverNameValidation, receiverPhoneNumberValidation,  senderAddressLine1Validation, senderAddressLine2Validation, senderLocationValidation, senderNameValidation, senderPhoneNumberValidation, router, click])
 
 
 
     
-    const router = useRouter()
-    const { ride } = router.query
+    
 
 
     const buttonHandler = () => {
+
+        console.log(senderShipmentInfo.addressLine1.length, senderShipmentInfo.addressLine2.length, senderShipmentInfo.name.length, senderShipmentInfo.phoneNumber.length, senderShipmentInfo.location.length, receiverShipmentInfo.addressLine1.length, receiverShipmentInfo.addressLine2.length, receiverShipmentInfo.name.length, receiverShipmentInfo.phoneNumber.length, receiverShipmentInfo.location.length, 'kdjkdjkd' )
+
+        setClick(true)
 
         //sender validation check
         senderShipmentInfo.addressLine1.length < 1 ? setSenderAddressLine1Validation("Please enter this address"):

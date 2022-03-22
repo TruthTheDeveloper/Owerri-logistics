@@ -11,9 +11,6 @@ import { faCloudUpload } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-//Ui utils
-import { Route } from '../UI/utils/route/review';
-
 //UI Component
 import VechicleHeader from '../PageComponents/VechicleHeaders';
 import BackButton from '../Buttons/BackButton';
@@ -22,10 +19,6 @@ import Link from 'next/link';
 const AddItems: NextPage = () => {
     const router = useRouter()
     const { ride } = router.query
-
-    let rideRoute = null;
-
-    rideRoute = Route(ride)
 
     const buttonHandler = () => {
         if(ride === 'motorbike'){
