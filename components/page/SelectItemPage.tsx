@@ -33,11 +33,12 @@ const SelectItem: NextPage = () => {
 
     const pickUpAddressHandler = (e:{target:{value: string}}) => {
         setPickUpAddress(e.target.value)
-        setPickUpAddressValidation()
+        setPickUpAddressValidation('')
     }
 
     const deliveryAddressHandler = (e:{target:{value: string}}) => {
         setDeliveryAddress(e.target.value)
+        setDeliveryAddressValidation('')
     }
 
 
@@ -95,7 +96,7 @@ const SelectItem: NextPage = () => {
                         <div className="flex" >
                             <span className="mx-2 mt-2"><FontAwesomeIcon icon={faDirections}  /></span>
                            <div>
-                                <input className="h-10 lg:h-12 p-4 placeholder:text-sm w-full placeholder:pl-2 outline-none bg-slate-100 rounded-md" placeholder="Pickup Address" onChange={deliveryAddressHandler}/>
+                                <input className="h-10 lg:h-12 p-4 placeholder:text-sm w-full placeholder:pl-2 outline-none bg-slate-100 rounded-md" placeholder="Pickup Address" onChange={pickUpAddressHandler}/>
                                 <p className="text-red-500">{pickUpAddressValidation}</p>
                            </div>
                         </div>
@@ -105,7 +106,7 @@ const SelectItem: NextPage = () => {
                         <div className="flex">
                             <span className="mx-2 mt-2"><FontAwesomeIcon icon={faLocation}  /></span>
                             <div>
-                                <input className="h-10 lg:h-12 p-4 w-full placeholder:text-sm placeholder:pl-2 outline-none mb-4 bg-slate-100 rounded-md" placeholder="Delivery Address" onChange={pickUpAddressHandler}/>
+                                <input className="h-10 lg:h-12 p-4 w-full placeholder:text-sm placeholder:pl-2 outline-none mb-4 bg-slate-100 rounded-md" placeholder="Delivery Address"   onChange={deliveryAddressHandler}/>
                                 <p className="text-red-500">{deliveryAddressValidation}</p>
                             </div>
                         </div>
