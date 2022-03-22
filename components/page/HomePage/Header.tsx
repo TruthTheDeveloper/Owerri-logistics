@@ -10,15 +10,17 @@ import 'animate.css';
 
 const Header: NextPage = () => {
   return (
-      <div className="md:flex md:mx-12 lg:mx-28 xl:mx-32">
-          <div className=" text-3xl xl:text-4xl text-center md:text-left md:pt-4 mt-5 md:basis-1/2 animate__fadeIn font-semibold">
-              <p><span className="text-green-500 ">Get</span> your Delivery</p>
-              <p>at your doorstep anywhere</p>
-              <p>around <span className="text-green-500">Owerri</span> by the best</p>
-              <p>dispatch rider</p>
-          </div>
-          <div className=" md:mt-5 md:basis-1/2  ml-10">
-                <Image src={bike}  alt="text" width={500} height={300}/>
+      <div className="h-5/6 bg-red-500" style={{height:'35rem'}}>
+          <div className="md:flex  bg-green-500 text-white h-full">
+            <div className=" text-3xl xl:text-5xl text-center md:text-left md:pt-4 mt-5 md:basis-1/2 animate__fadeIn font-semibold self-center ml-12 pt-8 ">
+                <p><span className="text-black ">Get</span> your Delivery</p>
+                <p>at your doorstep anywhere</p>
+                <p>around <span className="text-black">Owerri</span> by the best</p>
+                <p>dispatch rider</p>
+            </div>
+            <div className=" md:mt-5 md:basis-1/2  ml-10 self-center">
+                    <Image src={bike}  alt="text" width={550} height={400}/>
+            </div>
           </div>
       </div>
   )
