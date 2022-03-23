@@ -107,7 +107,7 @@ const ShipmentMethod: NextPage = () => {
 
     const buttonHandler = () => {
 
-        console.log(senderShipmentInfo.addressLine1.length, senderShipmentInfo.addressLine2.length, senderShipmentInfo.name.length, senderShipmentInfo.phoneNumber.length, senderShipmentInfo.location.length, receiverShipmentInfo.addressLine1.length, receiverShipmentInfo.addressLine2.length, receiverShipmentInfo.name.length, receiverShipmentInfo.phoneNumber.length, receiverShipmentInfo.location.length, 'kdjkdjkd' )
+        // console.log(senderShipmentInfo.addressLine1.length, senderShipmentInfo.addressLine2.length, senderShipmentInfo.name.length, senderShipmentInfo.phoneNumber.length, senderShipmentInfo.location.length, receiverShipmentInfo.addressLine1.length, receiverShipmentInfo.addressLine2.length, receiverShipmentInfo.name.length, receiverShipmentInfo.phoneNumber.length, receiverShipmentInfo.location.length, 'kdjkdjkd' )
 
         setClick(true)
 
