@@ -14,7 +14,6 @@ import Inputs from '../Inputs/Inputs';
 const ReviewItem:NextPage = () => {
 
 
-    const router = useRouter()
     return (
         <div style={{background:'#F3F4F6'}} className="overflow-hidden">
             <VechicleHeader/>

@@ -22,7 +22,8 @@ const Home: NextPage = () => {
     item:"",
     weight:"",
     value:"",
-    quantity:""
+    quantity:"",
+    deliveryMethod:""
   })
   return (
     <AuthContext.Provider value={{deliveryDetail, setDeliveryDetail}}>

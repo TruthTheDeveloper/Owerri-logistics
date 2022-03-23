@@ -3,17 +3,20 @@ import { useRouter } from 'next/router';
 
 //React
 import {useState, useEffect} from 'react';
+import { useDispatch } from 'react-redux';
 
 // UI Components
 import VechicleHeader from '../PageComponents/VechicleHeaders';
 import Form from '../ShipmentPage/Form';
 import BackButton from '../Buttons/BackButton';
+import * as actionTypes from '../../store/actions/ActionTypes';
 
 // Auth context
 import AuthContext from '../../context/auth-context';
 
 
 const ShipmentMethod: NextPage = () => {
+    const dispatch = useDispatch()
 
     const router = useRouter()
     const { ride } = router.query
@@ -140,6 +143,23 @@ const ShipmentMethod: NextPage = () => {
 
         receiverShipmentInfo.phoneNumber.length < 1 ? setReceiverPhoneNumberValidation("Please enter phoneNumber"):
         setSenderPhoneNumberValidation("")
+
+        dispatch({type:actionTypes.RECEIVER_ADDRESS_LINE1, receiverAddressline1:receiverShipmentInfo.addressLine1})
+        dispatch({type:actionTypes.RECEIVER_ADDRESS_LINE2, receiverAddressline2:receiverShipmentInfo.addressLine2})
+        dispatch({type:actionTypes.RECEIVER_NAME, receiverName:receiverShipmentInfo.name})
+        dispatch({type:actionTypes.RECEIVER_LOCATION, receiverLocation:receiverShipmentInfo.location})
+        dispatch({type:actionTypes.RECEIVER_PHONENUMBER, receiverPhoneNumber:receiverShipmentInfo.phoneNumber})
+
+
+        dispatch({type:actionTypes.SENDER_ADDRESS_LINE1, senderAddressline1:senderShipmentInfo.addressLine1})
+        dispatch({type:actionTypes.SENDER_ADDRESS_LINE2, senderAddressline2:senderShipmentInfo.addressLine2})
+        dispatch({type:actionTypes.SENDER_NAME, senderName:senderShipmentInfo.name})
+        dispatch({type:actionTypes.SENDER_LOCATION, senderLocation:senderShipmentInfo.location})
+        dispatch({type:actionTypes.SENDER_PHONENUMBER, senderPhoneNumber:senderShipmentInfo.phoneNumber})
+
+
+
+
 
     }
 

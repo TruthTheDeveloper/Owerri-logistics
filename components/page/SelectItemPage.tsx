@@ -4,7 +4,8 @@ import { useRouter } from 'next/router';
 
 //React
 
-import {useState, useContext} from 'react';
+import {useState} from 'react';
+import { useDispatch } from 'react-redux';
 
 // image import
 import map from './../../public/assets/map.png'
@@ -16,56 +17,65 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 //UI component
 import VechicleHeader from '../PageComponents/VechicleHeaders';
-import AuthContext from '../../context/auth-context';
+
+import * as actionTypes from '../../store/actions/ActionTypes';
 
 
 
 
-const SelectItem: NextPage = () => {    
+
+const SelectItem: NextPage = () => { 
+    
+    const dispatch = useDispatch()
+
     const router = useRouter()
     const { ride } = router.query
 
-    const {deliveryDetail, setDeliveryDetail} = useContext(AuthContext)
 
-    console.log(deliveryDetail, 'jeep')
 
-    const [pickUpAddress, setPickUpAddress] = useState('')
-    const [deliveryAddress, setDeliveryAddress] = useState('')
+    const [logistics, setlogistics] = useState({
+        pickUpAddress:"",
+        deliveryAddress:""
+    })
 
     const [pickUpAddressValidation, setPickUpAddressValidation] = useState('')
     const [deliveryAddressValidation, setDeliveryAddressValidation] = useState('')
 
 
     const pickUpAddressHandler = (e:{target:{value: string}}) => {
-        setPickUpAddress(e.target.value)
+        setlogistics({...logistics, pickUpAddress:e.target.value})
         setPickUpAddressValidation('')
     }
 
     const deliveryAddressHandler = (e:{target:{value: string}}) => {
-        setDeliveryAddress(e.target.value)
+        setlogistics({...logistics, deliveryAddress:e.target.value})
         setDeliveryAddressValidation('')
     }
 
 
     const buttonHandler = () => {
-        console.log(pickUpAddress.length < 1, deliveryAddress.length < 1 , 'address')
 
-        pickUpAddress.length < 1 ? setPickUpAddressValidation('This field is required') :
+
+        logistics.pickUpAddress.length < 1 ? setPickUpAddressValidation('This field is required') :
         setPickUpAddressValidation('')
         
 
-        deliveryAddress.length < 1 ? setDeliveryAddressValidation('this field is required'):
+        logistics.deliveryAddress.length < 1 ? setDeliveryAddressValidation('this field is required'):
         setDeliveryAddressValidation('') 
         
 
 
-        ride === 'motorbike' && pickUpAddress.length > 1 && deliveryAddress.length > 1 && router.push("/select/motorbike/shipment")
+        ride === 'motorbike' && logistics.pickUpAddress.length > 1 && logistics.deliveryAddress.length > 1 && router.push("/select/motorbike/shipment")
 
-        ride === 'car' && pickUpAddress.length > 1 && deliveryAddress.length > 1 &&  router.push("/select/car/shipment")
+        ride === 'car' && logistics.pickUpAddress.length  > 1 && logistics.deliveryAddress.length > 1 &&  router.push("/select/car/shipment")
 
-        ride === 'van' && pickUpAddress.length > 1 && deliveryAddress.length > 1 &&  router.push("select/van/shipment")
+        ride === 'van' && logistics.pickUpAddress.length > 1 && logistics.deliveryAddress.length > 1 &&  router.push("select/van/shipment")
 
-        ride === 'truck' && pickUpAddress.length > 1 && deliveryAddress.length > 1 &&  router.push("/select/truck/shipment")
+        ride === 'truck' && logistics.pickUpAddress.length > 1 && logistics.deliveryAddress.length > 1 &&  router.push("/select/truck/shipment")
+
+
+        dispatch({type:actionTypes.DELIVERY_ADDRESS, deliveryAddress:logistics.deliveryAddress})
+        dispatch({type:actionTypes.ITEM, pickUpAddress:logistics.pickUpAddress})
 
     }
 

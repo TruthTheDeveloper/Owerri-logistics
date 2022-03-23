@@ -2,12 +2,14 @@
 import type {NextPage} from 'next';
 import { useRouter } from 'next/router';
 
+import { useDispatch } from 'react-redux';
 //React
 import React, {useState, useEffect} from 'react';
 
 //Font awesome
 import { faCloud } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import * as actionTypes from '../../store/actions/ActionTypes';
 
 
 //Components
@@ -19,7 +21,7 @@ import AuthContext from '../../context/auth-context';
 
 
 const UploadPage:NextPage = () => {
-
+    const dispatch = useDispatch()
     const router = useRouter()
     const { ride } = router.query
 
@@ -100,6 +102,13 @@ const UploadPage:NextPage = () => {
 
             select.value.length < 1 ? setValueValidation("Please enter value"):
             setValueValidation("")
+
+
+            dispatch({type:actionTypes.CATEGORY, category:select.category})
+            dispatch({type:actionTypes.ITEM, item:select.item})
+            dispatch({type:actionTypes.WEIGHT, category:select.weight})
+            dispatch({type:actionTypes.VALUE, value:select.value})
+            dispatch({type:actionTypes.QUANTITY, quantity:select.quantity})
 
 
     }
