@@ -16,3 +16,4 @@ export const WEIGHT = 'WEIGHT';
 export const VALUE = 'VALUE';
 export const QUANTITY = 'QUANTITY';
 export const DELIVERY_METHOD = 'DELIVERY_METHOD';
+export const AllITEMS = 'AllITEMS';

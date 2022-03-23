@@ -6,9 +6,9 @@ import Provider from "../../../../store/hoc/Provider";
 const Review:NextPage = () => {
     return (
         <Layout>
-            <Provider>
+            {/* <Provider> */}
                 <ReviewItem/>
-            </Provider>
+            {/* </Provider> */}
         </Layout>
     )
 }

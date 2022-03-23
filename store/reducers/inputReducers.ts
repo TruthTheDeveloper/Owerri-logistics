@@ -1,6 +1,7 @@
 import * as ActionTypes from '../actions/ActionTypes';
 
 const initialState = {
+    allItems:[],
     deliveryAddress:'',
     pickUpAddress:"",
     senderAddressLine1:"",

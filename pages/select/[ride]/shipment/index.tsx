@@ -8,9 +8,9 @@ import Provider from '../../../../store/hoc/Provider';
 const Shipment: NextPage = () => {
   return (
     <Layout>
-       <Provider>
+       {/* <Provider> */}
         <ShipmentMethod/>
-       </Provider>
+       {/* </Provider> */}
     </Layout>
   )
 }
