@@ -22,7 +22,7 @@ const initialState = {
     deliveryMethod:""
 }
 
-const reducer = (state= initialState, action:any) => {
+const reducer = (state = initialState, action:any) => {
     switch(action.type){
         case ActionTypes.DELIVERY_ADDRESS:
             return {

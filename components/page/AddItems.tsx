@@ -46,9 +46,9 @@ const AddItems: NextPage = () => {
     const value = useSelector(() => (state:any) => state.inputReducer.value)
 
     //allitems
-    const allItemsStore = useSelector(() => (state:any) => state.inputReducer.allItems)
+    const allItemsStore = useSelector(() => (state:any) => state.allItems)
 
-    console.log(pickUpAddress, 'store')
+    console.log(allItemsStore, 'store')
 
 
 
