@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import blackMan from '../../public/assets/blackMan.png';
 
 //React
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as actionTypes from '../../store/actions/ActionTypes';
 
@@ -20,7 +20,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import VechicleHeader from '../PageComponents/VechicleHeaders';
 import BackButton from '../Buttons/BackButton';
 import Link from 'next/link';
-import { Prev } from 'react-bootstrap/esm/PageItem';
 
 const AddItems: NextPage = () => {
 
@@ -30,23 +29,23 @@ const AddItems: NextPage = () => {
 
 
     // address
-    const deliveryAddress = useSelector(() => (state:any) => state.inputReducer.deliveryAddress)
-    const pickUpAddress = useSelector(() => (state:any) => state.inputReducer.pickUpAddress)
-    const senderAddressLine1 = useSelector(() => (state:any) => state.inputReducer.senderAddressLine1)
-    const senderAddressLine2 = useSelector(() => (state:any) => state.inputReducer.senderAddressLine2)
-    const senderName = useSelector(() => (state:any) => state.inputReducer.senderName)
-    const senderPhoneNumber = useSelector(() => (state:any) => state.inputReducer.senderPhoneNumber)
-    const senderLocation = useSelector(() => (state:any) => state.inputReducer.senderLocation)
-    const receiverAddressLine1 = useSelector(() => (state:any) => state.inputReducer.receiverAddressLine1)
-    const receiverAddressLine2 = useSelector(() => (state:any) => state.inputReducer.receiverAddressLine2)
-    const receiverName = useSelector(() => (state:any) => state.inputReducer.receiverName)
-    const receiverPhoneNumber = useSelector(() => (state:any) => state.inputReducer.receiverPhoneNumber)
-    const receiverLocation = useSelector(() => (state:any) => state.inputReducer.receiverLocation)
-    const weight = useSelector(() => (state:any) => state.inputReducer.weight)
-    const value = useSelector(() => (state:any) => state.inputReducer.value)
+    const deliveryAddress = useSelector((state:any) => state.deliveryAddress)
+    const pickUpAddress = useSelector((state:any) => state.pickUpAddress)
+    const senderAddressLine1 = useSelector((state:any) => state.senderAddressLine1)
+    const senderAddressLine2 = useSelector((state:any) => state.senderAddressLine2)
+    const senderName = useSelector((state:any) => state.senderName)
+    const senderPhoneNumber = useSelector((state:any) => state.senderPhoneNumber)
+    const senderLocation = useSelector((state:any) => state.senderLocation)
+    const receiverAddressLine1 = useSelector((state:any) => state.receiverAddressLine1)
+    const receiverAddressLine2 = useSelector((state:any) => state.receiverAddressLine2)
+    const receiverName = useSelector((state:any) => state.receiverName)
+    const receiverPhoneNumber = useSelector((state:any) => state.receiverPhoneNumber)
+    const receiverLocation = useSelector((state:any) => state.receiverLocation)
+    const weight = useSelector((state:any) => state.weight)
+    const value = useSelector((state:any) => state.value)
 
     //allitems
-    const allItemsStore = useSelector(() => (state:any) => state.allItems)
+    const allItemsStore = useSelector((state:any) => state.allItems)
 
     console.log(allItemsStore, 'store')
 
@@ -62,6 +61,10 @@ const AddItems: NextPage = () => {
         ride === 'van' && router.push("/select/van/review")
         ride === 'truck' && router.push("/select/truck/review")
     }
+
+    useEffect(() => {
+        dispatch({type:actionTypes.AllITEMS, allItems:allItems})
+    },[allItems, dispatch])
 
 
     const addItemHandler = () => {
@@ -82,7 +85,7 @@ const AddItems: NextPage = () => {
             value
         ])
 
-        dispatch({action:actionTypes.AllITEMS, allItems:allItems})
+        
         
     }
 
@@ -114,7 +117,7 @@ const AddItems: NextPage = () => {
                     <p className="font-thin text-lg text-red-600 mb-2">Provided from your shipment</p>
                 </div> 
                 <div className="flex flex-col md:flex-row  justify-center px-auto my-10">
-                    {/* {allItemsStore.map((item:any) => {
+                    {allItemsStore.map((item:any) => {
                         <div className="border-slate-500 border-2  rounded-md md:mx-5 w-56 h-48 ml-28 sm:ml-36 mb-8 md:mx-10">
                         <div className="mx-2 flex justify-between">
                             <span className="pr-2 cursor-pointer"><FontAwesomeIcon icon={faEdit} size="1x"/></span>
@@ -126,7 +129,7 @@ const AddItems: NextPage = () => {
                             <p>{item.value}</p>
                         </div>
                     </div>
-                    })} */}
+                    })}
                     <div className="border-slate-500 border-2 rounded-md text-center w-56 h-48 ml-28 sm:ml-36 md:ml-0">
                         <div className="mt-10">
                             <Link href="/select/motorbike/"><span className="cursor-pointer"><FontAwesomeIcon icon={faCloudUpload} size='2x' /></span></Link>
