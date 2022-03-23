@@ -7,11 +7,7 @@ import Provider from '../../../../store/hoc/Provider';
 
 const UploadItem: NextPage = () => {
   return (
-    <Layout>
-        {/* <Provider> */}
           <UploadPage/>
-        {/* </Provider> */}
-    </Layout>
   )
 }
 

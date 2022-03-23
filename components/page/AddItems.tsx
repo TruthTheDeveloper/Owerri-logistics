@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import blackMan from '../../public/assets/blackMan.png';
 
 //React
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as actionTypes from '../../store/actions/ActionTypes';
 
@@ -20,36 +20,37 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import VechicleHeader from '../PageComponents/VechicleHeaders';
 import BackButton from '../Buttons/BackButton';
 import Link from 'next/link';
+import AuthContext from '../../context/auth-context';
 
 const AddItems: NextPage = () => {
 
     const dispatch = useDispatch()
 
+    const {initialState,setInitialState} = useContext(AuthContext)
+
     const [allItems, setallItem] =  useState<any>([])
 
-
-    // address
-    const deliveryAddress = useSelector((state:any) => state.deliveryAddress)
-    const pickUpAddress = useSelector((state:any) => state.pickUpAddress)
-    const senderAddressLine1 = useSelector((state:any) => state.senderAddressLine1)
-    const senderAddressLine2 = useSelector((state:any) => state.senderAddressLine2)
-    const senderName = useSelector((state:any) => state.senderName)
-    const senderPhoneNumber = useSelector((state:any) => state.senderPhoneNumber)
-    const senderLocation = useSelector((state:any) => state.senderLocation)
-    const receiverAddressLine1 = useSelector((state:any) => state.receiverAddressLine1)
-    const receiverAddressLine2 = useSelector((state:any) => state.receiverAddressLine2)
-    const receiverName = useSelector((state:any) => state.receiverName)
-    const receiverPhoneNumber = useSelector((state:any) => state.receiverPhoneNumber)
-    const receiverLocation = useSelector((state:any) => state.receiverLocation)
-    const weight = useSelector((state:any) => state.weight)
-    const value = useSelector((state:any) => state.value)
-
-    //allitems
-    const allItemsStore = useSelector((state:any) => state.allItems)
-
-    console.log(allItemsStore, 'store')
+    useEffect(() => {
+        setallItem((prev: any) => [...prev,
+            initialState.deliveryAddress,
+            initialState.pickUpAddress, 
+            initialState.senderAddressLine1,
+            initialState.senderAddressLine2,
+            initialState.senderName,
+            initialState.senderPhoneNumber,
+            initialState.senderLocation,
+            initialState.receiverAddressLine1,
+            initialState.receiverAddressLine2,
+            initialState.receiverName,
+            initialState.receiverPhoneNumber,
+            initialState.receiverLocation,
+            initialState.weight,
+            initialState.value
+        ])
+    },[])
 
 
+    console.log(allItems)
 
     const router = useRouter()
     const { ride } = router.query
@@ -69,20 +70,20 @@ const AddItems: NextPage = () => {
 
     const addItemHandler = () => {
         setallItem((prev: any) => [...prev,
-            deliveryAddress,
-            pickUpAddress, 
-            senderAddressLine1,
-            senderAddressLine2,
-            senderName,
-            senderPhoneNumber,
-            senderLocation,
-            receiverAddressLine1,
-            receiverAddressLine2,
-            receiverName,
-            receiverPhoneNumber,
-            receiverLocation,
-            weight,
-            value
+            initialState.deliveryAddress,
+            initialState.pickUpAddress, 
+            initialState.senderAddressLine1,
+            initialState.senderAddressLine2,
+            initialState.senderName,
+            initialState.senderPhoneNumber,
+            initialState.senderLocation,
+            initialState.receiverAddressLine1,
+            initialState.receiverAddressLine2,
+            initialState.receiverName,
+            initialState.receiverPhoneNumber,
+            initialState.receiverLocation,
+            initialState.weight,
+            initialState.value
         ])
 
         
@@ -117,7 +118,7 @@ const AddItems: NextPage = () => {
                     <p className="font-thin text-lg text-red-600 mb-2">Provided from your shipment</p>
                 </div> 
                 <div className="flex flex-col md:flex-row  justify-center px-auto my-10">
-                    {allItemsStore.map((item:any) => {
+                    {allItems.map((item:any) => {
                         <div className="border-slate-500 border-2  rounded-md md:mx-5 w-56 h-48 ml-28 sm:ml-36 mb-8 md:mx-10">
                         <div className="mx-2 flex justify-between">
                             <span className="pr-2 cursor-pointer"><FontAwesomeIcon icon={faEdit} size="1x"/></span>

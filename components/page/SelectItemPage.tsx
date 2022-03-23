@@ -4,11 +4,11 @@ import { useRouter } from 'next/router';
 
 //React
 
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import { useDispatch } from 'react-redux';
 
 // image import
-import map from './../../public/assets/map.png'
+import map from './../../public/assets/map.png';
 
 //FontAwesome
 import { faDirections } from '@fortawesome/free-solid-svg-icons';
@@ -20,12 +20,16 @@ import VechicleHeader from '../PageComponents/VechicleHeaders';
 
 import * as actionTypes from '../../store/actions/ActionTypes';
 
+import AuthContext from '../../context/auth-context';
+
 
 
 
 
 const SelectItem: NextPage = () => { 
     
+    const {initialState, setInitialState} = useContext(AuthContext);
+
     const dispatch = useDispatch()
 
     const router = useRouter()
@@ -37,6 +41,8 @@ const SelectItem: NextPage = () => {
         pickUpAddress:"",
         deliveryAddress:""
     })
+
+    console.log(initialState.pickUpAddress, initialState.deliveryAddress)
 
     const [pickUpAddressValidation, setPickUpAddressValidation] = useState('')
     const [deliveryAddressValidation, setDeliveryAddressValidation] = useState('')
@@ -74,8 +80,7 @@ const SelectItem: NextPage = () => {
         ride === 'truck' && logistics.pickUpAddress.length > 1 && logistics.deliveryAddress.length > 1 &&  router.push("/select/truck/shipment")
 
 
-        dispatch({type:actionTypes.DELIVERY_ADDRESS, deliveryAddress:logistics.deliveryAddress})
-        dispatch({type:actionTypes.ITEM, pickUpAddress:logistics.pickUpAddress})
+        setInitialState({...initialState, deliveryAddress:logistics.deliveryAddress, pickUpAddress:logistics.pickUpAddress})
 
     }
 

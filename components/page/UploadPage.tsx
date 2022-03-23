@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 import { useDispatch } from 'react-redux';
 //React
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 
 //Font awesome
 import { faCloud } from '@fortawesome/free-solid-svg-icons';
@@ -22,6 +22,9 @@ import AuthContext from '../../context/auth-context';
 
 const UploadPage:NextPage = () => {
     const dispatch = useDispatch()
+
+    const {initialState, setInitialState} = useContext(AuthContext)
+
     const router = useRouter()
     const { ride } = router.query
 
@@ -104,11 +107,7 @@ const UploadPage:NextPage = () => {
             setValueValidation("")
 
 
-            dispatch({type:actionTypes.CATEGORY, category:select.category})
-            dispatch({type:actionTypes.ITEM, item:select.item})
-            dispatch({type:actionTypes.WEIGHT, category:select.weight})
-            dispatch({type:actionTypes.VALUE, value:select.value})
-            dispatch({type:actionTypes.QUANTITY, quantity:select.quantity})
+            setInitialState({...initialState, category:select.category, item:select.item, weight:select.weight, value:select.value, quantity:select.quantity})
 
 
     }

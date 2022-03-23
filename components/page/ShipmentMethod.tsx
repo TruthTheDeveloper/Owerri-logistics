@@ -2,7 +2,7 @@ import type {NextPage} from 'next';
 import { useRouter } from 'next/router';
 
 //React
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import { useDispatch } from 'react-redux';
 
 // UI Components
@@ -15,8 +15,10 @@ import * as actionTypes from '../../store/actions/ActionTypes';
 import AuthContext from '../../context/auth-context';
 
 
+
 const ShipmentMethod: NextPage = () => {
     const dispatch = useDispatch()
+    const {initialState, setInitialState} = useContext(AuthContext);
 
     const router = useRouter()
     const { ride } = router.query
@@ -68,6 +70,9 @@ const ShipmentMethod: NextPage = () => {
             locationError:"",
 
     })
+
+
+    console.log()
 
     useEffect(() => {
         
@@ -157,9 +162,7 @@ const ShipmentMethod: NextPage = () => {
         dispatch({type:actionTypes.SENDER_LOCATION, senderLocation:senderShipmentInfo.location})
         dispatch({type:actionTypes.SENDER_PHONENUMBER, senderPhoneNumber:senderShipmentInfo.phoneNumber})
 
-
-
-
+        setInitialState({...initialState, senderAddressLine1:senderShipmentInfo.addressLine1, senderAddressLine2:senderShipmentInfo.addressLine2, senderName:senderShipmentInfo.name, senderPhoneNumber:senderShipmentInfo.phoneNumber, senderLocation:senderShipmentInfo.location,receiverAddressLine1:receiverShipmentInfo.addressLine1, receiverAddressLine2:receiverShipmentInfo.addressLine2, receiverName:receiverShipmentInfo.name, receiverPhoneNumber:receiverShipmentInfo.phoneNumber, receiverLocation:receiverShipmentInfo.location})
 
     }
 

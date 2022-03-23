@@ -1,12 +1,10 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import {Provider} from 'react-redux';
-import {store} from '../store/index';
 import {wrapper} from '../store/index';
 import AuthContext from '../context/auth-context';
 import {useState} from 'react';
-// import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Layout from '../components/Layout/Layout';
+
 
 
 
@@ -34,9 +32,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     deliveryMethod:""
   })
 
-  
+
   return <AuthContext.Provider value={{initialState, setInitialState}}>
-    <Component {...pageProps} />
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
   </AuthContext.Provider>
 }
 
