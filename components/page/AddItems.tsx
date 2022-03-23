@@ -3,7 +3,10 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 //Image import
-import blackMan from '../../public/assets/blackMan.png'
+import blackMan from '../../public/assets/blackMan.png';
+
+//React
+import { useSelector, useDispatch } from 'react-redux';
 
 //Font Awesome
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -17,19 +20,28 @@ import BackButton from '../Buttons/BackButton';
 import Link from 'next/link';
 
 const AddItems: NextPage = () => {
+
+    const dispatch = useDispatch()
+
+    const deliveryAddress = useSelector(() => (state:any) => state.inputReducer.deliveryAddress)
+    const weight = useSelector(() => (state:any) => state.inputReducer.weight)
+    const weight = useSelector(() => (state:any) => state.inputReducer.weight)
+    const value = useSelector(() => (state:any) => state.inputReducer.value)
+
     const router = useRouter()
     const { ride } = router.query
 
     const buttonHandler = () => {
-        if(ride === 'motorbike'){
-            router.push("/select/motorbike/review")
-        }else if(ride === 'car' ){
-            router.push("/select/car/review")
-        }else if(ride === 'van'){
-            router.push("/select/van/review")
-        }else if(ride === 'truck'){
-            router.push("/select/truck/review")
-        }
+
+        ride === 'motorbike' && router.push("/select/motorbike/review")
+        ride === 'car' && router.push("/select/car/review")
+        ride === 'van' && router.push("/select/van/review")
+        ride === 'truck' && router.push("/select/truck/review")
+    }
+
+
+    const addItemHandler = () => {
+        useDispatch()
     }
 
     return (
@@ -75,7 +87,7 @@ const AddItems: NextPage = () => {
                         <div className="mt-10">
                             <Link href="/select/motorbike/"><span className="cursor-pointer"><FontAwesomeIcon icon={faCloudUpload} size='2x' /></span></Link>
                         </div>
-                        <p className="font-semibold my-2">Add Item</p>
+                        <p className="font-semibold my-2" onClick={addItemHandler}>Add Item</p>
                         <p className="text-sm">Add more items to your shipment</p>
                     </div>
                 </div>

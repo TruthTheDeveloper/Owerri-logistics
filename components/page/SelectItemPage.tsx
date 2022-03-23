@@ -86,7 +86,7 @@ const SelectItem: NextPage = () => {
         <div style={{background:'#F3F4F6'}} className="overflow-hidden">
             <VechicleHeader/>
 
-            <div className="bg-red-600 mx-8 sm:mx-16 md:mx-24 lg:mx-36 xl:mx-44 2x:56 my-8 shadow-lg pt-16">
+            <div className="bg-white mx-8 sm:mx-16 md:mx-24 lg:mx-36 xl:mx-44 2x:56 my-8 shadow-lg pt-16">
                 <div className="flex px-8 sm:px-24">
                     <div className="basis-1/3">
                         <div className="border-t-4 border-black">
