@@ -68,8 +68,9 @@ const UploadPage:NextPage = () => {
 
             // // // van route
             ride === 'van' &&  select.category.length > 1 && select.item.length > 1 && select.weight.length > 1 && select.quantity.length >= 1 && select.value.length >= 1   ? router.push("/select/van/addItem") : setSelect({...select, categoryError: categoryValidation, itemError:itemValidation, weightError:weightValidation, quantityError:quantityValidation, valueError:valueValidation})
+            
             // // // track route
-            ride === 'truck' &&  select.category.length > 1 && select.item.length > 1 && select.weight.length > 1 && select.quantity.length >= 1 && select.value.length >= 1    ? router.push("/select/truck/addItem") : setSelect({...select, categoryError: categoryValidation, itemError:itemValidation, weightError:weightValidation, quantityError:quantityValidation, valueError:valueValidation})
+            ride === 'truck' &&  select.category.length > 1 && select.item.length > 1 && select.weight.length > 1 && select.quantity.length >= 1 && select.value.length >= 1   ? router.push("/select/truck/addItem") : setSelect({...select, categoryError: categoryValidation, itemError:itemValidation, weightError:weightValidation, quantityError:quantityValidation, valueError:valueValidation})
         }
 
 
