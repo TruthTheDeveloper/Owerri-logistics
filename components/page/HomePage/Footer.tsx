@@ -13,8 +13,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Footer: NextPage = () => {
   return (
      <div className="bg-black text-white">
-         <div className="grid grid-cols-4">
-             <div className="mt-4 ml-2">
+         <div className="grid grid-rows-1 lg:grid-cols-4 ml-6">
+             <div className="mt-24 ml-2">
                  <h1 className="font-semibold">ABOUT US</h1>
              </div>
              <div className="mt-4 ml-2">
@@ -37,10 +37,12 @@ const Footer: NextPage = () => {
                  </ul>
              </div>
              <div className="mt-4 ml-2">
-                 <h1 className="font-semibold mb-4">CONNECT WITH US</h1>
-                 <span className="mx-4 "><FontAwesomeIcon icon={faLinkedin} size="3x" /></span>
-                 <span className="mx-4"><FontAwesomeIcon icon={faFacebookSquare} size="3x" /></span>
-                 <span className="mx-4"><FontAwesomeIcon icon={faTwitterSquare} size="3x" /></span>
+                 <h1 className="font-semibold mb-4 text-center">CONNECT WITH US</h1>
+                 <div className="flex justify-center">
+                    <div className="mx-4 h-10 w-10"><FontAwesomeIcon icon={faLinkedin}  /></div>
+                    <div className="mx-4 h-10 w-10"><FontAwesomeIcon icon={faFacebookSquare}  /></div>
+                    <div className="mx-4 h-10 w-10"><FontAwesomeIcon icon={faTwitterSquare}  /></div>
+                 </div>
              </div>
          </div>
          {/* <hr className="my-2"/> */}

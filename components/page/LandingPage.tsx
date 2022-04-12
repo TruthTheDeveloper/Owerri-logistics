@@ -17,7 +17,20 @@ import delivery7 from '../../images/delivery7.jpg';
 import MoreInfo from './HomePage/MoreInfo';
 import ReactFullpage from '@fullpage/react-fullpage';
 
+//React
+import {useEffect} from 'react'
+
+// Aos Animation
+import AOS from "aos";
+import "aos/dist/aos.css";
+import ReactWOW from 'react-wow'
 const LandingPage: NextPage = () => {
+
+  useEffect(() => {
+    AOS.init({ duration: 1500 });
+  }, []);
+
+
   return (
     <>
     <Head>
@@ -48,11 +61,11 @@ const LandingPage: NextPage = () => {
                 {/* <div style={{height:'80vh'}}>
 
                 </div> */}
-              <h1 className="text-white text-5xl text-center font-bold">Get Goods Delivered To You <span className="text-green-500">Any Where Around Owerri</span></h1>
+              <h1 data-aos="zoom-in" className="text-white text-3xl md:text-4xl lg:text-5xl text-center font-bold" >Get Goods Delivered To You <span className="text-green-500">Any Where Around Owerri</span></h1>
 
               <div className="flex justify-center mt-16">
-                <input className="w-96 rounded-md h-14 pl-4" placeholder="Input track ID"/>
-                <button className="text-white bg-green-500 ml-4 py-3 px-6 text-lg font-semibold rounded-md">Track Item</button>
+                <input className="md:w-72 lg:w-96 rounded-md h-14 pl-4" placeholder="Input track ID"/>
+                <button className="text-white bg-green-500 ml-4 py-3 px-2 sm:px-6 md:text-lg md:font-semibold rounded-md">Track Item</button>
               </div>
             </div>
 
@@ -66,7 +79,10 @@ const LandingPage: NextPage = () => {
                 {/* <div style={{height:'120vh'}}>
 
                 </div> */}
-              <h1 className="text-white text-5xl text-center font-bold leading-relaxed">We have the best dispatch riders in the city,<br/> we do not dissapoint, we deliver  at the<br/> <span className="text-green-500">right location</span> at the <span className="text-green-500">right time</span></h1>
+                
+              <div  >
+                <h1 className="text-white text-3xl md:text-4xl lg:text-5xl text-center font-bold leading-relaxed" >We have the best dispatch riders in the city,<br/> we do not dissapoint, we deliver  at the<br/> <span className="text-green-500">right location</span> at the <span className="text-green-500" >right time</span></h1>
+              </div>
             </div>
 
             
@@ -76,7 +92,21 @@ const LandingPage: NextPage = () => {
               backgroundSize:'cover',
               // height:'100vh'
               }}>
-              <p>Section 3</p>
+
+            
+              
+            {/* </ReactWOW> */}
+              <div className='flex justify-between'>
+                <div className="bg-green-500 w-64 h-64 ml-10">
+
+                </div>
+                <div className="bg-red-400 w-64 h-64">
+
+                </div>
+                <div className="bg-yellow-600 w-64 h-64 mr-10">
+
+                </div>
+              </div>
               
             </div>
 

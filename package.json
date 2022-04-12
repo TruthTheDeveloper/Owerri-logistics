@@ -14,9 +14,11 @@
     "@fortawesome/free-solid-svg-icons": "^6.0.0",
     "@fortawesome/react-fontawesome": "^0.1.17",
     "@fullpage/react-fullpage": "^0.1.22",
+    "@types/aos": "^3.0.4",
     "@types/radium": "^0.24.4",
     "@types/react-animations": "^1.0.0",
     "@types/react-phone-number-input": "^3.0.13",
+    "@types/react-wow": "^1.0.1",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "next": "12.1.0",
@@ -28,6 +30,7 @@
     "react-phone-number-input": "^3.1.47",
     "react-redux": "^7.2.6",
     "react-select": "^5.2.2",
+    "react-wow": "^1.0.0",
     "redux": "^4.1.2"
   },
   "devDependencies": {
