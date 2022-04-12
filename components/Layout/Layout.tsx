@@ -8,10 +8,6 @@ import Head from 'next/head';
 const Layout: NextPage = (props) => {
     return(
         <>
-        <Head>
-            <link rel="stylesheet" type="text/css" href="fullpage.css" />
-            
-        </Head>
         <Navbar/>
         {props.children}
         <Footer/>
