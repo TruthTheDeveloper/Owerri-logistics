@@ -7,19 +7,10 @@ import Header from './HomePage/Header';
 import Main from './HomePage/Main';
 import ContactUs from './HomePage/ContactUs';
 import Footer from '../page/HomePage/Footer';
-import Navbar from './HomePage/Navbar';
 
-import logistics from '../../images/logistics.jpg';
-import deliver2 from '../../images/deliver2.jpg';
-import delivery from '../../images/delivery1.jpg';
 
-import deliveryImage1 from '../../images/deliverImage1.jpg';
-import deliveryImage2 from '../../images/deliveryImage2.jpg';
-import deliveryImage3 from '../../images/deliveryImage3.jpg';
 import deliveryImage4 from '../../images/deliveryImage4.jpg';
-import delivery1 from '../../images/delivery1.jpg';
 import delivery5 from '../../images/delivery5.jpg';
-import delivery6 from '../../images/delivery6.jpg';
 import delivery7 from '../../images/delivery7.jpg';
 
 // import TrackItem from './HomePage/TrackItem';
@@ -57,7 +48,12 @@ const LandingPage: NextPage = () => {
                 {/* <div style={{height:'80vh'}}>
 
                 </div> */}
-              <p>Section 1 (welcome to fullpage.js)</p>
+              <h1 className="text-white text-5xl text-center font-bold">Get Goods Delivered To You <span className="text-green-500">Any Where Around Owerri</span></h1>
+
+              <div className="flex justify-center mt-16">
+                <input className="w-96 rounded-md h-14 pl-4" placeholder="Input track ID"/>
+                <button className="text-white bg-green-500 ml-4 py-3 px-6 text-lg font-semibold rounded-md">Track Item</button>
+              </div>
             </div>
 
 
@@ -70,7 +66,7 @@ const LandingPage: NextPage = () => {
                 {/* <div style={{height:'120vh'}}>
 
                 </div> */}
-              <p>Section 2</p>
+              <h1 className="text-white text-5xl text-center font-bold leading-relaxed">We have the best dispatch riders in the city,<br/> we do not dissapoint, we deliver  at the<br/> <span className="text-green-500">right location</span> at the <span className="text-green-500">right time</span></h1>
             </div>
 
             
