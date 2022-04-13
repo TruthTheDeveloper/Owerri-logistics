@@ -8,14 +8,19 @@ import Main from './HomePage/Main';
 import ContactUs from './HomePage/ContactUs';
 import Footer from '../page/HomePage/Footer';
 
-
-import deliveryImage4 from '../../images/deliveryImage4.jpg';
-import delivery5 from '../../images/delivery5.jpg';
-import delivery7 from '../../images/delivery7.jpg';
+import deliveryImage4 from '../../public/assets/images/deliveryImage4.jpg';
+import delivery5 from '../../public/assets/images/delivery5.jpg';
+import delivery7 from '../../public/assets/images/delivery7.jpg';
 
 // import TrackItem from './HomePage/TrackItem';
 import MoreInfo from './HomePage/MoreInfo';
 import ReactFullpage from '@fullpage/react-fullpage';
+
+//FontAwesome
+import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import { faReceipt } from '@fortawesome/free-solid-svg-icons';
+import { faBiking } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 //React
 import {useEffect} from 'react'
@@ -27,7 +32,7 @@ import ReactWOW from 'react-wow'
 const LandingPage: NextPage = () => {
 
   useEffect(() => {
-    AOS.init({ duration: 1500 });
+    AOS.init({ duration: 3000 });
   }, []);
 
 
@@ -96,15 +101,21 @@ const LandingPage: NextPage = () => {
             
               
             {/* </ReactWOW> */}
-              <div className='flex justify-between'>
-                <div className="bg-green-500 w-64 h-64 ml-10">
-
+              <div className='flex flex-col md:flex-row md:justify-between ' >
+                <div className="bg-red-500 text-white w-60 h-60 md:w-64 md:h-64  mx-auto md:mx-4 lg:mx-12 shadow-xl rounded-sm my-2">
+                  <p className="text-4xl text-center my-5 font-bold mt-10">550+</p>
+                  <div className="h-10 mx-auto my-6 w-10"><FontAwesomeIcon icon={faReceipt}  /></div>
+                  <p className="text-3xl text-center font-semibold">Daily Request</p>
                 </div>
-                <div className="bg-red-400 w-64 h-64">
-
+                <div className="bg-green-500 text-white w-60 h-60 md:w-64 md:h-64 mx-auto md:mx-4 lg:mx-12 shadow-xl rounded-sm my-2">
+                  <p className="text-4xl text-center my-5 font-bold mt-10">5000+</p>
+                  <div className="h-10 mx-auto my-4 w-10"><FontAwesomeIcon icon={faCircleCheck}  /></div>
+                  <p className="text-3xl text-center font-semibold">Goods Delivered</p>
                 </div>
-                <div className="bg-yellow-600 w-64 h-64 mr-10">
-
+                <div className="bg-blue-500 text-white w-60 h-60 md:w-64 md:h-64 mx-auto md:mx-4 lg:mx-12 shadow-xl rounded-sm  my-2">
+                  <p className="text-4xl text-center my-4 font-bold mt-10">200+</p>
+                  <div className="h-14 mx-auto my-2 w-14"><FontAwesomeIcon icon={faBiking}  /></div>
+                  <p className="text-3xl text-center font-semibold">Standby Dispatcher</p>
                 </div>
               </div>
               

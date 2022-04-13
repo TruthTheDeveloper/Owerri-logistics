@@ -23,6 +23,16 @@ a {
   box-sizing: border-box;
 }
 
+/* .fp-viewing-3{
+  background: #000;
+  animation-name:active
+}
+
+@keyframes active{
+  from{transform: translateX(0)};
+  to{transform: translateX(50%)}
+} */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

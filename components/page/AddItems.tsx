@@ -99,17 +99,17 @@ const AddItems: NextPage = () => {
                         <div className="border-t-4 border-black">
                             <div style={{marginTop:'-1rem'}} className=" mx-auto py-1 w-8 bg-black text-white   rounded-full  text-center text-sm">1</div>
                         </div>
-                        <h1 className="text-sm text-center my-4">Pick up location</h1>
+                        <h1 className="text-sm lg:text-lg text-center my-4">Pick up location</h1>
                     </div>
                     <div className="basis-1/3 border-t-4 border-black ">
                         <div style={{marginTop:'-1rem'}} className=" mx-auto py-1 w-8 bg-black text-white   z-10 rounded-full  text-center text-sm">2</div>
-                        <h1 className="text-sm text-center my-4">Shipment details</h1>
+                        <h1 className="text-sm lg:text-lg text-center my-4">Shipment details</h1>
                     </div>
                     <div className="basis-1/3 border-t-4 border-black">
                         <div style={{marginTop:'-1rem'}} className=" mx-auto py-1 w-8    z-10 rounded-full bg-black text-white text-center text-sm">
                             3
                         </div>
-                        <h1 className="text-sm text-center my-4">Upload item</h1>
+                        <h1 className="text-sm lg:text-lg text-center my-4">Upload item</h1>
                     </div>
                 </div>
                 <div className="text-center my-8">
@@ -133,7 +133,7 @@ const AddItems: NextPage = () => {
                     })}
                     <div className="border-slate-500 border-2 rounded-md text-center w-56 h-48 ml-28 sm:ml-36 md:ml-0">
                         <div className="mt-10">
-                            <Link href="/select/motorbike/"><span className="cursor-pointer"><FontAwesomeIcon icon={faCloudUpload} size='2x' /></span></Link>
+                            <Link href="/select/motorbike/"><div className="cursor-pointer w-10 h-10 mx-auto"><FontAwesomeIcon icon={faCloudUpload} size='2x' /></div></Link>
                         </div>
                         <p className="font-semibold my-2" onClick={addItemHandler}>Add Item</p>
                         <p className="text-sm">Add more items to your shipment</p>

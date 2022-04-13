@@ -125,17 +125,17 @@ const UploadPage:NextPage = () => {
                         <div className="border-t-4 border-black">
                             <div style={{marginTop:'-1rem'}} className=" mx-auto py-1 w-8 bg-black text-white   rounded-full  text-center text-sm">1</div>
                         </div>
-                        <h1 className="text-sm text-center my-4">Pick up location</h1>
+                        <h1 className="text-sm lg:text-lg text-center my-4">Pick up location</h1>
                     </div>
                     <div className="basis-1/3 border-t-4 border-black ">
                         <div style={{marginTop:'-1rem'}} className=" mx-auto py-1 w-8 bg-black text-white   z-10 rounded-full  text-center text-sm">2</div>
-                        <h1 className="text-sm text-center my-4">Shipment details</h1>
+                        <h1 className="text-sm lg:text-lg text-center my-4">Shipment details</h1>
                     </div>
                     <div className="basis-1/3 border-t-4 border-black">
                         <div style={{marginTop:'-1rem'}} className=" mx-auto py-1 w-8    z-10 rounded-full bg-black text-white text-center text-sm">
                             3
                         </div>
-                        <h1 className="text-sm text-center my-4">Upload item</h1>
+                        <h1 className="text-sm lg:text-lg text-center my-4">Upload item</h1>
                     </div>
                 </div>
                 <div className="sm:mx-16 md:mx-24 lg:mx-32 xl:mx-44 2xl:56">
@@ -158,9 +158,11 @@ const UploadPage:NextPage = () => {
                             <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36  my-8 border-slate-400 border">
                                 <h1 className="text-center my-4 ">Upload Items</h1>
                                 <div className='  mx-auto'>
-                                    <i className="mx-10 my-"><FontAwesomeIcon icon={faCloud} size="2x"/></i>
+                                    <div className="mx-10 my-"><FontAwesomeIcon icon={faCloud} size="2x"/></div>
                                     <h2 className="my-4">Upload an Image</h2>
-                                    <button className="border-slate-400 border py-2 px-4 rounded-md mt-8 mb-4">Choose a file</button>
+                                    <div className="border-slate-400 border py-2  rounded-md mt-8 mb-4">
+                                        <input type="file"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>

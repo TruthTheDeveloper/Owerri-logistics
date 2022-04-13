@@ -1,18 +1,41 @@
 import type { NextPage } from 'next';
+import Image from 'next/image';
+
+import {useState} from 'react';
+
+import close from '../../../public/assets/close.png';
+import menu from '../../../public/assets/menu.png';
 
 
 const Navbar: NextPage = () => {
-  return (
-      <nav className="flex justify-between shadow-md py-3 lg:pl-5 sticky bg-white z-[99999]">
-          <h1 className="text-4xl font-semibold mt-2 mx-2"><span className="text-green-500">Owerri</span> Logistics</h1>
-          <ul className="lg:flex lg:mr-24 lg:mt-2 hidden">
-              <li className="lg:text-lg lg:mx-4"><a href="#">Home</a></li>
-              <li className="lg:text-lg lg:mx-4"><a href="#">Track Item</a></li>
-              <li className="lg:text-lg lg:mx-4"><a href="#">Contact Us</a></li>
-              <li className="lg:text-lg lg:mx-4"><a href="#">About Us</a></li>
-          </ul>
-      </nav>
-  )
+
+    const [openNav, setOpenNav] = useState(false)
+
+    return (
+        <nav className="flex flex-col md:flex-row justify-between shadow-md py-3 lg:pl-5 sticky bg-white z-[99999]">
+            <div className="flex justify-between">
+                <h1 className="text-lg md:text-2xl lg:text-4xl font-semibold mt-2 mx-2"><span className="text-green-500">Owerri</span> Logistics</h1>
+                {openNav ? <div className="h-6 w-6 mt-2 mr-2 md:hidden" onClick={() => setOpenNav((prev) => !prev)}>
+                    <Image src={close} />
+                </div>:<div className="h-6 w-6 mt-2 mr-2 md:hidden" onClick={() => setOpenNav((prev) => !prev)}>
+                    <Image src={menu} />
+                </div>}
+            </div>
+            <ul className="md:flex md:mr-24 md:mt-2 hidden">
+                <li className="md:text-lg md:mx-4"><a href="#">Home</a></li>
+                <li className="md:text-lg md:mx-4"><a href="#">Track Item</a></li>
+                <li className="md:text-lg md:mx-4"><a href="#">Contact Us</a></li>
+                <li className="md:text-lg md:mx-4"><a href="#">About Us</a></li>
+            </ul>
+
+            {openNav && <ul className="ml-2 pt-3 md:hidden">
+                <li className="cursor-pointer my-1"><a href="#">Home</a></li>
+                <li className="cursor-pointer my-1"><a href="#">Track Item</a></li>
+                <li className="cursor-pointer my-1"><a href="#">Contact Us</a></li>
+                <li className="cursor-pointer my-1"><a href="#">About Us</a></li>
+            </ul>}
+        </nav>
+    )
 }
 
 export default Navbar;
