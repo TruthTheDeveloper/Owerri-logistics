@@ -9,10 +9,10 @@ interface Props{
 }
 
 const DropDownInput:NextPage<Props> = ({label}) => {
-    const {select, setSelect} = useContext(AuthContext)
+    const {initialState, setInitialState} = useContext(AuthContext)
 
     const categoryHandler = (e: { value: string; }) => {
-        setSelect({...select, category: e.value, categoryError:"", item:''})
+        setInitialState({...initialState, category: e.value, categoryError:"", item:''})
         
     }
 
@@ -186,21 +186,21 @@ const DropDownInput:NextPage<Props> = ({label}) => {
 
     // console.log(select.category, 'category')
 
-        if(select.category === "Clothing/Shoes"){
+        if(initialState.category === "Clothing/Shoes"){
             subDropDown =   <SubDropDown options={clothing} index="Clothing/Shoes" />
-        }else if(select.category === "Computer/Acessories"){
+        }else if(initialState.category === "Computer/Acessories"){
             subDropDown = <SubDropDown options={computer} index="Computer/Acessories"/>
-        }else if(select.category === "Document"){
+        }else if(initialState.category === "Document"){
             subDropDown = <SubDropDown options={document} index="Document"/>
-        }else if(select.category === "Food"){
+        }else if(initialState.category === "Food"){
             subDropDown = <SubDropDown options={food} index="Food"/>
-        }else if(select.category === "Electronics"){
+        }else if(initialState.category === "Electronics"){
             subDropDown = <SubDropDown options={electronics} index="Electronics" />
-        }else if(select.category === "Health"){
+        }else if(initialState.category === "Health"){
             subDropDown = <SubDropDown options={health} index="Health"/>
-        }else if(select.category === "Phones"){
+        }else if(initialState.category === "Phones"){
             subDropDown = <SubDropDown options={phones} index="Phones"/>
-        }else if(select.category === "Other"){
+        }else if(initialState.category === "Other"){
             subDropDown = <SubDropDown options={'Other'} index="Other"/>
         }
       
@@ -209,12 +209,12 @@ const DropDownInput:NextPage<Props> = ({label}) => {
         <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">
             <label className="py-2">{label}</label>
             <Select
-                defaultValue={select}
+                defaultValue={initialState}
                 onChange={categoryHandler}
                 options={options}
             />
 
-            <p className="text-red-500 text-sm font-semibold">{select.categoryError}</p>
+            <p className="text-red-500 text-sm font-semibold">{initialState.categoryError}</p>
         </div>
         {subDropDown}
     </>

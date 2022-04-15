@@ -14,22 +14,48 @@ function MyApp({ Component, pageProps }: AppProps) {
     allItems:[],
     deliveryAddress:'',
     pickUpAddress:"",
+    //=== SENDER ===//
     senderAddressLine1:"",
     senderAddressLine2:"",
     senderName:"",
     senderPhoneNumber:"",
     senderLocation:"",
+    // === SENDERERROR ==//
+    senderAddressLine1Error:"",
+    senderAddressLine2Error:"",
+    senderNameError:"",
+    senderPhoneNumberError:"",
+    senderLocationError:"",
+    // == RECEIVER ==//
     receiverAddressLine1:"",
     receiverAddressLine2:"",
     receiverName:"",
     receiverPhoneNumber:"",
     receiverLocation:"",
+    //== RECEIVER ERROR ==//
+    receiverAddressLine1Error:"",
+    receiverAddressLine2Error:"",
+    receiverNameError:"",
+    receiverPhoneNumberError:"",
+    receiverLocationError:"",
+
     category:"",
+    categoryError:"",
+
     item:"",
+    itemError:"",
+
     weight:"",
+    weightError:"",
+
     value:"",
+    valueError:"",
+
     quantity:"",
-    deliveryMethod:""
+    quantityError:"",
+    
+    deliveryMethod:"",
+    image:""
   })
 
 

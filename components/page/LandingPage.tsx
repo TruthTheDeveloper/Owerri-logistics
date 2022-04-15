@@ -23,7 +23,7 @@ import { faBiking } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 //React
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 
 // Aos Animation
 import AOS from "aos";
@@ -34,6 +34,13 @@ const LandingPage: NextPage = () => {
   useEffect(() => {
     AOS.init({ duration: 3000 });
   }, []);
+
+  const [trackValidation, setTrackValidation] = useState('')
+
+  const trackIdHandler = () => {
+
+    setTrackValidation('Invalid track Id')
+  }
 
 
   return (
@@ -69,9 +76,10 @@ const LandingPage: NextPage = () => {
               <h1 data-aos="zoom-in" className="text-white text-3xl md:text-4xl lg:text-5xl text-center font-bold" >Get Goods Delivered To You <span className="text-green-500">Any Where Around Owerri</span></h1>
 
               <div className="flex justify-center mt-16">
-                <input className="md:w-72 lg:w-96 rounded-md h-14 pl-4" placeholder="Input track ID"/>
-                <button className="text-white bg-green-500 ml-4 py-3 px-2 outline-none sm:px-6 md:text-lg md:font-semibold rounded-md">Track Item</button>
+                <input className="md:w-72 lg:w-96 rounded-md h-14 pl-4 outline-none" placeholder="Input track ID"/>
+                <button className="text-white bg-green-500 ml-4 py-3 px-2 outline-none sm:px-6 md:text-lg md:font-semibold rounded-md" onClick={trackIdHandler}>Track Item</button>
               </div>
+              <p className="text-red-700 text-center text-3xl">{trackValidation}</p>
             </div>
 
 

@@ -18,11 +18,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //UI component
 import VechicleHeader from '../PageComponents/VechicleHeaders';
 
-import * as actionTypes from '../../store/actions/ActionTypes';
-
 import AuthContext from '../../context/auth-context';
-
-
 
 
 
@@ -36,25 +32,17 @@ const SelectItem: NextPage = () => {
     const { ride } = router.query
 
 
-
-    const [logistics, setlogistics] = useState({
-        pickUpAddress:"",
-        deliveryAddress:""
-    })
-
-    console.log(initialState.pickUpAddress, initialState.deliveryAddress)
-
     const [pickUpAddressValidation, setPickUpAddressValidation] = useState('')
     const [deliveryAddressValidation, setDeliveryAddressValidation] = useState('')
 
 
     const pickUpAddressHandler = (e:{target:{value: string}}) => {
-        setlogistics({...logistics, pickUpAddress:e.target.value})
+        setInitialState({...initialState, pickUpAddress:e.target.value})
         setPickUpAddressValidation('')
     }
 
     const deliveryAddressHandler = (e:{target:{value: string}}) => {
-        setlogistics({...logistics, deliveryAddress:e.target.value})
+        setInitialState({...initialState, deliveryAddress:e.target.value})
         setDeliveryAddressValidation('')
     }
 
@@ -62,25 +50,25 @@ const SelectItem: NextPage = () => {
     const buttonHandler = () => {
 
 
-        logistics.pickUpAddress.length < 1 ? setPickUpAddressValidation('This field is required') :
+        initialState.pickUpAddress.length < 1 ? setPickUpAddressValidation('This field is required') :
         setPickUpAddressValidation('')
         
 
-        logistics.deliveryAddress.length < 1 ? setDeliveryAddressValidation('this field is required'):
+        initialState.deliveryAddress.length < 1 ? setDeliveryAddressValidation('this field is required'):
         setDeliveryAddressValidation('') 
         
 
 
-        ride === 'motorbike' && logistics.pickUpAddress.length > 1 && logistics.deliveryAddress.length > 1 && router.push("/select/motorbike/shipment")
+        ride === 'motorbike' && initialState.pickUpAddress.length > 1 && initialState.deliveryAddress.length > 1 && router.push("/select/motorbike/shipment")
 
-        ride === 'car' && logistics.pickUpAddress.length  > 1 && logistics.deliveryAddress.length > 1 &&  router.push("/select/car/shipment")
+        ride === 'car' && initialState.pickUpAddress.length  > 1 && initialState.deliveryAddress.length > 1 &&  router.push("/select/car/shipment")
 
-        ride === 'van' && logistics.pickUpAddress.length > 1 && logistics.deliveryAddress.length > 1 &&  router.push("select/van/shipment")
+        ride === 'van' && initialState.pickUpAddress.length > 1 && initialState.deliveryAddress.length > 1 &&  router.push("select/van/shipment")
 
-        ride === 'truck' && logistics.pickUpAddress.length > 1 && logistics.deliveryAddress.length > 1 &&  router.push("/select/truck/shipment")
+        ride === 'truck' && initialState.pickUpAddress.length > 1 && initialState.deliveryAddress.length > 1 &&  router.push("/select/truck/shipment")
 
 
-        setInitialState({...initialState, deliveryAddress:logistics.deliveryAddress, pickUpAddress:logistics.pickUpAddress})
+        setInitialState({...initialState, deliveryAddress:initialState.deliveryAddress, pickUpAddress:initialState.pickUpAddress})
 
     }
 

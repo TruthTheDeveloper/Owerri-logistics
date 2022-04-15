@@ -30,21 +30,9 @@ const UploadPage:NextPage = () => {
 
     const [click, setClick] = useState(false)
 
-    const [select, setSelect] = useState({
-        defaultValue:"",
-        defaultSubValue:"",
-        category:'',
-        item:'',
-        weight:'',
-        quantity:'',
-        value:'',
-        quantityError:'',
-        valueError:'',
-        categoryError:'',
-        itemError:'',
-        weightError:''
+    const [src, setSrc] = useState(null)
+    const [srcValidation, setSrcValidation] = useState('')
 
-    })
 
     const [quantityValidation, setQuantityValidation] = useState("")
     const [valueValidation, setValueValidation] = useState("")
@@ -54,23 +42,29 @@ const UploadPage:NextPage = () => {
 
 
     useEffect(() => {
-
+        console.log(click)
         if(click){
+
+            console.log(src, 'clicked')
             //motorbike
-            ride === 'motorbike' && select.category.length > 1 && select.item.length > 1 && select.weight.length > 1 && select.quantity.length >= 1 && select.value.length >= 1  ? 
+            ride === 'motorbike' && initialState.category.length > 1 && initialState.item.length > 1 && initialState.weight.length > 1 && initialState.quantity.length >= 1 && initialState.value.length >= 1 && src !== null  ? 
             router.push("/select/motorbike/addItem") : 
-            setSelect({...select,categoryError:categoryValidation,itemError:itemValidation,weightError:weightValidation, quantityError:quantityValidation,valueError:valueValidation})
+            setInitialState({...initialState,categoryError:categoryValidation,itemError:itemValidation,weightError:weightValidation, quantityError:quantityValidation,valueError:valueValidation})
 
             // // // car route
-            ride === 'car' &&  select.category.length > 1 && select.item.length > 1 && select.weight.length > 1 && select.quantity.length >= 1 && select.value.length >= 1   ?
-            router.push("/select/car/addItem") : 
-            setSelect({...select, categoryError: categoryValidation, itemError:itemValidation, weightError:weightValidation, quantityError:quantityValidation, valueError:valueValidation})
+            ride === 'car' && initialState.category.length > 1 && initialState.item.length > 1 && initialState.weight.length > 1 && initialState.quantity.length >= 1 && initialState.value.length >= 1 && src !== null  ? 
+            router.push("/select/motorbike/addItem") : 
+            setInitialState({...initialState,categoryError:categoryValidation,itemError:itemValidation,weightError:weightValidation, quantityError:quantityValidation,valueError:valueValidation})
 
             // // // van route
-            ride === 'van' &&  select.category.length > 1 && select.item.length > 1 && select.weight.length > 1 && select.quantity.length >= 1 && select.value.length >= 1   ? router.push("/select/van/addItem") : setSelect({...select, categoryError: categoryValidation, itemError:itemValidation, weightError:weightValidation, quantityError:quantityValidation, valueError:valueValidation})
+            ride === 'van' && initialState.category.length > 1 && initialState.item.length > 1 && initialState.weight.length > 1 && initialState.quantity.length >= 1 && initialState.value.length >= 1 && src !== null  ? 
+            router.push("/select/motorbike/addItem") : 
+            setInitialState({...initialState,categoryError:categoryValidation,itemError:itemValidation,weightError:weightValidation, quantityError:quantityValidation,valueError:valueValidation})
             
             // // // track route
-            ride === 'truck' &&  select.category.length > 1 && select.item.length > 1 && select.weight.length > 1 && select.quantity.length >= 1 && select.value.length >= 1   ? router.push("/select/truck/addItem") : setSelect({...select, categoryError: categoryValidation, itemError:itemValidation, weightError:weightValidation, quantityError:quantityValidation, valueError:valueValidation})
+            ride === 'truck' && initialState.category.length > 1 && initialState.item.length > 1 && initialState.weight.length > 1 && initialState.quantity.length >= 1 && initialState.value.length >= 1 && src !== null  ? 
+            router.push("/select/motorbike/addItem") : 
+            setInitialState({...initialState,categoryError:categoryValidation,itemError:itemValidation,weightError:weightValidation, quantityError:quantityValidation,valueError:valueValidation})
         }
 
 
@@ -88,27 +82,32 @@ const UploadPage:NextPage = () => {
         e.preventDefault()
 
             setClick(true)
+            console.log(src, 'src')
 
             // select validation
             
-            select.category.length < 1 ? setCategoryValidation("Please select category"):
+            initialState.category.length < 1 ? setCategoryValidation("Please select category"):
             setCategoryValidation("")
 
 
-            select.item.length < 1 ? setItemValidation("Please select item"):
+            initialState.item.length < 1 ? setItemValidation("Please select item"):
             setItemValidation("")
 
-            select.weight.length < 1 ? setWeightValidation("Please select weight"):
+            initialState.weight.length < 1 ? setWeightValidation("Please select weight"):
             setWeightValidation("")
 
-            select.quantity.length < 1 ? setQuantityValidation("Please enter quantity"):
+            initialState.quantity.length < 1 ? setQuantityValidation("Please enter quantity"):
             setQuantityValidation("")
 
-            select.value.length < 1 ? setValueValidation("Please enter value"):
+            initialState.value.length < 1 ? setValueValidation("Please enter value"):
             setValueValidation("")
 
+            src === null ? setSrcValidation("please upload image of item"):
+            setSrcValidation("")
 
-            setInitialState({...initialState, category:select.category, item:select.item, weight:select.weight, value:select.value, quantity:select.quantity})
+
+
+            setInitialState({...initialState, category:initialState.category, item:initialState.item, weight:initialState.weight, value:initialState.value, quantity:initialState.quantity})
 
 
     }
@@ -143,7 +142,6 @@ const UploadPage:NextPage = () => {
                     <div className="text-center py-3 bg-slate-200 shadow-sm lg:mx-14 xl:mx-24 2xl:mx-36"><h1>Item Info</h1></div>
                    
                     <div className=" mx-4 my-2">
-                        <AuthContext.Provider value={{select, setSelect}}>
                                 <DropDownInput label="Select Category"/>
                             
                             <div className="flex lg:mx-14 xl:mx-24 2xl:mx-36 ">
@@ -154,16 +152,26 @@ const UploadPage:NextPage = () => {
                                     <SmallInput label={'Value(Naira)'}  />
                                 </div>
                             </div>
-                            </AuthContext.Provider>
                             <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36  my-8 border-slate-400 border">
                                 <h1 className="text-center my-4 ">Upload Items</h1>
-                                <div className='  mx-auto'>
-                                    <div className="mx-10 my-"><FontAwesomeIcon icon={faCloud} size="2x"/></div>
-                                    <h2 className="my-4">Upload an Image</h2>
-                                    <div className="border-slate-400 border py-2  rounded-md mt-8 mb-4">
-                                        <input type="file"/>
-                                    </div>
+                                <div className='  mx-auto mb-8'>
+                                    <div className="mx-10 my-6"><FontAwesomeIcon icon={faCloud} size="2x"/></div>
+    
+                                    <label htmlFor="file-upload" className="border-slate-500 border px-8 py-2 mb-12 cursor-pointer  rounded-md ">
+                                        Upload an Image
+                                    </label>
+                                    <p className="text-red-500 text-center mt-2 font-semibold">{srcValidation}</p>
+                                    <input id="file-upload" type="file" className="hidden" onChange={(e) => {
+                                        setSrcValidation('')
+                                        setSrc(window.URL.createObjectURL(e.target.files[0]))
+                                        }}/>
+
+                                    <div className="h-24 w-24 mx-auto mt-4" style={{
+                                         backgroundImage: `url(${src})`,
+                                         backgroundSize:'cover'
+                                         }}> </div>
                                 </div>
+                                
                             </div>
                         </div>
                         <div className="flex justify-center">

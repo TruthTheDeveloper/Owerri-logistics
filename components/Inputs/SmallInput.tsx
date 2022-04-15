@@ -9,14 +9,14 @@ interface Props {
 
 const SmallInput:NextPage<Props> = ({label}) => {
 
-    const {select, setSelect} = useContext(AuthContext)
+    const {initialState, setInitialState} = useContext(AuthContext)
 
     const smallInputHandler = (e:any) => {
         if(label ===  "Quantity"){
 
-                setSelect({...select, quantity:e.target.value, quantityError:""})
+                setInitialState({...initialState, quantity:e.target.value, quantityError:""})
         }else{
-            setSelect({...select, value:e.target.value, valueError:""})
+            setInitialState({...initialState, value:e.target.value, valueError:""})
         }
     }
 
@@ -26,7 +26,7 @@ const SmallInput:NextPage<Props> = ({label}) => {
     return  <>
         <label className="py-2">{label}</label>
         <input className="py-2 my-2 outline-none pl-2 rounded-lg w-36  border-slate-400 border" onChange={smallInputHandler} pattern="\d*" type="number"/>
-        {label === "Quantity" ? <p className="text-red-500 text-sm font-semibold">{select.quantityError}</p> : <p className="text-red-500 text-sm font-semibold">{select.valueError}</p>}
+        {label === "Quantity" ? <p className="text-red-500 text-sm font-semibold">{initialState.quantityError}</p> : <p className="text-red-500 text-sm font-semibold">{initialState.valueError}</p>}
     </>
 }
 

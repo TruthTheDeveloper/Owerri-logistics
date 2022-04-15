@@ -11,19 +11,19 @@ interface Props{
 
 const WeightDropDown:NextPage<Props> = ({options}) => {
 
-    const {select, setSelect}  = useContext(AuthContext)
+    const {initialState, setInitialState} = useContext(AuthContext)
     const [selectedWeight,setSelectedWeight]=useState('test')
 
     const weightHandler = (e:{ value: string; }) => {
         setSelectedWeight(e.value)
-        setSelect({...select, weight: e.value, weightError:""})
+        setInitialState({...initialState, weight: e.value, weightError:""})
 
     }
 
 
     useEffect(()=>{
         setSelectedWeight('select weight')
-    },[select.category])
+    },[initialState.category])
 
 
 
@@ -44,7 +44,7 @@ const WeightDropDown:NextPage<Props> = ({options}) => {
                    />
                 }
 
-                <p className="text-red-500 text-sm font-semibold">{select.weightError}</p>
+                <p className="text-red-500 text-sm font-semibold">{initialState.weightError}</p>
         </div>
     </>
 }

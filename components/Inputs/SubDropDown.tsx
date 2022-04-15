@@ -12,8 +12,8 @@ interface Props{
 }
 
 const DropDownInput:NextPage<Props> = ({options, index}) => {
-
-    const {select, setSelect} = useContext(AuthContext)
+    const {initialState, setInitialState} = useContext(AuthContext)
+    // const {select, setSelect} = useContext(AuthContext)
 
     const [selectedItem,setSelectedItem]=useState('test')
 
@@ -27,19 +27,16 @@ const DropDownInput:NextPage<Props> = ({options, index}) => {
 
     useEffect(()=>{
         setSelectedItem('select item')
-    },[select.category])
+    },[initialState.category])
 
     console.log(options, 'this options')
 
     const itemHandler = (e:{ value: string; }) => {
         setSelectedItem(e.value)
-        setSelect({...select, item: e.value, itemError:""})
+        setInitialState({...initialState, item: e.value, itemError:""})
     }
 
       
-
-
-    console.log(select.item, 'jckjckjck')
 
 
 
@@ -174,7 +171,7 @@ const DropDownInput:NextPage<Props> = ({options, index}) => {
                     isSearchable
                    />
                 }
-                <p className="text-red-500 text-sm font-semibold">{select.itemError}</p>
+                <p className="text-red-500 text-sm font-semibold">{initialState.itemError}</p>
         </div>
         {weightDropDown}
     </>
