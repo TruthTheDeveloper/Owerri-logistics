@@ -60,7 +60,7 @@ const Form: NextPage<Props> = ({formType}) => {
     }
 
     const secondAddressInputHandler = (e: { target: { value: string; }; }) => {
-
+            console.log(e.target.value)
         formType === "Sender" ? setInitialState({...initialState, senderAddressLine2:e.target.value, senderAddressLine2Error:""}) : setInitialState({...initialState, receiverAddressLine2:e.target.value, receiverAddressLine2Error:""})
         
         
@@ -110,7 +110,7 @@ const Form: NextPage<Props> = ({formType}) => {
             <div className=" mx-4 my-2">
                 
                 <AddressInput label="Address Line 1" value={initialState.receiverAddressLine1} error={initialState.receiverAddressLine1Error} onChange={(e) => firstAddressInputHandler(e)}/>
-                <AddressInput label="Address Line 2"  value={initialState.receiverAddressLine2Error} error={initialState.addressLine2Error} onChange={(e) => secondAddressInputHandler(e)} />
+                <AddressInput label="Address Line 2"  value={initialState.receiverAddressLine2} error={initialState.addressLine2Error} onChange={(e) => secondAddressInputHandler(e)} />
 
                 <Inputs label="Name" value={initialState.receiverName} error={initialState.receiverNameError} onChange={nameInputHandler}/>
                 <div className="flex flex-col lg:mx-14 xl:mx-24 2xl:mx-36">

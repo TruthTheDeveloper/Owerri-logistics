@@ -65,6 +65,8 @@ const UploadPage:NextPage = () => {
             ride === 'truck' && initialState.category.length > 1 && initialState.item.length > 1 && initialState.weight.length > 1 && initialState.quantity.length >= 1 && initialState.value.length >= 1 && src !== null  ? 
             router.push("/select/motorbike/addItem") : 
             setInitialState({...initialState,categoryError:categoryValidation,itemError:itemValidation,weightError:weightValidation, quantityError:quantityValidation,valueError:valueValidation})
+
+            setClick(false)
         }
 
 
