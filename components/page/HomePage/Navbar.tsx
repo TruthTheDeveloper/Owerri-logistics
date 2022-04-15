@@ -22,17 +22,17 @@ const Navbar: NextPage = () => {
                 </div>}
             </div>
             <ul className="md:flex md:mr-24 md:mt-2 hidden">
-                <li className="md:text-lg md:mx-4"><a href="#">Home</a></li>
-                <li className="md:text-lg md:mx-4"><a href="#">Track Item</a></li>
-                <li className="md:text-lg md:mx-4"><a href="#">Contact Us</a></li>
-                <li className="md:text-lg md:mx-4"><a href="#">About Us</a></li>
+                <li className="md:text-lg md:mx-4"><a href="/">Home</a></li>
+                <li className="md:text-lg md:mx-4"><a href="/">Track Item</a></li>
+                <li className="md:text-lg md:mx-4"><a href="/">Contact Us</a></li>
+                <li className="md:text-lg md:mx-4"><a href="/">About Us</a></li>
             </ul>
 
             {openNav && <ul className="ml-2 pt-3 md:hidden">
-                <li className="cursor-pointer my-1"><a href="#">Home</a></li>
-                <li className="cursor-pointer my-1"><a href="#">Track Item</a></li>
-                <li className="cursor-pointer my-1"><a href="#">Contact Us</a></li>
-                <li className="cursor-pointer my-1"><a href="#">About Us</a></li>
+                <li className="cursor-pointer my-1"><a href="/">Home</a></li>
+                <li className="cursor-pointer my-1"><a href="/">Track Item</a></li>
+                <li className="cursor-pointer my-1"><a href="/">Contact Us</a></li>
+                <li className="cursor-pointer my-1"><a href="/">About Us</a></li>
             </ul>}
         </nav>
     )

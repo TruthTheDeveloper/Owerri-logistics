@@ -70,7 +70,7 @@ const LandingPage: NextPage = () => {
 
               <div className="flex justify-center mt-16">
                 <input className="md:w-72 lg:w-96 rounded-md h-14 pl-4" placeholder="Input track ID"/>
-                <button className="text-white bg-green-500 ml-4 py-3 px-2 sm:px-6 md:text-lg md:font-semibold rounded-md">Track Item</button>
+                <button className="text-white bg-green-500 ml-4 py-3 px-2 outline-none sm:px-6 md:text-lg md:font-semibold rounded-md">Track Item</button>
               </div>
             </div>
 

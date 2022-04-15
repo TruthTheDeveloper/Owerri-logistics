@@ -14,7 +14,9 @@ import Inputs from '../Inputs/Inputs';
 const ReviewItem:NextPage = () => {
 
 
+
     return (
+        <>
         <div style={{background:'#F3F4F6'}} className="overflow-hidden">
             <VechicleHeader/>
             <div className="bg-white mx-8 sm:mx-16 md:mx-24 lg:mx-36 xl:mx-44 2x:56 my-8 shadow-lg pt-16">
@@ -38,20 +40,14 @@ const ReviewItem:NextPage = () => {
                 </div>
                 <div className="sm:mx-16 md:mx-24 lg:mx-32 xl:mx-44 2xl:56">
                     <div className="mx-4 my-6 pb-10">
-                    <div className="text-center py-3 bg-slate-200 shadow-sm lg:mx-14 xl:mx-24 2xl:mx-36"><h1>Content Details</h1></div>
-                    <div className=" mx-4 my-2">
-                            <AddressInput label="Pick Up Address" value={''} error={''} onChange={function (e: any): void {
-                                throw new Error('Function not implemented.');
-                            } }/>
-                            <AddressInput label="Delivery Address" value={''} error={''} onChange={function (e: any): void {
-                                throw new Error('Function not implemented.');
-                            } }/>
-                            <Inputs label="Sender Name" value={''} error={''} onChange={function (): void {
-                                throw new Error('Function not implemented.');
-                            } }/>
-                            <Inputs label="Receiver Name" value={''} error={''} onChange={function (): void {
-                                throw new Error('Function not implemented.');
-                            } }/>
+                        <div className="text-center py-3 bg-slate-200 shadow-sm lg:mx-14 xl:mx-24 2xl:mx-36">
+                            <h1>Content Details</h1>
+                        </div>
+                        <div className=" mx-4 my-2">
+                            <AddressInput label="Pick Up Address" value={''} error={''} onChange={() => null} />
+                            <AddressInput label="Delivery Address" value={''} error={''}  onChange={() => null}/>
+                            <Inputs label="Sender Name" value={''} error={''}  onChange={() => null}/>
+                            <Inputs label="Receiver Name" value={''} error={''} onChange={() => null}/>
                         </div>
                         <DeliverySummary/>
                         <PricingSummary/> 
@@ -59,13 +55,14 @@ const ReviewItem:NextPage = () => {
                     
                     <div className="flex justify-center">
                             <BackButton/>
-                            <div className="pb-8 mx-4">
+                        <div className="pb-8 mx-4">
                             <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2">pay</button>
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        </>
 
     )
 }
