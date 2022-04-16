@@ -21,6 +21,7 @@
     "@types/react-wow": "^1.0.1",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
+    "mongodb": "^4.5.0",
     "next": "12.1.0",
     "next-redux-wrapper": "^7.0.5",
     "radium": "^0.26.2",
