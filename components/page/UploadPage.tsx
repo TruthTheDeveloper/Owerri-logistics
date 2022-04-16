@@ -9,7 +9,7 @@ import React, {useState, useEffect, useContext} from 'react';
 //Font awesome
 import { faCloud } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import * as actionTypes from '../../store/actions/ActionTypes';
+// import * as actionTypes from '../../store/actions/ActionTypes';
 
 
 //Components
@@ -41,6 +41,31 @@ const UploadPage:NextPage = () => {
     const [weightValidation, setWeightValidation] = useState("")
 
 
+    const postRequestHandler = async (ride:string, initialState: object) => {
+        
+        const response = await fetch('/api/uploadItem',{
+            method:'POST',
+            body:JSON.stringify(initialState),
+            headers:{
+                'Content-Type':'application/json'
+            }
+        });
+
+        const data = await response.json();
+        console.log(data);
+
+        if(ride === 'motorbike'){
+            router.push("/select/motorbike/addItem")
+        }else if(ride === 'car'){
+            router.push("/select/car/addItem")
+        }else if(ride === 'van'){
+            router.push("/select/van/addItem") 
+        }else if(ride === 'truck'){
+            router.push("/select/truck/addItem")
+        }
+    }
+
+
     useEffect(() => {
         console.log(click)
         if(click){
@@ -48,22 +73,22 @@ const UploadPage:NextPage = () => {
             console.log(src, 'clicked')
             //motorbike
             ride === 'motorbike' && initialState.category.length > 1 && initialState.item.length > 1 && initialState.weight.length > 1 && initialState.quantity.length >= 1 && initialState.value.length >= 1 && src !== null  ? 
-            router.push("/select/motorbike/addItem") : 
+            postRequestHandler(ride, initialState) : 
             setInitialState({...initialState,categoryError:categoryValidation,itemError:itemValidation,weightError:weightValidation, quantityError:quantityValidation,valueError:valueValidation})
 
             // // // car route
             ride === 'car' && initialState.category.length > 1 && initialState.item.length > 1 && initialState.weight.length > 1 && initialState.quantity.length >= 1 && initialState.value.length >= 1 && src !== null  ? 
-            router.push("/select/motorbike/addItem") : 
+            postRequestHandler(ride, initialState) : 
             setInitialState({...initialState,categoryError:categoryValidation,itemError:itemValidation,weightError:weightValidation, quantityError:quantityValidation,valueError:valueValidation})
 
             // // // van route
             ride === 'van' && initialState.category.length > 1 && initialState.item.length > 1 && initialState.weight.length > 1 && initialState.quantity.length >= 1 && initialState.value.length >= 1 && src !== null  ? 
-            router.push("/select/motorbike/addItem") : 
+            postRequestHandler(ride, initialState) : 
             setInitialState({...initialState,categoryError:categoryValidation,itemError:itemValidation,weightError:weightValidation, quantityError:quantityValidation,valueError:valueValidation})
             
             // // // track route
             ride === 'truck' && initialState.category.length > 1 && initialState.item.length > 1 && initialState.weight.length > 1 && initialState.quantity.length >= 1 && initialState.value.length >= 1 && src !== null  ? 
-            router.push("/select/motorbike/addItem") : 
+            postRequestHandler(ride, initialState) : 
             setInitialState({...initialState,categoryError:categoryValidation,itemError:itemValidation,weightError:weightValidation, quantityError:quantityValidation,valueError:valueValidation})
 
             setClick(false)

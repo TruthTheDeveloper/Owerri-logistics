@@ -11,7 +11,7 @@ import Layout from '../components/Layout/Layout';
 function MyApp({ Component, pageProps }: AppProps) {
 
   const [initialState, setInitialState] = useState({
-    allItems:[],
+    // allItems:[],
     deliveryAddress:'',
     pickUpAddress:"",
     //=== SENDER ===//
