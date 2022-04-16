@@ -1,7 +1,10 @@
 import type {NextPage} from 'next';
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import {useRouter} from 'next/router'
 
 import {useState} from 'react';
+
+import {MongoClient} from 'mongodb';
 
 //UI components
 import VechicleHeader from '../PageComponents/VechicleHeaders';
@@ -11,7 +14,16 @@ import AddressInput from '../Inputs/AddressInput';
 import BackButton from '../Buttons/BackButton';
 import Inputs from '../Inputs/Inputs';
 
-const ReviewItem:NextPage = () => {
+
+
+interface Props{
+    props:any
+}
+
+const ReviewItem:NextPage<Props> = ({props:{result:{
+    deliveryAddress,pickUpAddress,senderAddressLine1, senderAddressLine2,senderName, senderPhoneNumber, senderLocation, receiverAddressLine1,receiverAddressLine2, receiverName, receiverPhoneNumber,receiverLocation, category, item, weight,
+    value,quantity
+}}}) => {
 
 
 
@@ -44,10 +56,10 @@ const ReviewItem:NextPage = () => {
                             <h1>Content Details</h1>
                         </div>
                         <div className=" mx-4 my-2">
-                            <AddressInput label="Pick Up Address" value={''} error={''} onChange={() => null} />
-                            <AddressInput label="Delivery Address" value={''} error={''}  onChange={() => null}/>
-                            <Inputs label="Sender Name" value={''} error={''}  onChange={() => null}/>
-                            <Inputs label="Receiver Name" value={''} error={''} onChange={() => null}/>
+                            <AddressInput label="Pick Up Address" value={pickUpAddress} error={''} onChange={() => null} />
+                            <AddressInput label="Delivery Address" value={deliveryAddress} error={''}  onChange={() => null}/>
+                            <Inputs label="Sender Name" value={senderName} error={''}  onChange={() => null}/>
+                            <Inputs label="Receiver Name" value={receiverName} error={''} onChange={() => null}/>
                         </div>
                         <DeliverySummary/>
                         <PricingSummary/> 
@@ -67,4 +79,44 @@ const ReviewItem:NextPage = () => {
     )
 }
 
-export default ReviewItem
+
+
+export const getStaticProps: GetStaticProps = async (context) => {
+
+    const client = await MongoClient.connect("mongodb+srv://Truth:wYV3ELA1MFAKWmpS@cluster0.692kb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+
+    const db = client.db();
+    const meetupsCollection = db.collection('owerrilogistics');
+    const result = await meetupsCollection.find().toArray();
+
+    client.close()
+
+    return {
+        props:{
+          result:result.map(info => ({
+            id:info._id.toString(),
+            deliveryAddress:info.deliveryAddress,
+            pickUpAddress:info.pickUpAddress,
+            senderAddressLine1:info.senderAddressLine1,
+            senderAddressLine2:info.senderAddressLine2,
+            senderName:info.senderName,
+            senderPhoneNumber:info.senderPhoneNumber,
+            senderLocation:info.senderLocation,
+            receiverAddressLine1:info.receiverAddressLine1,
+            receiverAddressLine2:info.receiverAddressLine2,
+            receiverName:info.receiverName,
+            receiverPhoneNumber:info.receiverPhoneNumber,
+            receiverLocation:info.receiverLocation,
+            category:info.category,
+            item:info.item,
+            weight:info.weight,
+            value:info.value,
+            quantity:info.quantity
+          }))
+        },
+        revalidate:1
+      }
+}
+
+export default ReviewItem;
+

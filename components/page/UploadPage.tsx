@@ -42,6 +42,8 @@ const UploadPage:NextPage = () => {
 
 
     const postRequestHandler = async (ride:string, initialState: object) => {
+
+        console.log(ride)
         
         const response = await fetch('/api/uploadItem',{
             method:'POST',
@@ -52,7 +54,7 @@ const UploadPage:NextPage = () => {
         });
 
         const data = await response.json();
-        console.log(data);
+        console.log(data, 'data');
 
         if(ride === 'motorbike'){
             router.push("/select/motorbike/addItem")

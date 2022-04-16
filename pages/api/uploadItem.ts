@@ -48,18 +48,22 @@ export default async function handler(req: NextApiRequest,res: NextApiResponse<D
       quantity}
 
       console.log(data)
+      
 
-    const client = await MongoClient.connect("mongosh mongodb+srv://cluster0.692kb.mongodb.net/Owerrilogistics --apiVersion 1 --username Truth")
+      const client = await MongoClient.connect("mongodb+srv://Truth:wYV3ELA1MFAKWmpS@cluster0.692kb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 
-    const db = client.db()
+      console.log(client)
+  
+      const db = client.db()
 
-    // const meetupsCollection = db.collection('owerrilogistic')
 
-    // const result = await meetupsCollection.insertOne(data)
+    const meetupsCollection = db.collection('owerrilogistic')
 
-    // console.log(result);
+    const result = await meetupsCollection.insertOne(data)
 
-    client.close();
+    console.log(result, 'result');
+
+    // client.close();
     res.status(200).json({ message: 'posted successfully' })
   }
 }
