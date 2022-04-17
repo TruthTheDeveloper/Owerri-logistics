@@ -28,6 +28,8 @@ const AddItems: NextPage = () => {
 
     const {initialState,setInitialState} = useContext(AuthContext)
 
+    const [loading, setLoading] = useState(false)
+
     const [allItems, setallItem] =  useState<any>([])
 
     useEffect(() => {
@@ -57,10 +59,14 @@ const AddItems: NextPage = () => {
 
     const buttonHandler = () => {
 
+        console.log('ride', ride)
+
         ride === 'motorbike' && router.push("/select/motorbike/review")
         ride === 'car' && router.push("/select/car/review")
         ride === 'van' && router.push("/select/van/review")
         ride === 'truck' && router.push("/select/truck/review")
+
+        setLoading(true)
     }
 
     useEffect(() => {
@@ -142,7 +148,7 @@ const AddItems: NextPage = () => {
                 <div className="flex justify-center">
                         <BackButton/>
                         <div className="pb-8 mx-4">
-                        <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2" onClick={buttonHandler}>Next</button>
+                        {loading ? <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2"disabled>Loading...</button>:<button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2" onClick={buttonHandler}>Next</button>}
                         </div>
                 </div>
             </div>

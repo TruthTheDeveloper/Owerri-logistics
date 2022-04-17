@@ -1,6 +1,6 @@
 import type {NextPage} from 'next';
 import Image from 'next/image';
-import BlackMan from '../../../public/assets/blackman.png'
+import Black from '../../../public/assets/blackman.png'
 import { faCloudUpload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -25,7 +25,7 @@ const DeliverySummary:NextPage<Props> = ({item, weight, quantity}) => {
             <div className="mx-auto">
                 <p>item</p>
                 <Image
-                src={BlackMan}
+                src={Black}
                 width={40}
                 height={40}
                 alt="text"

@@ -49,7 +49,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
 
-    const client = await MongoClient.connect("mongodb+srv://Truth:wYV3ELA1MFAKWmpS@cluster0.692kb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+    console.log('server kided in', context)
+
+    const client = await MongoClient.connect("mongodb+srv://Truth:q1NPo4dU6FsT0IdR@cluster0.692kb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 
     const db = client.db();
     const meetupsCollection = db.collection('owerrilogistic');

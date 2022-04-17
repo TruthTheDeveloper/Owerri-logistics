@@ -59,7 +59,7 @@ console.log(props.props.result, 'address')
                             <Inputs label="Sender Name" value={props.props.result[0].senderName} error={''}  onChange={() => null}/>
                             <Inputs label="Receiver Name" value={props.props.result[0].receiverName} error={''} onChange={() => null}/>
                         </div>
-                        <DeliverySummary item={props.props.result[0].item} weight={props.props.result[0].weight} quantity={props.props.result[0].quantity}/>
+                        <DeliverySummary item={props.props.result[0].category} weight={props.props.result[0].weight} quantity={props.props.result[0].quantity}/>
                         <PricingSummary value={props.props.result[0].value}/> 
                     </div>
                     

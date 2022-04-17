@@ -50,7 +50,11 @@ export default async function handler(req: NextApiRequest,res: NextApiResponse<D
       console.log(data)
       
 
-      const client = await MongoClient.connect("mongodb+srv://Truth:wYV3ELA1MFAKWmpS@cluster0.692kb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+      const client = await MongoClient.connect("mongodb+srv://Truth:q1NPo4dU6FsT0IdR@cluster0.692kb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+      .catch(err => {
+        console.error(err.stack)
+        process.exit(1)
+      })
 
       console.log(client)
   
