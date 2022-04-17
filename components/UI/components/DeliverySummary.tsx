@@ -4,7 +4,14 @@ import BlackMan from '../../../public/assets/blackman.png'
 import { faCloudUpload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const DeliverySummary = () => {
+
+interface Props{
+    item:string,
+    weight:string,
+    quantity:string,
+}
+
+const DeliverySummary:NextPage<Props> = ({item, weight, quantity}) => {
      return (
         <div className="mt-10  border lg:mx-14 xl:mx-24 2xl:mx-36 shadow-lg rounded-md">
         <div className="flex justify-between my-4 border-slate-400 border-b shadow-md">
@@ -26,15 +33,15 @@ const DeliverySummary = () => {
             </div>
             <div className="mx-auto">
                 <p>Name</p>
-                <p>Laptop</p>
+                <p>{item}</p>
             </div>
             <div className="mx-auto">
                 <p>Weight</p>
-                <p>0.0-1.5kg</p>
+                <p>{weight}</p>
             </div>
             <div className="mx-auto">
                 <p>Quantity</p>
-                <p>3 pieces</p>
+                <p>{quantity}</p>
             </div>
         </div>
     </div>

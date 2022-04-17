@@ -1,6 +1,10 @@
 import type {NextPage} from 'next';
 
-const PricingSummary:NextPage = () => {
+interface Props{
+    value:string
+}
+
+const PricingSummary:NextPage<Props> = ({value}) => {
      return (
         <div className="mt-10  border lg:mx-14 xl:mx-24 2xl:mx-36 shadow-lg rounded-md">
             <div className=" my-4 border-slate-400 border-b shadow-md">
@@ -9,11 +13,11 @@ const PricingSummary:NextPage = () => {
             <div className="flex flex-col mx-8">
                 <div className="flex justify-between">
                     <p>Main Charge</p>
-                    <p>#1,220,00</p>
+                    <p>{value}</p>
                 </div>
                 <div className="flex justify-between">
                     <p>Total</p>
-                    <p>#1,220,00</p>
+                    <p>{value}</p>
                 </div>
                 <div className="flex justify-between text-red-600">
                     <p>Wallet Balance</p>
