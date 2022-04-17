@@ -31,16 +31,32 @@ import "aos/dist/aos.css";
 import ReactWOW from 'react-wow'
 const LandingPage: NextPage = () => {
 
+  const [trackValidation, setTrackValidation] = useState('')
+  const [loading, setLoading] = useState(false)
+
+  const [clicked, setClicked] = useState(false)
+
+  const trackIdHandler = () => {
+    setLoading(true)
+    setClicked(true)
+    
+    
+
+
+  }
+
   useEffect(() => {
     AOS.init({ duration: 3000 });
   }, []);
 
-  const [trackValidation, setTrackValidation] = useState('')
-
-  const trackIdHandler = () => {
-
-    setTrackValidation('Invalid track Id')
-  }
+  useEffect(() => {
+    if(clicked){
+      setTimeout(() => {
+        setLoading(false)
+      }, 2000);
+      loading === false && setTrackValidation('Invalid track Id')
+    }
+  },[loading])
 
 
   return (
@@ -77,7 +93,7 @@ const LandingPage: NextPage = () => {
 
               <div className="flex justify-center mt-16">
                 <input className="md:w-72 lg:w-96 rounded-md h-14 pl-4 outline-none" placeholder="Input track ID"/>
-                <button className="text-white bg-green-500 ml-4 py-3 px-2 outline-none sm:px-6 md:text-lg md:font-semibold rounded-md" onClick={trackIdHandler}>Track Item</button>
+                {loading ? <button className="text-white bg-green-500 ml-4 py-3 px-2 outline-none sm:px-6 md:text-lg md:font-semibold rounded-md">Tracking...</button>:<button className="text-white bg-green-500 ml-4 py-3 px-2 outline-none sm:px-6 md:text-lg md:font-semibold rounded-md" onClick={trackIdHandler}>Track Item</button>}
               </div>
               <p className="text-red-700 text-center text-3xl">{trackValidation}</p>
             </div>

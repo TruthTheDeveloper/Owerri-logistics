@@ -8,7 +8,7 @@ import {useState, useContext} from 'react';
 import { useDispatch } from 'react-redux';
 
 // image import
-import map from './../../public/assets/map.png';
+import map from './../../public/assets/owerrimap.png';
 
 //FontAwesome
 import { faDirections } from '@fortawesome/free-solid-svg-icons';

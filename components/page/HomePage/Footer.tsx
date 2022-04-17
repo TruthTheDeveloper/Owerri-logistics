@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import Link from 'next/link';
 // import {  } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons'
@@ -39,9 +40,9 @@ const Footer: NextPage = () => {
              <div className="mt-4 ml-2">
                  <h1 className="font-semibold mb-4 text-center">CONNECT WITH US</h1>
                  <div className="flex justify-center">
-                    <div className="mx-4 h-10 w-10"><FontAwesomeIcon icon={faLinkedin}  /></div>
-                    <div className="mx-4 h-10 w-10"><FontAwesomeIcon icon={faFacebookSquare}  /></div>
-                    <div className="mx-4 h-10 w-10"><FontAwesomeIcon icon={faTwitterSquare}  /></div>
+                    <div className="mx-4 h-10 w-10"><Link href="#"><FontAwesomeIcon icon={faLinkedin}  /></Link></div>
+                    <div className="mx-4 h-10 w-10"><Link href="https://www.facebook.com/111700191454717/"><FontAwesomeIcon icon={faFacebookSquare}  /></Link></div>
+                    <div className="mx-4 h-10 w-10"><Link href="#"><FontAwesomeIcon icon={faTwitterSquare}  /></Link></div>
                  </div>
              </div>
          </div>
