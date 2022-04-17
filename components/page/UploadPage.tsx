@@ -30,6 +30,8 @@ const UploadPage:NextPage = () => {
 
     const [click, setClick] = useState(false)
 
+    const [loading, setLoading] = useState(false)
+
     const [src, setSrc] = useState(null)
     const [srcValidation, setSrcValidation] = useState('')
 
@@ -42,7 +44,7 @@ const UploadPage:NextPage = () => {
 
 
     const postRequestHandler = async (ride:string, initialState: object) => {
-
+        setLoading(true)
         console.log(ride)
         
         const response = await fetch('/api/uploadItem',{
@@ -74,7 +76,7 @@ const UploadPage:NextPage = () => {
 
             console.log(src, 'clicked')
             //motorbike
-            ride === 'motorbike' && initialState.category.length > 1 && initialState.item.length > 1 && initialState.weight.length > 1 && initialState.quantity.length >= 1 && initialState.value.length >= 1 && src !== null  ? 
+            ride === 'motorbike' && initialState.category.length > 1 && initialState.item.length > 1 && initialState.weight.length > 1 && initialState.quantity.length >= 1 && initialState.value.length >= 1 && src !== null  ?
             postRequestHandler(ride, initialState) : 
             setInitialState({...initialState,categoryError:categoryValidation,itemError:itemValidation,weightError:weightValidation, quantityError:quantityValidation,valueError:valueValidation})
 
@@ -94,6 +96,7 @@ const UploadPage:NextPage = () => {
             setInitialState({...initialState,categoryError:categoryValidation,itemError:itemValidation,weightError:weightValidation, quantityError:quantityValidation,valueError:valueValidation})
 
             setClick(false)
+            
         }
 
 
@@ -111,6 +114,7 @@ const UploadPage:NextPage = () => {
         e.preventDefault()
 
             setClick(true)
+
             console.log(src, 'src')
 
             // select validation
@@ -192,6 +196,7 @@ const UploadPage:NextPage = () => {
                                     <p className="text-red-500 text-center mt-2 font-semibold">{srcValidation}</p>
                                     <input id="file-upload" type="file" className="hidden" onChange={(e) => {
                                         setSrcValidation('')
+                                        setInitialState({...initialState,image:window.URL.createObjectURL(e.target.files[0])})
                                         setSrc(window.URL.createObjectURL(e.target.files[0]))
                                         }}/>
 
@@ -206,7 +211,7 @@ const UploadPage:NextPage = () => {
                         <div className="flex justify-center">
                             <BackButton/>
                             <div className="pb-8 mx-4">
-                                <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2" onClick={buttonHandler}>Next</button>
+                                {loading ? <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2" disabled>Loading...</button> : <button className="bg-green-400  rounded-md flex  mx-auto text-white px-8 py-2" onClick={buttonHandler}>Next</button>}
                             </div>
                         </div>
                     </div>

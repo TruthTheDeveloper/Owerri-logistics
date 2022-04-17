@@ -3,6 +3,8 @@ import Image from 'next/image';
 import Black from '../../../public/assets/blackman.png'
 import { faCloudUpload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {useContext} from 'react';
+import AuthContext from '../../../context/auth-context';
 
 
 interface Props{
@@ -12,6 +14,9 @@ interface Props{
 }
 
 const DeliverySummary:NextPage<Props> = ({item, weight, quantity}) => {
+
+    const {initialState,setInitialState} = useContext(AuthContext)
+
      return (
         <div className="mt-10  border lg:mx-14 xl:mx-24 2xl:mx-36 shadow-lg rounded-md">
         <div className="flex justify-between my-4 border-slate-400 border-b shadow-md">
@@ -24,12 +29,16 @@ const DeliverySummary:NextPage<Props> = ({item, weight, quantity}) => {
         <div className="flex">
             <div className="mx-auto">
                 <p>item</p>
-                <Image
+                <div className="h-24 w-24 mx-auto mt-4" style={{
+                backgroundImage: `url(${initialState.image})`,
+                backgroundSize:'cover'
+                }}> </div>
+                {/* <Image
                 src={Black}
                 width={40}
                 height={40}
                 alt="text"
-                />
+                /> */}
             </div>
             <div className="mx-auto">
                 <p>Name</p>

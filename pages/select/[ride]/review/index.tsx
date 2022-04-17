@@ -1,7 +1,7 @@
 import type {NextPage} from "next";
 import ReviewItem from "../../../../components/page/ReviewItem";
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next';
-import {MongoClient} from 'mongodb';
+import {connectToDatabase} from "../../../../utils/mongodb";
 
 interface Props{
     props:any
@@ -47,21 +47,20 @@ export const getStaticPaths: GetStaticPaths = async () => {
     // ...
 }
 
+
 export const getStaticProps: GetStaticProps = async (context) => {
 
     console.log('server kided in', context)
 
-    const client = await MongoClient.connect("mongodb+srv://Truth:q1NPo4dU6FsT0IdR@cluster0.692kb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+    const {db} = await connectToDatabase()
 
-    const db = client.db();
-    const meetupsCollection = db.collection('owerrilogistic');
-    const result = await meetupsCollection.find().toArray();
+  const data = await db.collection('owerrilogistic').find().toArray()
 
-    client.close()
+  console.log(data, 'data')
 
     return {
         props:{
-          result:result.map(info => ({
+          result:data.map((info: { _id: { toString: () => any; }; deliveryAddress: any; pickUpAddress: any; senderAddressLine1: any; senderAddressLine2: any; senderName: any; senderPhoneNumber: any; senderLocation: any; receiverAddressLine1: any; receiverAddressLine2: any; receiverName: any; receiverPhoneNumber: any; receiverLocation: any; category: any; item: any; weight: any; value: any; quantity: any; }) => ({
             id:info._id.toString(),
             deliveryAddress:info.deliveryAddress,
             pickUpAddress:info.pickUpAddress,
@@ -87,4 +86,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 }
 
 
+
 export default Review;
+

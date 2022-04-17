@@ -1,12 +1,14 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
-import {MongoClient} from 'mongodb';
+import {connectToDatabase} from "../../utils/mongodb";
 
 type Data = {
   message: string
 }
 
 export default async function handler(req: NextApiRequest,res: NextApiResponse<Data>) {
+
+  
   
   if(req.method === 'POST'){
     const {
@@ -50,20 +52,10 @@ export default async function handler(req: NextApiRequest,res: NextApiResponse<D
       console.log(data)
       
 
-      const client = await MongoClient.connect("mongodb+srv://Truth:q1NPo4dU6FsT0IdR@cluster0.692kb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-      .catch(err => {
-        console.error(err.stack)
-        process.exit(1)
-      })
+      const {db} = await connectToDatabase()
 
-      console.log(client)
-  
-      const db = client.db()
+      const result = db.collection('owerrilogistic').insertOne(data)
 
-
-    const meetupsCollection = db.collection('owerrilogistic')
-
-    const result = await meetupsCollection.insertOne(data)
 
     console.log(result, 'result');
 
