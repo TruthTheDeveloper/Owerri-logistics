@@ -8,7 +8,7 @@ import {useState, useContext} from 'react';
 
 
 // image import
-import map from './../../public/assets/owerrimap.png';
+import map from './../../public/assets/mapowerri.png';
 
 //FontAwesome
 import { faDirections } from '@fortawesome/free-solid-svg-icons';
