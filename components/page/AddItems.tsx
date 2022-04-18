@@ -48,7 +48,7 @@ const AddItems: NextPage = () => {
             initialState.weight,
             initialState.value
         ])
-    },[])
+    },[initialState.deliveryAddress, initialState.pickUpAddress, initialState.receiverAddressLine1, initialState.receiverAddressLine2, initialState.receiverLocation, initialState.receiverName, initialState.receiverPhoneNumber, initialState.senderAddressLine1, initialState.senderAddressLine2, initialState.senderLocation, initialState.senderName, initialState.senderPhoneNumber, initialState.value, initialState.weight])
 
 
    
