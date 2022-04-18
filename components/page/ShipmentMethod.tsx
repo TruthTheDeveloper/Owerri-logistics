@@ -17,7 +17,7 @@ import AuthContext from '../../context/auth-context';
 
 
 const ShipmentMethod: NextPage = () => {
-    const {initialState, setInitialState} = useContext(AuthContext);
+    const {initialState, setInitialState} = useContext<any>(AuthContext);
 
     const router = useRouter()
     const { ride } = router.query

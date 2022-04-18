@@ -24,7 +24,7 @@ import AuthContext from '../../context/auth-context';
 
 const SelectItem: NextPage = () => { 
     
-    const {initialState, setInitialState} = useContext(AuthContext);
+    const {initialState, setInitialState} = useContext<any>(AuthContext);
 
 
 

@@ -25,7 +25,7 @@ import AuthContext from '../../context/auth-context';
 const AddItems: NextPage = () => {
 
 
-    const {initialState,setInitialState} = useContext(AuthContext)
+    const {initialState,setInitialState} = useContext<any>(AuthContext)
 
     const [loading, setLoading] = useState(false)
 
