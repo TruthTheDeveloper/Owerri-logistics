@@ -110,7 +110,7 @@ const ShipmentMethod: NextPage = () => {
 
 
     const buttonHandler = () => {
-        console.log(initialState.senderAddressLine1, 'address line')
+        console.log(initialState.receiverPhoneNumber, 'address line')
         setClick(true)
 
         //sender validation check
@@ -126,7 +126,7 @@ const ShipmentMethod: NextPage = () => {
         initialState.senderLocation.length < 1  ? setSenderLocationValidation("Please enter Location"):
         setSenderLocationValidation("")
 
-        initialState.senderPhoneNumber.length < 1 ? setSenderPhoneNumberValidation("Please enter phoneNumber"):
+        initialState.senderPhoneNumber === "" || undefined  ? setSenderPhoneNumberValidation("Please enter phoneNumber"):
         setSenderPhoneNumberValidation("")
 
 
@@ -143,7 +143,7 @@ const ShipmentMethod: NextPage = () => {
         initialState.receiverLocation.length < 1  ? setReceiverLocationValidation("Please enter Location"):
         setReceiverLocationValidation("")
 
-        initialState.receiverPhoneNumber.length < 1 ? setReceiverPhoneNumberValidation("Please enter phoneNumber"):
+        initialState.receiverPhoneNumber === "" || undefined  ? setReceiverPhoneNumberValidation("Please enter phoneNumber"):
         setSenderPhoneNumberValidation("")
 
 

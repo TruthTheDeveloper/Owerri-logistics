@@ -53,7 +53,6 @@ const Form: NextPage<Props> = ({formType}) => {
 
 
     const firstAddressInputHandler = (e: { target: { value: string; }; }) => {
-
         formType === "Sender" ? setInitialState({...initialState, senderAddressLine1:e.target.value, senderAddressLine1Error:""}) : setInitialState({...initialState, receiverAddressLine1:e.target.value, receiverAddressLine1Error:""})
 
         
