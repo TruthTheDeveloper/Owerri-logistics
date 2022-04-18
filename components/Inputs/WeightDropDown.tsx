@@ -14,7 +14,7 @@ const WeightDropDown:NextPage<Props> = ({options}) => {
     const {initialState, setInitialState} = useContext(AuthContext)
     const [selectedWeight,setSelectedWeight]=useState('test')
 
-    const weightHandler = (e:{ value: string; }) => {
+    const weightHandler = (e:any) => {
         setSelectedWeight(e.value)
         setInitialState({...initialState, weight: e.value, weightError:""})
 
@@ -35,7 +35,7 @@ const WeightDropDown:NextPage<Props> = ({options}) => {
                 {options === 'Other'? <SimpleInput label="Input Weights"/> : <Select
                     // value={select.item}
                     // placeholder={'Select item'}
-                    // onChange={(item)=>console.log(item,' elected')}
+                  
                     onChange={weightHandler}
                     value={selectedWeight}
                      placeholder={selectedWeight}

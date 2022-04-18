@@ -3,13 +3,13 @@ import { useRouter } from 'next/router';
 
 //React
 import {useState, useEffect, useContext} from 'react';
-import { useDispatch } from 'react-redux';
+
 
 // UI Components
 import VechicleHeader from '../PageComponents/VechicleHeaders';
 import Form from '../ShipmentPage/Form';
 import BackButton from '../Buttons/BackButton';
-import * as actionTypes from '../../store/actions/ActionTypes';
+
 
 // Auth context
 import AuthContext from '../../context/auth-context';
@@ -17,7 +17,6 @@ import AuthContext from '../../context/auth-context';
 
 
 const ShipmentMethod: NextPage = () => {
-    const dispatch = useDispatch()
     const {initialState, setInitialState} = useContext(AuthContext);
 
     const router = useRouter()
@@ -72,7 +71,6 @@ const ShipmentMethod: NextPage = () => {
     })
 
 
-    console.log()
 
     useEffect(() => {
         
@@ -110,7 +108,6 @@ const ShipmentMethod: NextPage = () => {
 
 
     const buttonHandler = () => {
-        console.log(initialState.receiverPhoneNumber, 'address line')
         setClick(true)
 
         //sender validation check

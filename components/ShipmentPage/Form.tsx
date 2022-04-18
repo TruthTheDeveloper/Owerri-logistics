@@ -52,27 +52,26 @@ const Form: NextPage<Props> = ({formType}) => {
     // input handler functions
 
 
-    const firstAddressInputHandler = (e: { target: { value: string; }; }) => {
+    const firstAddressInputHandler = (e:any) => {
         formType === "Sender" ? setInitialState({...initialState, senderAddressLine1:e.target.value, senderAddressLine1Error:""}) : setInitialState({...initialState, receiverAddressLine1:e.target.value, receiverAddressLine1Error:""})
 
         
     }
 
-    const secondAddressInputHandler = (e: { target: { value: string; }; }) => {
-            console.log(e.target.value)
+    const secondAddressInputHandler = (e:any) => {
         formType === "Sender" ? setInitialState({...initialState, senderAddressLine2:e.target.value, senderAddressLine2Error:""}) : setInitialState({...initialState, receiverAddressLine2:e.target.value, receiverAddressLine2Error:""})
         
         
     }
 
-    const nameInputHandler = (e: { target: { value: string; }; }) => {
+    const nameInputHandler = (e:any) => {
 
         formType === "Sender" ? setInitialState({...initialState, senderName:e.target.value, senderNameError:""}) : setInitialState({...initialState, receiverName:e.target.value, receiverNameError:""})
         
     }
 
 
-    const locationInputhandler = (e: { target: { value: string; }; }) => {
+    const locationInputhandler = (e:any) => {
 
         formType === "Sender" ? setInitialState({...initialState, senderLocation:e.target.value, senderLocationError:""}) : setInitialState({...initialState, receiverLocation:e.target.value, receiverLocationError:""})
         

@@ -1,6 +1,6 @@
 import type {NextPage} from "next";
 import ReviewItem from "../../../../components/page/ReviewItem";
-import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next';
+import { GetStaticProps, GetStaticPaths } from 'next';
 import {connectToDatabase} from "../../../../utils/mongodb";
 
 interface Props{
@@ -10,7 +10,6 @@ interface Props{
 
 const Review:NextPage<Props> = (props) => {
 
-    console.log(props, 'props')
     return (
                 <ReviewItem props={props}/>
     )
@@ -50,13 +49,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
 
-    console.log('server kided in', context)
 
     const {db} = await connectToDatabase()
 
   const data = await db.collection('owerrilogistic').find().toArray()
 
-  console.log(data, 'data')
 
     return {
         props:{

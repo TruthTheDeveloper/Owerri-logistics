@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "store/index.js", "store/reducers/inputReducers.js", "utils/mongodb.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "utils/mongodb.js", "components/page/LandingPage.js"],
   "exclude": ["node_modules"]
 }

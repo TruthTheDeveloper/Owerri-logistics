@@ -1,12 +1,12 @@
 // Next import
-import type { NextPage } from 'next';
+// import type { NextPage } from 'next';
 import Head from 'next/head';
 
 //UI Components
 import Header from './HomePage/Header';
 import Main from './HomePage/Main';
 import ContactUs from './HomePage/ContactUs';
-import Footer from '../page/HomePage/Footer';
+import Footer from './HomePage/Footer';
 
 import deliveryImage4 from '../../public/assets/images/deliveryImage4.jpg';
 import delivery5 from '../../public/assets/images/delivery5.jpg';
@@ -29,7 +29,7 @@ import {useEffect, useState} from 'react'
 import AOS from "aos";
 import "aos/dist/aos.css";
 import ReactWOW from 'react-wow'
-const LandingPage: NextPage = () => {
+const LandingPage= () => {
 
   const [trackValidation, setTrackValidation] = useState('')
   const [loading, setLoading] = useState(false)
@@ -67,11 +67,11 @@ const LandingPage: NextPage = () => {
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"></link> */}
     </Head>
       <ReactFullpage
-      
       scrollingSpeed = {1000} 
       /* Options here */
       navigation = {true}
       scrollOverflow ={true}
+
       
 
       render={({ state, fullpageApi }) => {

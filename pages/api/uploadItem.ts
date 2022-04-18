@@ -49,7 +49,7 @@ export default async function handler(req: NextApiRequest,res: NextApiResponse<D
       value,
       quantity}
 
-      console.log(data)
+
       
 
       const {db} = await connectToDatabase()
@@ -57,7 +57,7 @@ export default async function handler(req: NextApiRequest,res: NextApiResponse<D
       const result = db.collection('owerrilogistic').insertOne(data)
 
 
-    console.log(result, 'result');
+
 
     // client.close();
     res.status(200).json({ message: 'posted successfully' })

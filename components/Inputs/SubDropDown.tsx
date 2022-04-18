@@ -19,7 +19,7 @@ const DropDownInput:NextPage<Props> = ({options, index}) => {
 
     // useEffect(() => {
 
-    //     console.log('changed')
+
     //     setSelect({...select, item:""})
 
     // },[select.category])
@@ -29,9 +29,9 @@ const DropDownInput:NextPage<Props> = ({options, index}) => {
         setSelectedItem('select item')
     },[initialState.category])
 
-    console.log(options, 'this options')
 
-    const itemHandler = (e:{ value: string; }) => {
+
+    const itemHandler = (e:any) => {
         setSelectedItem(e.value)
         setInitialState({...initialState, item: e.value, itemError:""})
     }
@@ -163,7 +163,6 @@ const DropDownInput:NextPage<Props> = ({options, index}) => {
                    <Select
                     // value={select.item}
                     // placeholder={'Select item'}
-                    // onChange={(item)=>console.log(item,' elected')}
                     onChange={itemHandler}
                     value={selectedItem}
                      placeholder={selectedItem}

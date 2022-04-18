@@ -184,7 +184,6 @@ const DropDownInput:NextPage<Props> = ({label}) => {
     
     let subDropDown = <DefaultDropDown  label="Select Item"/>
 
-    // console.log(select.category, 'category')
 
         if(initialState.category === "Clothing/Shoes"){
             subDropDown =   <SubDropDown options={clothing} index="Clothing/Shoes" />

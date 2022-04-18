@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 //React
 
 import {useState, useContext} from 'react';
-import { useDispatch } from 'react-redux';
+
 
 // image import
 import map from './../../public/assets/owerrimap.png';
@@ -26,7 +26,7 @@ const SelectItem: NextPage = () => {
     
     const {initialState, setInitialState} = useContext(AuthContext);
 
-    const dispatch = useDispatch()
+
 
     const router = useRouter()
     const { ride } = router.query

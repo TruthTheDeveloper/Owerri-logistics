@@ -3,7 +3,6 @@ import { MongoClient } from 'mongodb';
 const { MONGODB_URI, MONGODB_DB} = process.env
 
 
-console.log( MONGODB_URI, MONGODB_DB)
 
 if(!MONGODB_URI){
     throw new Error(

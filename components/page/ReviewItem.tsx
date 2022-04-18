@@ -12,6 +12,7 @@ import PricingSummary from '../UI/components/PricingSummary';
 import AddressInput from '../Inputs/AddressInput';
 import BackButton from '../Buttons/BackButton';
 import Inputs from '../Inputs/Inputs';
+import { string } from 'prop-types';
 
 
 
@@ -23,7 +24,7 @@ const ReviewItem:NextPage<Props> = (props) => {
 
     const config = {
         public_key: 'FLWPUBK-d2542a2ff7622c1994ace0b074b9a6ea-X',
-        tx_ref: Date.now(),
+        tx_ref: String(Date.now()),
         amount: 5000,
         currency: 'NGN',
         payment_options: 'card,mobilemoney,ussd',

@@ -1,6 +1,5 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-import {wrapper} from '../store/index';
+import '../styles/globals.css';
+import type { AppProps } from 'next/app';
 import AuthContext from '../context/auth-context';
 import {useState} from 'react';
 import Layout from '../components/Layout/Layout';
@@ -66,4 +65,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   </AuthContext.Provider>
 }
 
-export default wrapper.withRedux(MyApp)
+export default MyApp;

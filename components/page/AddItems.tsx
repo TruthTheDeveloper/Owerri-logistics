@@ -7,8 +7,8 @@ import blackMan from '../../public/assets/blackMan.png';
 
 //React
 import {useState, useEffect, useContext} from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import * as actionTypes from '../../store/actions/ActionTypes';
+
+
 
 //Font Awesome
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -24,7 +24,6 @@ import AuthContext from '../../context/auth-context';
 
 const AddItems: NextPage = () => {
 
-    const dispatch = useDispatch()
 
     const {initialState,setInitialState} = useContext(AuthContext)
 
@@ -52,14 +51,13 @@ const AddItems: NextPage = () => {
     },[])
 
 
-    console.log(allItems)
+   
 
     const router = useRouter()
     const { ride } = router.query
 
     const buttonHandler = () => {
 
-        console.log('ride', ride)
 
         ride === 'motorbike' && router.push("/select/motorbike/review")
         ride === 'car' && router.push("/select/car/review")
@@ -69,9 +67,6 @@ const AddItems: NextPage = () => {
         setLoading(true)
     }
 
-    useEffect(() => {
-        dispatch({type:actionTypes.AllITEMS, allItems:allItems})
-    },[allItems, dispatch])
 
 
     const addItemHandler = () => {

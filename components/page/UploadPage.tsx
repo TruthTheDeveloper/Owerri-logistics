@@ -2,14 +2,14 @@
 import type {NextPage} from 'next';
 import { useRouter } from 'next/router';
 
-import { useDispatch } from 'react-redux';
+
 //React
 import React, {useState, useEffect, useContext} from 'react';
 
 //Font awesome
 import { faCloud } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import * as actionTypes from '../../store/actions/ActionTypes';
+
 
 
 //Components
@@ -21,7 +21,6 @@ import AuthContext from '../../context/auth-context';
 
 
 const UploadPage:NextPage = () => {
-    const dispatch = useDispatch()
 
     const {initialState, setInitialState} = useContext(AuthContext)
 
@@ -32,7 +31,7 @@ const UploadPage:NextPage = () => {
 
     const [loading, setLoading] = useState(false)
 
-    const [src, setSrc] = useState(null)
+    const [src, setSrc] = useState<any>(null)
     const [srcValidation, setSrcValidation] = useState('')
 
 
@@ -45,7 +44,7 @@ const UploadPage:NextPage = () => {
 
     const postRequestHandler = async (ride:string, initialState: object) => {
         setLoading(true)
-        console.log(ride)
+
         
         const response = await fetch('/api/uploadItem',{
             method:'POST',
@@ -56,7 +55,6 @@ const UploadPage:NextPage = () => {
         });
 
         const data = await response.json();
-        console.log(data, 'data');
 
         if(ride === 'motorbike'){
             router.push("/select/motorbike/addItem")
@@ -71,10 +69,10 @@ const UploadPage:NextPage = () => {
 
 
     useEffect(() => {
-        console.log(click)
+
         if(click){
 
-            console.log(src, 'clicked')
+
             //motorbike
             ride === 'motorbike' && initialState.category.length > 1 && initialState.item.length > 1 && initialState.weight.length > 1 && initialState.quantity.length >= 1 && initialState.value.length >= 1 && src !== null  ?
             postRequestHandler(ride, initialState) : 
@@ -115,7 +113,6 @@ const UploadPage:NextPage = () => {
 
             setClick(true)
 
-            console.log(src, 'src')
 
             // select validation
             
@@ -196,8 +193,8 @@ const UploadPage:NextPage = () => {
                                     <p className="text-red-500 text-center mt-2 font-semibold">{srcValidation}</p>
                                     <input id="file-upload" type="file" className="hidden" onChange={(e) => {
                                         setSrcValidation('')
-                                        setInitialState({...initialState,image:window.URL.createObjectURL(e.target.files[0])})
-                                        setSrc(window.URL.createObjectURL(e.target.files[0]))
+                                        setInitialState({...initialState,image:window.URL.createObjectURL(e!.target!.files![0])})
+                                        setSrc(window.URL.createObjectURL(e!.target!.files![0]))
                                         }}/>
 
                                     <div className="h-24 w-24 mx-auto mt-4" style={{
