@@ -28,7 +28,6 @@ import {useEffect, useState} from 'react'
 // Aos Animation
 import AOS from "aos";
 import "aos/dist/aos.css";
-import ReactWOW from 'react-wow'
 const LandingPage= () => {
 
   const [trackValidation, setTrackValidation] = useState('')
